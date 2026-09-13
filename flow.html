@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>端到端流程 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a class="active" href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>端到端流程</span></p>
+<h1>端到端流程：从询价到收款</h1>
+<p class="kicker">Order to Cash · 流程图 · 单据流 · 集成点 · 状态</p>
+<div class="toc"><a href="#chart">1. 全局流程图</a><a href="#table">2. 六个环节的输入输出</a><a href="#integ">3. 三个集成点</a><a href="#status">4. 状态：怎么知道走到哪了</a><a href="#order">5. 顺序不能乱（三个真实错误）</a><a href="#check">6. 自检</a></div>
+<h2 id="chart">1. 全局流程图</h2>
+<figure class="dia"><a class="zoom" href="assets/diagrams/o2c-flow.svg"><img src="assets/diagrams/o2c-flow.svg" alt="SD 端到端流程图（Order to Cash）" loading="lazy"></a><figcaption><span class="n">流程图</span><span class="cap">SD 泳道：询价→报价→订单→交货→发票；MM 泳道：可用性检查→拣配→发货过账；FI 泳道：发票过账→收款；底部为单据流链</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<div class="note info"><span class="t">读图要点</span><ul><li>横向是时间，<b>箭头方向就是顺序</b>：先有订单才有交货，先有交货才能开票。</li><li>纵向是责任：同一件事可能横跨三个模块（例如「发货」在 SD 是交货单、在 MM 是物料凭证、在 FI 有成本）。</li><li>虚线是「触发」而不是「同一张单据」：创建交货会触发装运准备，发货过账会触发库存变化。</li></ul></div>
+<h2 id="table">2. 六个环节：谁做、输入什么、产出什么</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>环节</th><th>谁做</th><th>输入 / 前提</th><th>系统做什么</th><th>产出</th><th>T-code</th></tr></thead><tbody><tr><td>① 询价</td><td>销售</td><td>客户 + 物料 + 数量</td><td>建一张不具约束力的询问单</td><td>询价单（IN）</td><td><code>VA11</code></td></tr><tr><td>② 报价</td><td>销售</td><td>参照询价或直接新建</td><td>给出价格与有效期</td><td>报价单（QT）</td><td><code>VA21</code></td></tr><tr><td>③ 销售订单</td><td>销售 / 客服</td><td>客户有销售视图、物料有销售视图、有条件记录、有库存或允许缺货</td><td>确定项目类别、定价、税、伙伴、可用性检查、交货日期</td><td>销售订单（OR）</td><td><code>VA01</code></td></tr><tr><td>④ 外向交货</td><td>发货 / 仓管</td><td>订单已存在、行项目允许交货</td><td>确定起运点、拣配库存地点、交货日期</td><td>交货单（LF）</td><td><code>VL01N</code></td></tr><tr><td>⑤ 拣配 + 发货过账</td><td>仓管</td><td>交货单存在、库存足够</td><td>拣配确认数量；发货过账（移动类型 601）真正出库</td><td>物料凭证 + 交货状态「已完成」</td><td><code>VL02N</code></td></tr><tr><td>⑥ 发票 + 过账</td><td>开票 / 财务</td><td>交货完成、开票相关配置就绪</td><td>按交货开票、算税，过账生成会计凭证</td><td>发票（F2）+ 会计凭证</td><td><code>VF01</code> / <code>VF02</code></td></tr></tbody></table></div>
+<div class="note warn"><span class="t">最常见的误解：以为「订单保存」就完事了</span>订单只是一个<b>承诺</b>。真正把货发出去、把钱记上账，靠的是后面的交货与发票。所以业务问「这单什么时候到货」时，看的是<b>交货日期与确认数量</b>，不是订单上的「要求交货日期」。</div>
+<h2 id="integ">3. 三个集成点（面试/考试常问）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>集成点</th><th>SD 里做了什么</th><th>邻居模块发生了什么</th><th>怎么验证</th></tr></thead><tbody><tr><td>需求传递（SD → PP）</td><td>订单保存，行项目带需求类型/需求类别</td><td>MRP（<code>MD04</code>）里出现该物料的需求</td><td><code>MD04</code> 输入物料看「销售订单」行</td></tr><tr><td>可用性检查（SD ⇄ MM）</td><td>订单保存/交货创建时检查库存</td><td>把库存、采购在途、生产在单一起考虑，给出确认日期</td><td>订单行 → 确认页签；<code>MD04</code>；<code>CO09</code> 可用性总览</td></tr><tr><td>发货过账与记账（SD → MM / FI）</td><td><code>VL02N</code> 点发货过账</td><td>MM 生成物料凭证、库存减少；FI/CO 出现出库成本</td><td><code>MB51</code>（物料凭证）、<code>VL03N</code>（交货状态）、<code>MB52</code>（库存）</td></tr><tr><td>开票记账（SD → FI）</td><td><code>VF02</code> 下达发票</td><td>FI 生成会计凭证：借客户应收 / 贷收入 + 销项税</td><td><code>VF03</code> → 环境 → 会计凭证；<code>FB03</code>；<code>FBL5N</code></td></tr></tbody></table></div>
+<h2 id="status">4. 状态：怎么知道这单走到哪了</h2>
+<p>每张单据都有一组状态字段。看状态就能判断「为什么开不了票」。常用状态：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>状态</th><th>在哪张单据</th><th>含义</th><th>影响</th></tr></thead><tbody><tr><td>整体状态 Overall Status</td><td>订单 / 交货 / 发票</td><td>整张单据的处理进度</td><td>判断单据是否完结</td></tr><tr><td>拒绝原因 Rejection Reason</td><td>订单行</td><td>这行不做了</td><td>该行不会被交货/开票</td></tr><tr><td>交货状态 Delivery Status</td><td>订单行</td><td>未交货 / 部分交货 / 完全交货</td><td>决定能不能开票、剩多少可交</td></tr><tr><td>发货状态 Goods Issue Status</td><td>交货单</td><td>是否已完成发货过账（PGI）</td><td>未发货不能开票</td></tr><tr><td>开票状态 Billing Status</td><td>订单行 / 交货</td><td>未开票 / 部分开票 / 完全开票</td><td>决定后续还能开多少</td></tr><tr><td>拣配状态 Picking Status</td><td>交货单</td><td>未拣 / 部分 / 完全</td><td>提示仓库的作业进度</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">现场最快的问法</span><code>VA03</code> 打开订单 → 抬头/项目都有状态页签；<b>或者</b>用「环境 → 显示单据流」，一眼看到这单已经生成了哪几张下游单据（交货？发票？）以及各自的状态。本项目 <a href="analysis.html">分析页</a> 有真实画面。</div>
+<h2 id="order">5. 顺序不能乱：三个真实会遇到的错误</h2>
+<ol class="oplist" start="1"><li class=""><b>「系统显示无可用库存」</b>（教材任务 41 的第 4 步画面）：订单里数量大于可用库存，系统提示但可以继续（除非配置成阻止）。教材给的解决路径是 <b><code>MB1C</code> 移动类型 501 无订单收货</b>录入期初库存，让后续交货能走通。</li><li class=""><b>建不出交货</b>：订单行不允许交货（项目类别没勾交货相关？行已拒绝？已完全交货？），或没有可用库存/没有装运点。用 <code>VL01N</code> 的「不完整日志」看系统提示。</li><li class=""><b>开不了票</b>：交货没做发货过账，或开票相关配置缺失（发票类型、开票日期、账户确定）。<code>VF01</code> 会列出「可开票的交货」，如果列表为空，就是上游没做完。</li></ol>
+<h2 id="check">6. 自检：能不能把这张流程图默画出来</h2>
+<div class="box ok"><b class="t">课堂检验（不看上面表格，口头回答）</b><ol><li>五个单据的顺序？各由哪个 T-code 创建？</li><li>哪一步才真正减少库存？移动类型是多少？</li><li>哪一步才产生会计凭证？借贷各是什么？</li><li>如果客户问「为什么我的发票还没开」，你会查哪三个状态？</li><li>订单保存时提示库存不足，业务还能继续吗？后续怎么解决？</li></ol></div>
+<ol class="steps"><li>下一站：<a href="order.html"><b>订单</b></a> → <a href="delivery.html"><b>交货</b></a> → <a href="billing.html"><b>开票</b></a>，逐段拆解。</li><li>回到 <a href="concept.html"><b>概念页</b></a> 复习三大概念层。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

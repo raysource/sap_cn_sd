@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分析与监控 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a class="active" href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>分析与监控</span></p>
+<h1>分析与监控：把流程管起来</h1>
+<p class="kicker">单据流 · VA05 订单清单 · MCTA 销售分析 · 更新组 · 财务与库存对账 · 教材踩坑集</p>
+<div class="toc"><a href="#doc">1. 追问单据的应用</a><a href="#list">2. 订单与销售清单</a><a href="#analysis">3. 销售分析（含前置条件）</a><a href="#recon">4. 财务与库存对账</a><a href="#issues">5. 教材踩坑集（真实错误）</a><a href="#check">6. 自检</a></div>
+<h2 id="doc">1. 单据流：最常用的追问工具</h2>
+<p>单据流把「一张单的下游」和「一张单的上游」都列出来。三个入口都常用：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>入口</th><th>路径</th><th>用来回答</th></tr></thead><tbody><tr><td>订单</td><td><code>VA03</code> → 环境 → 显示单据流（或）点「单据流」按钮</td><td>这张订单已经产生了哪些交货/发票？状态如何？</td></tr><tr><td>交货</td><td><code>VL03N</code> → 环境 → 显示单据流</td><td>这张交货对应哪张订单？开票了吗？</td></tr><tr><td>发票</td><td><code>VF03</code> → 抬头 → 点「原始凭证」/ 单据流</td><td>这张发票是哪次交货开出来的？（教材任务 45）</td></tr></tbody></table></div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t45/01_1_image1313.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t45/01_1_image1313.png" width="968" height="226" alt="教材任务 45：从发票点「原始凭证」——发票 F2 90000000、净价值 960,000.00 RMB、120 PC" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">教材任务 45：从发票点「原始凭证」——发票 F2 90000000、净价值 960,000.00 RMB、120 PC</span><span class="src">教材《S4.docx》· SD 任务 45 点击原始凭证</span></figcaption></figure>
+<h2 id="list">2. 订单清单与销售清单</h2>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售 → 信息系统 → 订单 → VA05-销售订单清单"><b>教材菜单路径（显示销售订单明细清单）</b>后勤 → 销售和分销 → 销售 → 信息系统 → 订单 → VA05-销售订单清单</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t46/01_1_image1314.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t46/01_1_image1314.png" width="638" height="400" alt="VA05 销售订单清单：按客户/物料/日期等条件筛选" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">VA05 销售订单清单：按客户/物料/日期等条件筛选</span><span class="src">教材《S4.docx》SD 模块 · image1314.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t46/02_1_image1315.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t46/02_1_image1315.png" width="1706" height="325" alt="清单结果：可直接下钻到单据" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">清单结果：可直接下钻到单据</span><span class="src">教材《S4.docx》SD 模块 · image1315.png</span></figcaption></figure></div>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>工具</th><th>T-code</th><th>用途</th></tr></thead><tbody><tr><td>销售订单清单</td><td><code>VA05</code></td><td>按客户/物料/日期/状态列订单，销售与客服每天用</td></tr><tr><td>报价清单</td><td><code>VA25</code></td><td>跟进未成交的报价</td></tr><tr><td>未清交货</td><td><code>VL06O</code></td><td>待拣配 / 待发货过账的交货（仓库与发货最常用）</td></tr><tr><td>开票清单</td><td><code>VF04</code></td><td>待开票/待下达的发票，支持批量</td></tr></tbody></table></div>
+<h2 id="analysis">3. 销售分析（MCTA）与它的前置条件</h2>
+<p>教材任务 47 的说明很关键：<b>这些标准分析要先激活后勤信息系统的更新（更新组），并在客户与物料主数据里维护统计组，报表才会有数据。</b></p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售信息系统 → 标准分析 → MCTA-客户"><b>教材菜单路径（销售分析）</b>后勤 → 销售和分销 → 销售信息系统 → 标准分析 → MCTA-客户</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t47/01_1_image1316.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t47/01_1_image1316.png" width="825" height="409" alt="MCTA 销售分析：按客户维度的标准分析" loading="lazy"></a><figcaption><span class="n">画面 4</span><span class="cap">MCTA 销售分析：按客户维度的标准分析</span><span class="src">教材《S4.docx》· SD 任务 47 销售分析</span></figcaption></figure>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t47/03_1_image1319.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t47/03_1_image1319.png" width="642" height="196" alt="分析结果的细分/钻取（点击「转换细分」）" loading="lazy"></a><figcaption><span class="n">画面 5</span><span class="cap">分析结果的细分/钻取（点击「转换细分」）</span><span class="src">教材《S4.docx》· SD 任务 47 销售分析</span></figcaption></figure>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>前置条件</th><th>教材任务</th><th>含义</th></tr></thead><tbody><tr><td>抬头级更新组</td><td>任务 31</td><td>哪些销售范围/客户/单据类型的抬头数据进入信息系统</td></tr><tr><td>项目级更新组</td><td>任务 32</td><td>项目级（物料、数量、金额）数据是否更新</td></tr><tr><td>客户统计组 / 物料统计组</td><td>客户与物料主数据</td><td>决定数据落到哪个统计维度</td></tr><tr><td>无更新组 → 报表空</td><td>—</td><td>常见现象：报表跑出来没有数据，多半是这里没配</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">现场常见误会</span>「报表没数据」经常不是报表坏了，而是<b>更新没激活</b>或<b>统计组没维护</b>；另外更新是「配好之后新产生的单据」才进统计，历史数据不会自动补。</div>
+<h2 id="recon">4. 财务与库存对账</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>要对什么</th><th>工具</th><th>期望结果</th></tr></thead><tbody><tr><td>库存数量</td><td><code>MMBE</code> / <code>MB52</code> / <code>MB51</code></td><td>对应物料的库存数量与物料凭证被正确记录</td></tr><tr><td>收入与应收</td><td><code>FB03</code>（会计凭证）/ <code>FBL5N</code>（客户未清项）</td><td>发票过账后有应收未清项</td></tr><tr><td>利润表 / 资产负债表</td><td>教材任务 48（总帐报表）</td><td>期末能看到销售收入与销项税</td></tr><tr><td>销售与财务口径一致</td><td>MCTA（数量/金额）对照 FI（收入）</td><td>口径差异要先搞清「更新时间点」：SD 按开票、FI 按过账</td></tr></tbody></table></div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t48/01_2_image1321.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/01_2_image1321.png" width="1807" height="467" alt="教材任务 48：总帐报表（资产负债表/损益表/现金流）—— 验证销售收入与税已入账" loading="lazy"></a><figcaption><span class="n">画面 6</span><span class="cap">教材任务 48：总帐报表（资产负债表/损益表/现金流）—— 验证销售收入与税已入账</span><span class="src">教材《S4.docx》· SD 任务 48 运行资产负债表</span></figcaption></figure>
+<h2 id="issues">5. 教材踩坑集（学员真实会遇到的错误）</h2>
+<p>教材任务 48 的 24 步里有大量「遇到报错 → 怎么解决」的记录。本站挑出与 SD 链路相关的：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>现象</th><th>教材给的思路</th><th>对应画面</th></tr></thead><tbody><tr><td>创建 <code>VL01N</code> 外向交货时无法创建</td><td><code>MB1C</code> 移动类型 <b>501</b> 无订单收货，录入期初库存</td><td>教材任务 48 第 23 步</td></tr><tr><td>报「非当前业务交易组」/ 客户化错误</td><td>检查配置与集团复制是否完整（教材提到 CLIENT COPY 不完整的影响）</td><td>教材任务 48 第 6 步</td></tr><tr><td>作业类型无法设置</td><td>通过「向计算程序分配国家」等基础设置处理</td><td>教材任务 48 第 3/5 步</td></tr><tr><td><code>CK11N</code> / <code>CK24</code> 标准成本估算报错</td><td>按画面维护价格后重跑；退出后重新进入再执行</td><td>教材任务 48 第 17~19 步</td></tr><tr><td>发票/付款环节税类型不允许</td><td>「+」只允许销项税、「*」允许所有税类型；改完注意退出重进 <code>MIRO</code></td><td>教材任务 48 第 15 步</td></tr></tbody></table></div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t48/06_1_image1356.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/06_1_image1356.png" width="466" height="248" alt="教材任务 48 第 6 步：客户化错误「非当前业务交易组」" loading="lazy"></a><figcaption><span class="n">画面 7</span><span class="cap">教材任务 48 第 6 步：客户化错误「非当前业务交易组」</span><span class="src">教材《S4.docx》SD 模块 · image1356.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t48/25_2_image1385.jpeg" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/25_2_image1385.jpeg" width="867" height="633" alt="第 23 步：MB1C 501 录入期初库存的做法" loading="lazy"></a><figcaption><span class="n">画面 8</span><span class="cap">第 23 步：MB1C 501 录入期初库存的做法</span><span class="src">教材《S4.docx》SD 模块 · image1385.jpeg</span></figcaption></figure></div>
+<div class="note ref"><span class="t">怎么看待这些错误</span>它们都是<b>环境准备不足</b>造成的，不是操作技巧问题。上课时可以说明：「实训环境是别人配好的，遇到这类报错先记录 T-code 与消息号，交给基础配置负责人」，同时理解每个报错背后缺的是哪一层配置。</div>
+<h2 id="check">6. 自检</h2>
+<div class="box ok"><b class="t">自检问题</b><ol><li>客户问「我的货走到哪了」，你用哪个功能、看哪几个状态？</li><li>想找「今天所有待发货过账的交货」，用什么？</li><li>销售分析报表没数据，先检查哪三件事？</li><li>教材里「无法创建外向交货」的解决办法是什么？</li></ol></div>
+<ol class="steps"><li>下一页：<a href="config.html"><b>配置</b></a> —— 48 个后台任务的全索引。</li><li>做练习：<a href="practice.html"><b>实训任务</b></a> → <a href="quiz.html"><b>自测</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组织结构 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a class="active" href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>组织结构</span></p>
+<h1>组织结构：先给数据定坐标</h1>
+<p class="kicker">企业结构 · 销售结构 · 装运结构 · 分配关系 · 真实系统画面</p>
+<div class="toc"><a href="#why">1. 为什么要先讲组织</a><a href="#map">2. 总图</a><a href="#ent">A. 企业结构</a><a href="#sales">B. 销售结构</a><a href="#area">C. 销售范围</a><a href="#ship">D. 装运结构</a><a href="#assign">E. 分配关系一览</a><a href="#shots">F. 真实画面：建组织的 12 个任务</a><a href="#check">G. 自检</a></div>
+<h2 id="why">1. 为什么要先讲组织</h2>
+<p>因为后面所有东西都挂在组织上：客户主数据要填销售范围，物料销售视图要填销售范围，条件记录要填销售组织/分销渠道，订单抬头要带销售范围，发货要选工厂与起运点。<b>组织结构错一层，后面的数据全都要重做。</b></p>
+<div class="note tip"><span class="t">教学顺序建议</span>这一页对应教材 SPRO 的最前面一段（企业结构 / 后勤执行）。推荐上课顺序：先在白板上画三个矩形（销售组织 / 分销渠道 / 产品组）并连线成销售范围，再回系统里照着配——理解分配关系之后，配起来很快。</div>
+<h2 id="map">2. 总图</h2>
+<figure class="dia"><a class="zoom" href="assets/diagrams/org-structure.svg"><img src="assets/diagrams/org-structure.svg" alt="SD 组织结构图" loading="lazy"></a><figcaption><span class="n">结构图</span><span class="cap">A 企业结构 → B 销售结构 → C 销售范围 → D 装运结构，以及底部「系统怎么自动找到这些数据」的链条</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<h2 id="ent">A. 企业结构（Enterprise Structure）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>对象</th><th>含义</th><th>在 SD 里的作用</th><th>教材场景</th></tr></thead><tbody><tr><td>公司代码 / 公司</td><td>对外出具财务报表的会计单位</td><td>决定销售业务落在哪套账上（收入、应收都在这个公司代码里）</td><td>一对多：一个公司代码可以有多个销售组织</td></tr><tr><td>销售组织 Sales Organization</td><td>负责销售的法律单位：产品责任、销售统计</td><td>销售数据的最高组织键；客户/物料销售视图按它落地</td><td>教材：颐宁销售组织</td></tr><tr><td>工厂 Plant</td><td>生产与库存的单位（发货从这里发生）</td><td>订单行的工厂决定从哪发货、库存从哪来</td><td>教材：颐宁机械工厂，分配给直销与批发两个分销渠道</td></tr></tbody></table></div>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查销售组织"><b>IMG 路径（定义销售组织）</b>企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查销售组织</div>
+<p>下面这张是教材里「定义销售组织」的实际画面：先通过后台菜单进入，再双击「定义销售组织」。</p>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t01/03_1_image1080.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t01/03_1_image1080.png" width="231" height="544" alt="双击“定义销售组织”" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">双击“定义销售组织”</span><span class="src">教材《S4.docx》· SD 任务 01 定义销售组织</span></figcaption></figure>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t01/05_1_image1082.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t01/05_1_image1082.png" width="466" height="221" alt="新增销售组织后&lt;b&gt;点击保存&lt;/b&gt;——组织数据是配置，保存即生效" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">新增销售组织后<b>点击保存</b>——组织数据是配置，保存即生效</span><span class="src">教材《S4.docx》· SD 任务 01 定义销售组织</span></figcaption></figure>
+<h2 id="sales">B. 销售结构（Sales Structure）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>对象</th><th>含义</th><th>教材里的做法</th><th>截图的下一步</th></tr></thead><tbody><tr><td>分销渠道 Distribution Channel</td><td>产品通过什么途径到达客户：直销 / 批发 / 零售</td><td>定义 2 个（直销、批发）</td><td>分配给销售组织</td></tr><tr><td>产品组 Division</td><td>把产品按线分组（整机 / 备件 / 服务）</td><td>定义 2 个</td><td>分配给销售组织</td></tr><tr><td>销售办公室 Sales Office</td><td>按地区或责任划分的销售机构</td><td>定义后分配给销售范围</td><td>用于统计与权限</td></tr><tr><td>销售组 Sales Group</td><td>销售办公室里的人员小组</td><td>定义后分配给销售办公室</td><td>进一步细分责任</td></tr></tbody></table></div>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查分销渠道"><b>IMG 路径（定义分销渠道）</b>企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查分销渠道</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t02/03_1_image1086.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t02/03_1_image1086.png" width="380" height="278" alt="定义分销渠道：点击「新条目」新增渠道" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">定义分销渠道：点击「新条目」新增渠道</span><span class="src">教材《S4.docx》SD 模块 · image1086.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t03/01_1_image1088.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t03/01_1_image1088.png" width="348" height="249" alt="定义产品组（后勤常规 → 定义、复制、删除、检查产品组）" loading="lazy"></a><figcaption><span class="n">画面 4</span><span class="cap">定义产品组（后勤常规 → 定义、复制、删除、检查产品组）</span><span class="src">教材《S4.docx》SD 模块 · image1088.png</span></figcaption></figure></div>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 维护销售办公室　｜　企业结构 → 定义 → 销售和分销 → 维护销售组"><b>IMG 路径（维护销售办公室 / 销售组）</b>企业结构 → 定义 → 销售和分销 → 维护销售办公室　｜　企业结构 → 定义 → 销售和分销 → 维护销售组</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t08/02_1_image1110.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t08/02_1_image1110.png" width="619" height="723" alt="维护销售办公室：先建机构，再挂到销售范围上" loading="lazy"></a><figcaption><span class="n">画面 5</span><span class="cap">维护销售办公室：先建机构，再挂到销售范围上</span><span class="src">教材《S4.docx》SD 模块 · image1110.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t09/02_1_image1118.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t09/02_1_image1118.png" width="339" height="201" alt="维护销售组：归属于销售办公室" loading="lazy"></a><figcaption><span class="n">画面 6</span><span class="cap">维护销售组：归属于销售办公室</span><span class="src">教材《S4.docx》SD 模块 · image1118.png</span></figcaption></figure></div>
+<h2 id="area">C. 销售范围（Sales Area）—— SD 的坐标</h2>
+<p><b>销售范围 = 销售组织 + 分销渠道 + 产品组</b>。业务含义：某个销售组织「通过某种分销渠道」经营「某个产品组」。它决定客户主数据、物料销售视图（销售范围级数据）、条件记录与销售单据抬头。</p>
+<div class="box info"><b class="t">教材原话（任务 07 设置销售范围）</b><p>「SAP 把销售组织、分销渠道和产品组的组合称为『销售范围』……在颐宁销售组织中，我们可以分配通过直销和批发经营两种产品组的销售，一共有四个销售范围。」</p><p>→ 1 × 2 × 2 = <b>4 个销售范围</b>，必须逐个设置。</p></div>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 设置销售范围"><b>IMG 路径（设置销售范围）</b>企业结构 → 分配 → 销售和分销 → 设置销售范围</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t07/02_1_image1106.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t07/02_1_image1106.png" width="775" height="283" alt="设置销售范围：把销售组织 × 分销渠道 × 产品组的组合逐个建出来" loading="lazy"></a><figcaption><span class="n">画面 7</span><span class="cap">设置销售范围：把销售组织 × 分销渠道 × 产品组的组合逐个建出来</span><span class="src">教材《S4.docx》SD 模块 · image1106.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t07/03_1_image1107.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t07/03_1_image1107.png" width="779" height="250" alt="同一个销售范围里继续新增其它组合" loading="lazy"></a><figcaption><span class="n">画面 8</span><span class="cap">同一个销售范围里继续新增其它组合</span><span class="src">教材《S4.docx》SD 模块 · image1107.png</span></figcaption></figure></div>
+<h4>课程场景（教材环境）里真实存在的值</h4>
+<p>下面这些值是从教材画面的表格里逐字读出来的（截图说明里标注了「课程场景值」）。上课时可以直接拿它对照学员自己系统里的数据。</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>对象</th><th>值</th><th>说明</th></tr></thead><tbody><tr><td>销售组织</td><td><code>C999</code> 颐宁销售</td><td>教材环境的销售组织编码</td></tr><tr><td>分销渠道</td><td><code>Z1</code> 直销 / <code>Z2</code> 批发</td><td>两个渠道</td></tr><tr><td>产品组</td><td><code>Z1</code> 铸钢泵 / <code>Z2</code> 增压泵</td><td>两个产品组</td></tr><tr><td>销售范围（4 个组合）</td><td><code>C999/Z1/Z1</code>、<code>C999/Z2/Z1</code>、<code>C999/Z1/Z2</code>、<code>C999/Z2/Z2</code></td><td>「设置销售范围」画面里的 4 行（画面 7）</td></tr><tr><td>工厂</td><td><code>P999</code> 颐宁机械工厂</td><td>分配给 C999 的 Z1、Z2 两个渠道</td></tr><tr><td>起运点</td><td><code>Z999</code> 颐宁装运点</td><td>分配给工厂 P999</td></tr><tr><td>拣配库存地点</td><td><code>Z999</code> + <code>P999</code> → 库位 <code>003</code></td><td>「分配拣配地点」画面里的一行</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">编码为什么是 Z 开头</span>教材环境用了 <code>C999</code> / <code>Z999</code> / <code>P999</code> 这类<b>练习用编码</b>，真实客户里常见的是 <code>1000</code>、<code>1010</code>（数字）或客户自建的 Z 编码。不要背编码，要会看「这个编码在组织图里的位置」。</div>
+<div class="note warn"><span class="t">常见错误</span>只建了销售组织就直接去建客户主数据 —— 销售视图里选不到销售范围，客户建不下去。销售范围是「设置」出来的，不是自动生成的。</div>
+<h2 id="ship">D. 装运结构（Shipping）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>对象</th><th>决定什么</th><th>关系</th><th>教材实例</th></tr></thead><tbody><tr><td>起运点 Shipping Point</td><td>从哪个地点发货（装运的起点）</td><td>与工厂多对多</td><td><code>Z999</code> 颐宁装运点</td></tr><tr><td>装载点 Loading Point</td><td>装货的具体位置</td><td>挂在起运点上</td><td>定义装载点后按需分配</td></tr><tr><td>拣配库存地点</td><td>从哪个库存地点拣货</td><td>由起运点 + 工厂 + 存储条件确定</td><td>教材只启用前两个条件</td></tr><tr><td>运送条件 Shipping Conditions</td><td>运输方式与时间</td><td>与物料 / 工厂一起决定起运点</td><td>客户主数据与物料主数据里都有</td></tr><tr><td>装载组 Loading Group</td><td>决定装载点</td><td>与物料主数据一起用</td><td>物料主数据里维护</td></tr></tbody></table></div>
+<div class="pathline" data-copy="企业结构 → 定义 → 后勤执行 → 定义、复制、删除、检查起运点"><b>IMG 路径（定义起运点）</b>企业结构 → 定义 → 后勤执行 → 定义、复制、删除、检查起运点</div>
+<p>教材里起运点的名称是 <b>Z999 颐宁装运点</b>（画面上可见），它随后要分配给工厂：</p>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t14/03_1_image1136.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t14/03_1_image1136.png" width="604" height="746" alt="定义起运点：Z999 颐宁装运点" loading="lazy"></a><figcaption><span class="n">画面 9</span><span class="cap">定义起运点：Z999 颐宁装运点</span><span class="src">教材《S4.docx》SD 模块 · image1136.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t13/02_1_image1129.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t13/02_1_image1129.png" width="757" height="199" alt="将工厂分配给销售组织 / 分销渠道（多对多）" loading="lazy"></a><figcaption><span class="n">画面 10</span><span class="cap">将工厂分配给销售组织 / 分销渠道（多对多）</span><span class="src">教材《S4.docx》SD 模块 · image1129.png</span></figcaption></figure></div>
+<div class="pathline" data-copy="后勤执行 → 装运 → 拣配 → 确定拣配地点 → 分配拣配地点"><b>IMG 路径（分配拣配库存地点）</b>后勤执行 → 装运 → 拣配 → 确定拣配地点 → 分配拣配地点</div>
+<figure class="shot narrow"><a class="zoom" href="assets/img/sd/t20/03_1_image1161.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t20/03_1_image1161.png" width="311" height="150" alt="分配拣配库存地点：前三个灰色字段是起决定作用的起运点、工厂和存储条件" loading="lazy"></a><figcaption><span class="n">画面 11</span><span class="cap">分配拣配库存地点：前三个灰色字段是起决定作用的起运点、工厂和存储条件</span><span class="src">教材《S4.docx》· SD 任务 20 分配拣配库存地点</span></figcaption></figure>
+<h2 id="assign">E. 分配关系一览（一张表说清多对多）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>分配</th><th>关系</th><th>教材里的做法</th><th>IMG 路径</th></tr></thead><tbody><tr><td>销售组织 → 公司代码</td><td>多对一</td><td>把销售组织挂到公司代码上</td><td>企业结构 → 分配 → 销售和分销 → 给公司代码分配销售组织</td></tr><tr><td>分销渠道 → 销售组织</td><td>多对多</td><td>直销与批发都分配给颐宁销售组织</td><td>企业结构 → 分配 → 销售和分销 → 给销售组织分配分销渠道</td></tr><tr><td>产品组 → 销售组织</td><td>多对多</td><td>两个产品组都分配</td><td>企业结构 → 分配 → 销售和分销 → 给销售组织分配部门</td></tr><tr><td>销售范围</td><td>由三键组合决定</td><td>共 4 个组合</td><td>企业结构 → 分配 → 销售和分销 → 设置销售范围</td></tr><tr><td>销售办公室 → 销售范围</td><td>多对多</td><td>按地区挂</td><td>企业结构 → 分配 → 销售和分销 → 给销售范围分配销售办公室</td></tr><tr><td>销售组 → 销售办公室</td><td>多对多</td><td>按小组挂</td><td>企业结构 → 分配 → 销售和分销 → 给销售办公室分配销售组</td></tr><tr><td>工厂 → 销售组织 / 分销渠道</td><td>多对多</td><td>颐宁机械工厂 → 直销 + 批发</td><td>企业结构 → 分配 → 销售和分销 → 分配销售组织-分销渠道-工厂</td></tr><tr><td>起运点 → 工厂</td><td>多对多</td><td>一个工厂可以有几个起运点（公路、水路…），一起运点也可多工厂共用</td><td>企业结构 → 分配 → 后勤执行 → 给工厂分配起运点</td></tr><tr><td>拣配库存地点</td><td>由起运点 + 工厂（+存储条件）决定</td><td>只启用前两个条件</td><td>后勤执行 → 装运 → 拣配 → 确定拣配地点 → 分配拣配地点</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">记忆法</span>凡是「分配」两个字，基本都是多对多；凡是「范围」「确定」两个字，基本都是由多个键组合后查表得出。教材任务 11 特意提到「简单的排列组合，共 8 种组合」——说的是把 2 个渠道 × 2 个产品组的多重分配想清楚。</div>
+<h2 id="shots">F. 真实画面：建组织的 12 个任务（索引）</h2>
+<p>下面是教材 SD 模块里属于「组织结构」的任务清单（路径与任务号与教材一致，可回原文核对）。完整逐步手顺见 <a href="config.html">配置页</a>。</p>
+<div class="tblwrap"><table class="tbl idx"><thead><tr><th>任务</th><th>标题</th><th>教材 IMG 路径</th><th>画面数</th></tr></thead><tbody><tr><td><a href="config.html#task01">任务 01</a></td><td>定义销售组织</td><td><code>企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查销售组织</code></td><td>6</td></tr><tr><td><a href="config.html#task02">任务 02</a></td><td>定义分销渠道</td><td><code>企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查分销渠道</code></td><td>4</td></tr><tr><td><a href="config.html#task03">任务 03</a></td><td>定义产品组</td><td><code>企业结构 → 定义 → 后勤常规 → 定义、复制、删除、检查产品组</code></td><td>4</td></tr><tr><td><a href="config.html#task04">任务 04</a></td><td>将销售组织分配给公司代码</td><td><code>企业结构 → 分配 → 销售和分销 → 给公司代码分配销售组织</code></td><td>3</td></tr><tr><td><a href="config.html#task05">任务 05</a></td><td>将分销渠道分配给销售组织</td><td><code>企业结构 → 分配 → 销售和分销 → 给销售组织分配分销渠道</code></td><td>6</td></tr><tr><td><a href="config.html#task06">任务 06</a></td><td>将产品组分配给销售组织</td><td><code>企业结构 → 分配 → 销售和分销 → 给销售组织分配部门</code></td><td>3</td></tr><tr><td><a href="config.html#task07">任务 07</a></td><td>设置销售范围</td><td><code>企业结构 → 分配 → 销售和分销 → 设置销售范围</code></td><td>4</td></tr><tr><td><a href="config.html#task08">任务 08</a></td><td>定义销售办公室</td><td><code>企业结构 → 定义 → 销售和分销 → 维护销售办公室</code></td><td>5</td></tr><tr><td><a href="config.html#task09">任务 09</a></td><td>定义销售组</td><td><code>企业结构 → 定义 → 销售和分销 → 维护销售组</code></td><td>5</td></tr><tr><td><a href="config.html#task10">任务 10</a></td><td>给销售范围分配销售办公室</td><td><code>企业结构 → 分配 → 销售和分销 → 给销售范围分配销售办公室</code></td><td>5</td></tr><tr><td><a href="config.html#task12">任务 12</a></td><td>将销售组分配给销售办公室</td><td><code>企业结构 → 分配 → 销售和分销 → 给销售办公室分配销售组</code></td><td>4</td></tr><tr><td><a href="config.html#task13">任务 13</a></td><td>将工厂分配给销售组织/分销渠道</td><td><code>企业结构 → 分配 → 销售和分销 → 分配销售组织-分销渠道-工厂</code></td><td>5</td></tr></tbody></table></div>
+<h2 id="check">G. 自检：在自己系统里怎么看</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>要确认的事</th><th>怎么确认</th></tr></thead><tbody><tr><td>有哪些销售组织、分销渠道、产品组</td><td>后台直接看企业结构；或用表 <code>TVKO</code>（销售组织）、<code>TVTW</code>（分销渠道）、<code>TSPA</code>（产品组）</td></tr><tr><td>销售范围建了哪些</td><td>后台「设置销售范围」列表；或 <code>VA03</code> 任意订单抬头看销售范围字段</td></tr><tr><td>工厂分配给哪些销售组织</td><td>后台「分配销售组织-分销渠道-工厂」；或订单行看工厂与「装运点」</td></tr><tr><td>起运点 / 拣配库存地点</td><td>后台「给工厂分配起运点」「分配拣配地点」；或交货单 <code>VL03N</code> 抬头看起运点</td></tr><tr><td>字段含义不确定</td><td>光标放到字段上按 <b>F1</b>；取值列表按 <b>F4</b></td></tr></tbody></table></div>
+<ol class="steps"><li>下一步：<a href="master.html"><b>主数据</b></a> —— 把客户、物料、价格建进去。</li><li>跳看后台：<a href="config.html"><b>配置页</b></a> 有 48 个任务的完整路径。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

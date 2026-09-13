@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>概念与定位 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a class="active" href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>概念与定位</span></p>
+<h1>概念与定位：SD 到底在管什么</h1>
+<p class="kicker">销售与分销 · 三大概念层 · 五大单据 · 集成边界 · 常见误解</p>
+<div class="toc"><a href="#real">0. 先看真实系统</a><a href="#what">1. 一句话定位</a><a href="#integ">2. 与邻居模块的分工（结构图）</a><a href="#layers">3. 三大概念层</a><a href="#docs">4. 五大单据与单据流</a><a href="#area">5. 销售范围：SD 的坐标</a><a href="#auto">6. 一张订单背后的自动确定</a><a href="#myth">7. 十二个常见误解</a><a href="#sum">8. 本页小结</a></div>
+<h2 id="real">0. 先看真实系统：我们的课程从这个界面开始</h2>
+<p>SAP 的所有业务操作都在这套客户端（SAP GUI）里完成：<b>登录 → 进入「SAP 轻松访问」菜单树 → 在左上角命令框输入事务代码（T-code）→ 回车进入具体功能</b>。下面三张是教材环境里的真实画面。</p>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/prep/t01/02_1_image2.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/prep/t01/02_1_image2.png" width="590" height="580" alt="SAP Logon 770（登录器）：选中连接后点「Log On」登录（登录器界面是英文的）" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">SAP Logon 770（登录器）：选中连接后点「Log On」登录（登录器界面是英文的）</span><span class="src">教材《S4.docx》准备章 · image2.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/prep/t01/04_1_image4.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/prep/t01/04_1_image4.png" width="727" height="751" alt="系统条目属性：连接类型与系统参数（集团 Client、语言等）" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">系统条目属性：连接类型与系统参数（集团 Client、语言等）</span><span class="src">教材《S4.docx》准备章 · image4.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t41/01_1_image1297.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/01_1_image1297.png" width="338" height="409" alt="「SAP 轻松访问」菜单树（中文界面）：后勤 → 销售与分销 → 销售 → 报价 → 后继功能 → V-01-订单" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">「SAP 轻松访问」菜单树（中文界面）：后勤 → 销售与分销 → 销售 → 报价 → 后继功能 → V-01-订单</span><span class="src">教材《S4.docx》SD 模块 · image1297.png</span></figcaption></figure></div>
+<div class="note info"><span class="t">界面语言的两件事</span>教材环境的<b>业务画面是中文</b>（本站截图都是这样），但<b>登录器 SAP Logon 本身是英文</b>（<code>Connections</code> / <code>Log On</code> / <code>System Entry Properties</code>）。这不是问题——登录器是客户端工具，进入系统后的业务界面才跟随登录语言。</div>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>界面要素</th><th>在哪</th><th>作用</th></tr></thead><tbody><tr><td>命令框（左上角）</td><td>菜单栏下方第一个框</td><td>输入 T-code 直接跳转，例如 <code>VA01</code>、<code>VL01N</code>、<code>VF01</code></td></tr><tr><td>菜单树</td><td>左侧树形结构</td><td>按模块浏览功能（不用记代码时的入口）</td></tr><tr><td>工具栏按钮</td><td>顶部一排图标</td><td>保存、返回（F3）、退出（Shift+F3）、新条目等</td></tr><tr><td>状态栏（底部）</td><td>窗口最下方</td><td>显示系统消息、错误/警告、以及当前对象的状态（示例里的 <code>trn03</code>、<code>OVR</code> 就是状态标识）</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">课堂上的第一个练习</span>让学员登录后做三件事：① 用菜单树找到「销售和分销」；② 在命令框输入 <code>VA03</code> 回车；③ 记住 <b>F1</b>（看字段帮助）、<b>F4</b>（看取值列表）、<b>F3</b>（返回）这三个快捷键。整套课程都会用到它们。</div>
+<h2 id="what">1. 一句话定位</h2>
+<p>SD（Sales and Distribution，销售与分销）负责把「客户想买东西」这件事，一路变成「钱回到公司账上」：<b>问价 → 报价 → 接单 → 发货 → 开票 → 收款</b>。它管的是<b>销售凭证</b>（谁买、买什么、多少钱、什么时候发、开多少票）；真正扣库存的是 MM，真正记收入的是 FI，真正排生产的是 PP。</p>
+<div class="box info"><b class="t">先记住这句话</b><p>SD 回答五个问题，每个问题对应一类主数据或配置：</p><ul><li><b>卖什么</b> → 物料主数据（销售视图）+ 项目类别</li><li><b>卖给谁</b> → 客户主数据 + 四个伙伴角色</li><li><b>多少钱</b> → 条件记录 + 定价过程（条件技术）</li><li><b>怎么发货</b> → 装运点 / 装载点 / 拣配库存地点 + 外向交货</li><li><b>怎么开票收钱</b> → 交付相关开票 + 账户确定（收入科目）+ 收款清账</li></ul></div>
+<h2 id="integ">2. 与邻居模块的分工</h2>
+<p>「SD 一张订单，牵动全公司」——这张图说明数据往哪流、哪一步是谁的责任。</p>
+<figure class="dia"><a class="zoom" href="assets/diagrams/integration.svg"><img src="assets/diagrams/integration.svg" alt="SD 与 FI / MM / PP / CO 的集成结构图" loading="lazy"></a><figcaption><span class="n">结构图</span><span class="cap">SD 出销售凭证，MM 出物料凭证（库存），FI 出会计凭证；PP 收需求，CO 收收入与成本</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>事件（SD 里做的动作）</th><th>SD 产生什么</th><th>邻居模块产生什么</th><th>关键点</th></tr></thead><tbody><tr><td>保存销售订单 <code>VA01</code></td><td>销售订单（VBAK / VBAP）</td><td>PP：需求传给 MRP（<code>MD04</code> 可见）</td><td>订单保存<b>不</b>动库存</td></tr><tr><td>创建外向交货 <code>VL01N</code></td><td>交货单（LIPS）</td><td>MM：准备拣配（此时仍不扣账）</td><td>交货只「计划」出库</td></tr><tr><td>发货过账（PGI）<code>VL02N</code></td><td>交货状态更新</td><td>MM：移动类型 601 的物料凭证，库存减少</td><td><b>这一步才真正出库</b></td></tr><tr><td>创建发票 <code>VF01</code></td><td>发票（VBRK / VBRP）</td><td>—</td><td>参照交货开票</td></tr><tr><td>发票过账（下达）<code>VF02</code></td><td>开票状态更新，提示「凭证已经传送到记账」</td><td>FI：会计凭证（借客户应收 / 贷收入 + 销项税）</td><td>科目由账户确定推出</td></tr><tr><td>收款 <code>F-28</code></td><td>—</td><td>FI：应收清账，流程闭环</td><td>可用 <code>FBL5N</code> 查看未清项</td></tr></tbody></table></div>
+<div class="note ref"><span class="t">自系统确认</span>订单是否真的把需求传给 MRP，取决于物料主数据的 MRP 类型与需求传递设置：在 <code>VA03</code> 打开一张订单 → 项目 → 「计划行」页签，看「需求类型 / 需求类别」是否有值；再去 <code>MD04</code> 输入同一物料，看有没有「销售订单」行。</div>
+<h2 id="layers">3. 三大概念层：组织 → 主数据 → 单据</h2>
+<p>SD 的所有东西都可以放进这三层。这也是<b>配置顺序</b>：先搭组织结构，再建主数据，最后才能跑单据。</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>层</th><th>回答什么</th><th>典型对象</th><th>没有它会发生什么</th></tr></thead><tbody><tr><td>① 组织结构</td><td>公司在哪儿卖、卖什么、从哪儿发货</td><td>公司代码 / 销售组织 / 分销渠道 / 产品组 / 销售范围 / 工厂 / 起运点</td><td>单据做不出来：客户主数据与物料销售视图都要填销售范围，销售范围不存在就选不到</td></tr><tr><td>② 主数据</td><td>卖给谁、卖什么、多少钱</td><td>客户主数据、物料主数据（销售视图）、条件记录、客户-物料信息记录</td><td>能开单据但全是错的：没有客户 → 订单建不了；没有条件记录 → 价格为 0 或提示不完整</td></tr><tr><td>③ 单据</td><td>这一笔生意现在走到哪一步</td><td>询价 / 报价 / 销售订单 / 交货 / 发票（+ MM 物料凭证、FI 会计凭证）</td><td>没有单据就没有业务；单据之间靠「参照」串成单据流，保证数量与价格一致</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">给学员的一句口诀</span><b>组织定坐标，主数据定规则，单据定这笔生意。</b>后面遇到任何 SD 问题，先判断它属于三层里的哪一层，再去对应的配置或主数据里找答案。</div>
+<h2 id="docs">4. 五大单据与单据流</h2>
+<figure class="dia"><a class="zoom" href="assets/diagrams/doc-flow.svg"><img src="assets/diagrams/doc-flow.svg" alt="单据流结构图" loading="lazy"></a><figcaption><span class="n">流程图</span><span class="cap">询价 → 报价 → 销售订单 → 交货 → 发票，每张都「参照」上一张创建，状态随业务推进更新</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>单据</th><th>作用</th><th>创建 T-code</th><th>常规单据类型</th><th>下一步</th></tr></thead><tbody><tr><td>询价 Inquiry</td><td>客户询问，不构成约束</td><td><code>VA11</code></td><td>IN</td><td>可转报价</td></tr><tr><td>报价 Quotation</td><td>正式报价，可带有效期</td><td><code>VA21</code></td><td>QT</td><td>可转销售订单</td></tr><tr><td>销售订单 Sales Order</td><td>接单：定价、可用性检查、交货日期</td><td><code>VA01</code></td><td>OR</td><td>创建交货</td></tr><tr><td>外向交货 Delivery</td><td>确定发货内容、起运点、拣配</td><td><code>VL01N</code></td><td>LF</td><td>拣配 → 发货过账</td></tr><tr><td>发票 Billing Document</td><td>结算：算收入与税，生成会计凭证</td><td><code>VF01</code></td><td>F2</td><td>过账到 FI → 收款</td></tr></tbody></table></div>
+<div class="note warn"><span class="t">单据类型 ≠ 单据类别</span>上面「OR / LF / F2」是<b>单据类型（Document Type）</b>，是配置对象，决定这个单据怎么走（是否定价、是否检查可用性、编号范围等）。教材场景里订单用 OR、发票用 F2。不同系统的自定义单据类型很多，看到陌生代码时用 F4 看描述即可。</div>
+<h2 id="area">5. 销售范围：SD 的坐标</h2>
+<figure class="dia"><a class="zoom" href="assets/diagrams/org-structure.svg"><img src="assets/diagrams/org-structure.svg" alt="SD 组织结构图" loading="lazy"></a><figcaption><span class="n">结构图</span><span class="cap">企业结构 → 销售结构 → 装运结构，以及它们之间的分配关系与自动派生链条</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<p>销售范围 = <b>销售组织 + 分销渠道 + 产品组</b>。教材场景里：1 个销售组织 × 2 个分销渠道（直销 / 批发）× 2 个产品组 → 共 <b>4 个销售范围</b>，逐个设置。它出现在：客户主数据的销售视图、物料主数据的销售视图、条件记录、所有销售单据的抬头。</p>
+<figure class="dia"><a class="zoom" href="assets/diagrams/order-internal.svg"><img src="assets/diagrams/order-internal.svg" alt="销售订单内部处理流程图" loading="lazy"></a><figcaption><span class="n">流程图</span><span class="cap">输入几行信息后，系统在背后做的自动确定：项目类别、定价、税、合作伙伴、可用性检查</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<div class="note ref"><span class="t">术语小提醒</span>教材把「销售范围」通俗地称为「销售部门」；在后台里与「部门」相关的其实是<b>销售办公室（Sales Office）</b>和<b>销售组（Sales Group）</b>两个不同的对象。面试或考试时不要混用，看系统的字段名（Sales Area / Sales Office / Sales Group）最稳。</div>
+<h2 id="auto">6. 一张订单背后的自动确定（总览）</h2>
+<p>SD 让新手困惑的地方，几乎都出在「系统怎么自动确定某样东西」。把这四条链记住，SD 就通了一半：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>要确定什么</th><th>由什么决定（决定键）</th><th>在哪配置</th><th>现象</th></tr></thead><tbody><tr><td>项目类别 Item Category</td><td>销售凭证类型 + 物料（项目类别组）+ 用途 + 上层项目</td><td>IMG：<code>VOV4</code>（决定）/ <code>VOV7</code>（定义）</td><td>决定这一行要不要定价、交货、开票</td></tr><tr><td>定价过程 Pricing Procedure</td><td>销售范围 + 客户定价过程 + 单据定价过程</td><td>IMG：销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程</td><td>决定用哪套算价表</td></tr><tr><td>税码 Tax Code</td><td>客户税分类 + 物料税分类 + 税率（国家）</td><td>IMG：销售和分销 → 基本功能 → 税收</td><td>决定销项税算多少</td></tr><tr><td>收入科目 Revenue Account</td><td>账码（来自定价过程）+ 物料账户分配组 + 客户账户分配组</td><td>IMG：销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定</td><td>决定发票过账记到哪个收入科目</td></tr></tbody></table></div>
+<div class="note info"><span class="t">为什么值得这样设计</span>如果每次都手输价格和科目，出错率会很高。SAP 的思路是：<b>把「怎么算」写成配置，把「算的依据」写成主数据</b>，录单时系统自己查。所以 SD 顾问的工作，大半是在维护这两件事。</div>
+<h2 id="myth">7. 十二个常见误解（课堂上最常被问到的）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>#</th><th>误解</th><th>正确理解</th></tr></thead><tbody><tr><td>1</td><td>SD 管库存</td><td><b>不对</b>。库存归 MM。SD 的交货只是「要求出库」，发货过账（601）才动库存。</td></tr><tr><td>2</td><td>销售组织就是公司代码</td><td><b>不是</b>。一个销售组织只属于一个公司代码，但一个公司代码可以有多个销售组织（多对一）。</td></tr><tr><td>3</td><td>价格维护在物料主数据里</td><td><b>不是</b>。价格在<b>条件记录</b>（<code>VK11</code>）里；物料销售视图只决定「能不能卖、税率分类、账户分配组」等。</td></tr><tr><td>4</td><td>交货就扣库存</td><td><b>不是</b>。创建交货只准备拣配，<b>发货过账</b>（PGI，移动类型 601）才产生物料凭证。</td></tr><tr><td>5</td><td>没库存就不能存订单</td><td><b>可以存</b>。可用性检查默认只给出确认日期，不阻止保存（是否阻止取决于配置与是否「设块」）。</td></tr><tr><td>6</td><td>可以直接开票，不用交货</td><td><b>不行</b>（常规流程）。发票通常参照交货创建，交货没完成开票会提示没有可开票的交货。教材里的顺序就是交货 → 发票。</td></tr><tr><td>7</td><td>改了客户主数据，老订单会跟着变</td><td><b>不会自动变</b>。单据里存的是当时的快照；改主数据只影响新建单据（或手改单据、重新定价）。</td></tr><tr><td>8</td><td>一个客户只有一个编号</td><td><b>可以有多个</b>。售达方 / 送达方 / 收票方 / 付款方可以是不同客户编号，通过伙伴角色关联（教材把收货方分配给订货方就是这件事）。</td></tr><tr><td>9</td><td>客户主数据的销售视图所有销售范围共用一份</td><td><b>按销售范围分别维护</b>。同一客户在不同销售范围可以有不同数据。</td></tr><tr><td>10</td><td>销售范围就是销售部门</td><td>教材里的通俗叫法。<b>正式对象</b>是销售范围（Sales Area，组织键组合）与销售办公室（Sales Office，机构）。</td></tr><tr><td>11</td><td>定价过程就是打折表</td><td><b>不止</b>。定价过程把价格、折扣、运费、税等条件类型按步骤排出顺序，还带账码（决定记账科目）。</td></tr><tr><td>12</td><td>发票过账要手工做会计凭证</td><td><b>不用</b>。发票下达（<code>VF02</code>）时系统自动生成会计凭证并提示「凭证已经传送到记账」，科目来自账户确定。</td></tr></tbody></table></div>
+<h2 id="sum">8. 本页小结与下一步</h2>
+<div class="box ok"><b class="t">看完这一页你应该能回答</b><ul><li>SD 管的是哪五件事？各由哪类主数据/配置支撑？</li><li>为什么保存订单不等于出货，出货不等于记账？</li><li>销售范围由哪三个键组成，它决定了哪些数据？</li><li>项目类别、定价过程、收入科目分别由什么决定？</li></ul></div>
+<ol class="steps"><li>下一站：<a href="org.html"><b>组织结构</b></a> —— 把「坐标」建起来（对应 SPRO 里最前面的 12 个任务）。</li><li>想直接看业务怎么跑：<a href="flow.html"><b>流程</b></a>。</li><li>想先弄懂价格：<a href="pricing.html"><b>定价</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

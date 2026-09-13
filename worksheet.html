@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学员版（记入表） · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a class="active" href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>学员版记入表</span></p>
+<h1>学员版：记入表（可打印）</h1>
+<p class="kicker">边做边记 · 单据号 / 状态 / 金额 · 打印后手写</p>
+<div class="note info"><span class="t">怎么用</span>跟着 <a href="practice.html">实训任务</a> 做，每完成一步就把系统里的真实值抄进下表。表格在打印时会自动分页，建议 A4 横向、单面打印。空格不够就打印多份。</div>
+<h2 id="ws1">1. 主数据记录（任务 1~2 前置）</h2>
+<div class="tblwrap"><table class="tbl ws idx"><thead><tr><th>#</th><th>要记录的内容</th><th>系统里的值（请抄写）</th><th>怎么看</th></tr></thead><tbody><tr><td>1</td><td>销售组织号码 / 名称</td><td></td><td>后台企业结构，或客户主数据销售视图里的销售范围</td></tr><tr><td>2</td><td>分销渠道</td><td></td><td>同上</td></tr><tr><td>3</td><td>产品组</td><td></td><td>同上</td></tr><tr><td>4</td><td>本系统的一个销售范围（三键组合）</td><td></td><td>后台「设置销售范围」列表</td></tr><tr><td>5</td><td>客户号（售达方）</td><td></td><td>VA01 抬头；<code>VD03</code></td></tr><tr><td>6</td><td>物料号 + 描述</td><td></td><td><code>MM03</code></td></tr><tr><td>7</td><td>PR00 条件记录的金额与有效期</td><td></td><td><code>VK13</code> 条件类型 PR00</td></tr><tr><td>8</td><td>税码 / 税率（MWST）</td><td></td><td>订单项目 → 条件页签</td></tr></tbody></table></div>
+<h2 id="ws2">2. 单据链记录（任务 2~4）</h2>
+<div class="tblwrap"><table class="tbl ws"><thead><tr><th>环节</th><th>单据号</th><th>单据类型</th><th>日期</th><th>金额 / 数量</th><th>状态</th></tr></thead><tbody><tr><td>报价</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>销售订单</td><td></td><td></td><td>确认交货日期：</td><td>净价值：</td><td>整体状态：</td></tr><tr><td>外向交货</td><td></td><td></td><td></td><td>交货数量：</td><td>发货状态：</td></tr><tr><td>发票</td><td></td><td></td><td></td><td>净价值：</td><td>开票状态：</td></tr><tr><td>会计凭证</td><td></td><td>借贷：</td><td></td><td>金额：</td><td>—</td></tr></tbody></table></div>
+<h2 id="ws3">3. 库存与单据流观察</h2>
+<div class="tblwrap"><table class="tbl ws"><thead><tr><th>观察点</th><th>发货过账前</th><th>发货过账后</th><th>结论（自己写）</th></tr></thead><tbody><tr><td>物料库存数量（MMBE/MB52）</td><td></td><td></td><td></td></tr><tr><td>交货状态（VL03N）</td><td></td><td></td><td></td></tr><tr><td>订单的交货状态（VA03）</td><td></td><td></td><td></td></tr><tr><td>可开票清单里是否出现（VF04）</td><td></td><td></td><td></td></tr></tbody></table></div>
+<h2 id="ws4">4. 单据流链（把三个号写在一起）</h2>
+<div class="ws-block"><b>订单号</b> → <b>交货号</b> → <b>发票号</b> →（会计凭证号）<div class="lines"><i></i><i></i></div></div>
+<div class="ws-block"><b>用一句话说明这三点是怎么串起来的</b>（提示：参照创建 + 状态）<div class="lines"><i></i><i></i><i></i></div></div>
+<h2 id="ws5">5. 计算推演（自己推一遍）</h2>
+<div class="tblwrap"><table class="tbl ws"><thead><tr><th>步骤</th><th>你的答案</th></tr></thead><tbody><tr><td>这张订单用了哪套定价过程？为什么是它？（三个键）</td><td></td></tr><tr><td>价格是从哪条条件记录来的？（条件类型 / 金额 / 有效期）</td><td></td></tr><tr><td>净价值 = ？ 请写出算式</td><td></td></tr><tr><td>销项税是怎么定的？（客户税分类 + 物料税分类 → 税码）</td><td></td></tr><tr><td>收入科目由哪三个键确定？</td><td></td></tr><tr><td>发票过账后会计凭证的借贷分别是什么？</td><td></td></tr></tbody></table></div>
+<h2 id="ws6">6. 自评（做完打勾）</h2>
+<div class="tblwrap"><table class="tbl ws"><thead><tr><th>能力项</th><th>自评（○ / △ / ×）</th><th>如果打 △ 或 ×，问题在哪</th></tr></thead><tbody><tr><td>能画出 SD 的组织结构图并解释分配关系</td><td></td><td></td></tr><tr><td>能说出五大单据的顺序与 T-code</td><td></td><td></td></tr><tr><td>能解释订单里的价格从哪来</td><td></td><td></td></tr><tr><td>能解释收入科目怎么定的</td><td></td><td></td></tr><tr><td>能跑通订单 → 交货 → 发货过账 → 发票 → 下达</td><td></td><td></td></tr><tr><td>能用单据流回答「货到哪了」</td><td></td><td></td></tr><tr><td>知道发货过账用 601、取消用 VL09</td><td></td><td></td></tr><tr><td>能解释报表没数据的原因</td><td></td><td></td></tr></tbody></table></div>
+<div class="note tip"><span class="t">交作业</span>把第 2 节的五个单据号 + 第 4 节的链 + 第 5 节的推演交上来，就是本课程的实操成绩依据（见 <a href="instructor.html">讲师版第 4 节评分标准</a>）。</div>
+<ol class="steps"><li>自测：<a href="quiz.html"><b>30 题（合格 75%）</b></a>。</li><li>回去查：<a href="config.html"><b>配置页</b></a> 找对应任务的真实画面。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配置路线（48 任务） · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a class="active" href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>配置（SPRO）</span></p>
+<h1>配置路线：48 个任务的完整索引</h1>
+<p class="kicker">SPRO 路径 · 前后台 · 手顺 · 真实画面 —— 全部与教材一致</p>
+<p>这一页是「操作手册式」的索引，按 <b>SPRO 的实际顺序</b>分成 A~J 十组。每个任务给出：教材原文的菜单/IMG 路径、T-code、手顺要点、以及真实系统画面（原文件名标注在图上，可回 Word 原稿核对）。路径文本可以<b>点击复制</b>。</p>
+<div class="toc"><a href="#grpA">A. 企业结构：组织与分配</a><a href="#grpB">B. 销售办公室与销售组</a><a href="#grpC">C. 装运与后勤执行</a><a href="#grpD">D. 客户主数据与账户组</a><a href="#grpE">E. 定价与税</a><a href="#grpF">F. 账户确定与更新组</a><a href="#grpG">G. 合作伙伴确定</a><a href="#grpH">H. 主数据维护（前台）</a><a href="#grpI">I. 销售流程（前台）</a><a href="#grpJ">J. 分析与报表</a><a href="#why">K. 配置顺序为什么是这个顺序</a><a href="#check">L. 自检清单</a></div>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>组</th><th>主题</th><th>任务号</th><th>任务数</th></tr></thead><tbody><tr><td>A</td><td>企业结构：组织与分配</td><td>01、02、03、04、05、06、07、11、13</td><td>9</td></tr><tr><td>B</td><td>销售办公室与销售组</td><td>08、09、10、12</td><td>4</td></tr><tr><td>C</td><td>装运与后勤执行</td><td>14、15、16、17、18、19、20</td><td>7</td></tr><tr><td>D</td><td>客户主数据与账户组</td><td>21</td><td>1</td></tr><tr><td>E</td><td>定价与税</td><td>22、23、24、25、26、27、28</td><td>7</td></tr><tr><td>F</td><td>账户确定与更新组</td><td>29、30、31、32</td><td>4</td></tr><tr><td>G</td><td>合作伙伴确定</td><td>33</td><td>1</td></tr><tr><td>H</td><td>主数据维护（前台）</td><td>34、35、36、37、38、39</td><td>6</td></tr><tr><td>I</td><td>销售流程（前台）</td><td>40、41、42、43、44、45</td><td>6</td></tr><tr><td>J</td><td>分析与报表</td><td>46、47、48</td><td>3</td></tr></tbody></table></div>
+<h2 id="grpA">A. 企业结构：组织与分配</h2>
+<p>先把坐标建起来：销售组织、分销渠道、产品组，以及它们的分配与销售范围。</p>
+<div class="steph" id="task01"><span class="no">任务 01</span><h3>定义销售组织</h3><span class="fb">后台（配置）</span></div>
+<p>销售数据的最高组织键。客户与物料的销售视图都挂在它下面。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查销售组织"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查销售组织</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">双击“定义销售组织”</li><li class="">点击保存</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t01/01_1_image1078.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t01/01_1_image1078.png" width="389" height="313" alt="双击“定义销售组织”" loading="lazy"></a><figcaption><span class="n">画面 01-1</span><span class="cap">双击“定义销售组织”</span><span class="src">教材《S4.docx》SD 模块 · image1078.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t01/05_1_image1082.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t01/05_1_image1082.png" width="466" height="221" alt="点击保存" loading="lazy"></a><figcaption><span class="n">画面 01-2</span><span class="cap">点击保存</span><span class="src">教材《S4.docx》SD 模块 · image1082.png</span></figcaption></figure></div>
+<div class="steph" id="task02"><span class="no">任务 02</span><h3>定义分销渠道</h3><span class="fb">后台（配置）</span></div>
+<p>产品「怎么卖出去」的途径：直销、批发、零售。多对多分配给销售组织。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查分销渠道"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 销售和分销 → 定义、复制、删除、检查分销渠道</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">企业结构－定义－销售和分销－定义、复制、删除、检查分销渠道</li><li class="">点击定义分销渠道</li><li class="">点击“新条目”</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t02/01_1_image1084.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t02/01_1_image1084.png" width="423" height="224" alt="企业结构－定义－销售和分销－定义、复制、删除、检查分销渠道" loading="lazy"></a><figcaption><span class="n">画面 02-1</span><span class="cap">企业结构－定义－销售和分销－定义、复制、删除、检查分销渠道</span><span class="src">教材《S4.docx》SD 模块 · image1084.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t02/04_1_image1087.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t02/04_1_image1087.png" width="347" height="193" alt="点击“新条目”" loading="lazy"></a><figcaption><span class="n">画面 02-2</span><span class="cap">点击“新条目”</span><span class="src">教材《S4.docx》SD 模块 · image1087.png</span></figcaption></figure></div>
+<div class="steph" id="task03"><span class="no">任务 03</span><h3>定义产品组</h3><span class="fb">后台（配置）</span></div>
+<p>产品「按线分组」：整机 / 备件 / 服务。多对多分配给销售组织。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 后勤常规 → 定义、复制、删除、检查产品组"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 后勤常规 → 定义、复制、删除、检查产品组</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">企业结构－定义－后勤常规－定义、复制、删除、检查产品组</li><li class="">点击“定义产品组”</li><li class="">点击“新条目”点击“新条目”
+Z2 增压泵</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t03/01_1_image1088.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t03/01_1_image1088.png" width="348" height="249" alt="企业结构－定义－后勤常规－定义、复制、删除、检查产品组" loading="lazy"></a><figcaption><span class="n">画面 03-1</span><span class="cap">企业结构－定义－后勤常规－定义、复制、删除、检查产品组</span><span class="src">教材《S4.docx》SD 模块 · image1088.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t03/03_1_image1091.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t03/03_1_image1091.png" width="343" height="151" alt="点击“新条目”点击“新条目”
+Z2 增压泵" loading="lazy"></a><figcaption><span class="n">画面 03-2</span><span class="cap">点击“新条目”点击“新条目”
+Z2 增压泵</span><span class="src">教材《S4.docx》SD 模块 · image1091.png</span></figcaption></figure></div>
+<div class="steph" id="task04"><span class="no">任务 04</span><h3>将销售组织分配给公司代码</h3><span class="fb">后台（配置）</span></div>
+<p>销售组织属于哪个公司代码（多对一）——决定了收入落在哪套账上。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 给公司代码分配销售组织"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 给公司代码分配销售组织</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在 SAP 中一个销售组织只可以分配给一个公司代码，但是一个公司代码可以有多个销售组织。但是销售组织分配给一个公司代码，只是意味着这个销售组织的销售收入和在财务上是属于这个公司代码的。如果是集团公司，销售组织仍然可以销售其他公司代码的产品，这样就构成了跨公司销售。</li><li class="">直接录入公司代码CoCd为C999</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t04/01_1_image1092.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t04/01_1_image1092.png" width="347" height="433" alt="解释：在 SAP 中一个销售组织只可以分配给一个公司代码，但是一个公司代码可以有多个销售组织。但是销售组织分配给一个公司代码，只是意味着这个销售组织的销售收入和在财务上是属于这…" loading="lazy"></a><figcaption><span class="n">画面 04-1</span><span class="cap">解释：在 SAP 中一个销售组织只可以分配给一个公司代码，但是一个公司代码可以有多个销售组织。但是销售组织分配给一个公司代码，只是意味着这个销售组织的销售收入和在财务上是属于这…</span><span class="src">教材《S4.docx》SD 模块 · image1092.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t04/03_1_image1094.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t04/03_1_image1094.png" width="637" height="192" alt="直接录入公司代码CoCd为C999" loading="lazy"></a><figcaption><span class="n">画面 04-2</span><span class="cap">直接录入公司代码CoCd为C999</span><span class="src">教材《S4.docx》SD 模块 · image1094.png</span></figcaption></figure></div>
+<div class="steph" id="task05"><span class="no">任务 05</span><h3>将分销渠道分配给销售组织</h3><span class="fb">后台（配置）</span></div>
+<p>把渠道挂到销售组织上，才能组成销售范围。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 给销售组织分配分销渠道"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 给销售组织分配分销渠道</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：我们将“直销”和“批发”两个分销渠道分配给“颐宁销售组织”，这个分配意味着 “颐宁销售组织”可以从事“直销”和“批发”两种渠道的销售，其他的销售组织也可能从事这两种渠道的销售，所以分配是多对多的关系</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t05/01_1_image1095.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t05/01_1_image1095.png" width="392" height="438" alt="解释：我们将“直销”和“批发”两个分销渠道分配给“颐宁销售组织”，这个分配意味着 “颐宁销售组织”可以从事“直销”和“批发”两种渠道的销售，其他的销售组织也可能从事这两种渠道的…" loading="lazy"></a><figcaption><span class="n">画面 05-1</span><span class="cap">解释：我们将“直销”和“批发”两个分销渠道分配给“颐宁销售组织”，这个分配意味着 “颐宁销售组织”可以从事“直销”和“批发”两种渠道的销售，其他的销售组织也可能从事这两种渠道的…</span><span class="src">教材《S4.docx》SD 模块 · image1097.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t05/02_1_image1099.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t05/02_1_image1099.png" width="631" height="192" alt="解释：我们将“直销”和“批发”两个分销渠道分配给“颐宁销售组织”，这个分配意味着 “颐宁销售组织”可以从事“直销”和“批发”两种渠道的销售，其他的销售组织也可能从事这两种渠道的…" loading="lazy"></a><figcaption><span class="n">画面 05-2</span><span class="cap">解释：我们将“直销”和“批发”两个分销渠道分配给“颐宁销售组织”，这个分配意味着 “颐宁销售组织”可以从事“直销”和“批发”两种渠道的销售，其他的销售组织也可能从事这两种渠道的…</span><span class="src">教材《S4.docx》SD 模块 · image1099.png</span></figcaption></figure></div>
+<div class="steph" id="task06"><span class="no">任务 06</span><h3>将产品组分配给销售组织</h3><span class="fb">后台（配置）</span></div>
+<p>把产品组挂到销售组织上（教材菜单里叫「给销售组织分配部门」）。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 给销售组织分配部门"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 给销售组织分配部门</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：本步中将“铸钢泵”和“增压泵”分配给“颐宁销售组织”。这意味着“颐宁销售组织”可以从事“铸钢泵”和“增压泵”的销售。其他销售组织也可能从事这两个产品组的销售，所以这个分配也是多对多</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t06/01_1_image1101.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t06/01_1_image1101.png" width="375" height="433" alt="解释：本步中将“铸钢泵”和“增压泵”分配给“颐宁销售组织”。这意味着“颐宁销售组织”可以从事“铸钢泵”和“增压泵”的销售。其他销售组织也可能从事这两个产品组的销售，所以这个分配…" loading="lazy"></a><figcaption><span class="n">画面 06-1</span><span class="cap">解释：本步中将“铸钢泵”和“增压泵”分配给“颐宁销售组织”。这意味着“颐宁销售组织”可以从事“铸钢泵”和“增压泵”的销售。其他销售组织也可能从事这两个产品组的销售，所以这个分配…</span><span class="src">教材《S4.docx》SD 模块 · image1101.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t06/03_1_image1103.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t06/03_1_image1103.png" width="558" height="159" alt="解释：本步中将“铸钢泵”和“增压泵”分配给“颐宁销售组织”。这意味着“颐宁销售组织”可以从事“铸钢泵”和“增压泵”的销售。其他销售组织也可能从事这两个产品组的销售，所以这个分配…" loading="lazy"></a><figcaption><span class="n">画面 06-2</span><span class="cap">解释：本步中将“铸钢泵”和“增压泵”分配给“颐宁销售组织”。这意味着“颐宁销售组织”可以从事“铸钢泵”和“增压泵”的销售。其他销售组织也可能从事这两个产品组的销售，所以这个分配…</span><span class="src">教材《S4.docx》SD 模块 · image1103.png</span></figcaption></figure></div>
+<div class="steph" id="task07"><span class="no">任务 07</span><h3>设置销售范围</h3><span class="fb">后台（配置）</span></div>
+<p>把「销售组织 × 分销渠道 × 产品组」的组合逐个建出来，共 4 个。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 设置销售范围"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 设置销售范围</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：SAP 把销售组织、分销渠道和产品组的组合称为“销售范围”，它的业务含义是某个销售组织通过某种分销渠道经营某个产品组。在颐宁销售组织中，我们可以分配通过直销 和批发经营两种产品组的销售，一共有四个销售范围，我们分别设置，销售范围也叫销售部门</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t07/01_1_image1105.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t07/01_1_image1105.png" width="375" height="416" alt="解释：SAP 把销售组织、分销渠道和产品组的组合称为“销售范围”，它的业务含义是某个销售组织通过某种分销渠道经营某个产品组。在颐宁销售组织中，我们可以分配通过直销 和批发经营两…" loading="lazy"></a><figcaption><span class="n">画面 07-1</span><span class="cap">解释：SAP 把销售组织、分销渠道和产品组的组合称为“销售范围”，它的业务含义是某个销售组织通过某种分销渠道经营某个产品组。在颐宁销售组织中，我们可以分配通过直销 和批发经营两…</span><span class="src">教材《S4.docx》SD 模块 · image1105.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t07/02_1_image1106.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t07/02_1_image1106.png" width="775" height="283" alt="解释：SAP 把销售组织、分销渠道和产品组的组合称为“销售范围”，它的业务含义是某个销售组织通过某种分销渠道经营某个产品组。在颐宁销售组织中，我们可以分配通过直销 和批发经营两…" loading="lazy"></a><figcaption><span class="n">画面 07-2</span><span class="cap">解释：SAP 把销售组织、分销渠道和产品组的组合称为“销售范围”，它的业务含义是某个销售组织通过某种分销渠道经营某个产品组。在颐宁销售组织中，我们可以分配通过直销 和批发经营两…</span><span class="src">教材《S4.docx》SD 模块 · image1106.png</span></figcaption></figure></div>
+<div class="steph" id="task11"><span class="no">任务 11</span><h3>简单的排列组合，总共8种组合</h3><span class="fb">后台（配置）</span></div>
+<p>教材的思考题：2 渠道 × 2 产品组的分配组合共 8 种，先想清楚再配。</p>
+<div class="steph" id="task13"><span class="no">任务 13</span><h3>将工厂分配给销售组织/分销渠道</h3><span class="fb">后台（配置）</span></div>
+<p>工厂 → 销售组织/分销渠道（多对多）：决定这套销售组织能从哪个工厂发货。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 分配销售组织-分销渠道-工厂"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 分配销售组织-分销渠道-工厂</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">企业结构－分配－销售和分销－分配销售组织-分销渠道-工厂</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t13/01_1_image1128.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t13/01_1_image1128.png" width="400" height="409" alt="企业结构－分配－销售和分销－分配销售组织-分销渠道-工厂" loading="lazy"></a><figcaption><span class="n">画面 13-1</span><span class="cap">企业结构－分配－销售和分销－分配销售组织-分销渠道-工厂</span><span class="src">教材《S4.docx》SD 模块 · image1128.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t13/03_1_image1132.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t13/03_1_image1132.png" width="674" height="190" alt="企业结构－分配－销售和分销－分配销售组织-分销渠道-工厂" loading="lazy"></a><figcaption><span class="n">画面 13-2</span><span class="cap">企业结构－分配－销售和分销－分配销售组织-分销渠道-工厂</span><span class="src">教材《S4.docx》SD 模块 · image1132.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpB">B. 销售办公室与销售组</h2>
+<p>用于统计与权限的组织单位（不影响定价逻辑）。</p>
+<div class="steph" id="task08"><span class="no">任务 08</span><h3>定义销售办公室</h3><span class="fb">后台（配置）</span></div>
+<p>销售办公室＝按地区/责任划分的销售机构，用于统计与权限。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 维护销售办公室"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 销售和分销 → 维护销售办公室</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">企业结构－定义－销售和分销－维护销售办公室</li><li class="">Z001 颐宁北方销售公司</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t08/01_1_image1109.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t08/01_1_image1109.png" width="363" height="364" alt="企业结构－定义－销售和分销－维护销售办公室" loading="lazy"></a><figcaption><span class="n">画面 08-1</span><span class="cap">企业结构－定义－销售和分销－维护销售办公室</span><span class="src">教材《S4.docx》SD 模块 · image1109.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t08/04_1_image1113.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t08/04_1_image1113.png" width="627" height="727" alt="企业结构－定义－销售和分销－维护销售办公室" loading="lazy"></a><figcaption><span class="n">画面 08-2</span><span class="cap">企业结构－定义－销售和分销－维护销售办公室</span><span class="src">教材《S4.docx》SD 模块 · image1113.png</span></figcaption></figure></div>
+<div class="steph" id="task09"><span class="no">任务 09</span><h3>定义销售组</h3><span class="fb">后台（配置）</span></div>
+<p>销售组＝销售办公室里的人员小组。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 销售和分销 → 维护销售组"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 销售和分销 → 维护销售组</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">在 SD 中我们还可以定义“销售组”来统计和分析。在颐宁公司，我们定义东北、西北、东南、西南四个销售组。他们分别隶属于北方和南方销售办公室。销售组和销售办公室在 SD都是可选的组织结构，不是必选的
+企业结构－定义－销售和分销－维护销售组</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t09/01_1_image1114.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t09/01_1_image1114.png" width="376" height="272" alt="在 SD 中我们还可以定义“销售组”来统计和分析。在颐宁公司，我们定义东北、西北、东南、西南四个销售组。他们分别隶属于北方和南方销售办公室。销售组和销售办公室在 SD都是可选的…" loading="lazy"></a><figcaption><span class="n">画面 09-1</span><span class="cap">在 SD 中我们还可以定义“销售组”来统计和分析。在颐宁公司，我们定义东北、西北、东南、西南四个销售组。他们分别隶属于北方和南方销售办公室。销售组和销售办公室在 SD都是可选的…</span><span class="src">教材《S4.docx》SD 模块 · image1116.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t09/02_1_image1118.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t09/02_1_image1118.png" width="339" height="201" alt="在 SD 中我们还可以定义“销售组”来统计和分析。在颐宁公司，我们定义东北、西北、东南、西南四个销售组。他们分别隶属于北方和南方销售办公室。销售组和销售办公室在 SD都是可选的…" loading="lazy"></a><figcaption><span class="n">画面 09-2</span><span class="cap">在 SD 中我们还可以定义“销售组”来统计和分析。在颐宁公司，我们定义东北、西北、东南、西南四个销售组。他们分别隶属于北方和南方销售办公室。销售组和销售办公室在 SD都是可选的…</span><span class="src">教材《S4.docx》SD 模块 · image1118.png</span></figcaption></figure></div>
+<div class="steph" id="task10"><span class="no">任务 10</span><h3>给销售范围分配销售办公室</h3><span class="fb">后台（配置）</span></div>
+<p>把销售办公室挂到销售范围上。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 给销售范围分配销售办公室"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 给销售范围分配销售办公室</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">颐宁公司的北方和南方两个销售办公室都可以从事铸钢泵和增压泵的批发和直销，所以我们将这两个销售办公室分配给这四个销售范围</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t10/01_1_image1119.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t10/01_1_image1119.png" width="350" height="343" alt="颐宁公司的北方和南方两个销售办公室都可以从事铸钢泵和增压泵的批发和直销，所以我们将这两个销售办公室分配给这四个销售范围" loading="lazy"></a><figcaption><span class="n">画面 10-1</span><span class="cap">颐宁公司的北方和南方两个销售办公室都可以从事铸钢泵和增压泵的批发和直销，所以我们将这两个销售办公室分配给这四个销售范围</span><span class="src">教材《S4.docx》SD 模块 · image1119.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t10/03_1_image1121.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t10/03_1_image1121.png" width="953" height="326" alt="颐宁公司的北方和南方两个销售办公室都可以从事铸钢泵和增压泵的批发和直销，所以我们将这两个销售办公室分配给这四个销售范围" loading="lazy"></a><figcaption><span class="n">画面 10-2</span><span class="cap">颐宁公司的北方和南方两个销售办公室都可以从事铸钢泵和增压泵的批发和直销，所以我们将这两个销售办公室分配给这四个销售范围</span><span class="src">教材《S4.docx》SD 模块 · image1121.png</span></figcaption></figure></div>
+<div class="steph" id="task12"><span class="no">任务 12</span><h3>将销售组分配给销售办公室</h3><span class="fb">后台（配置）</span></div>
+<p>把销售组挂到销售办公室上。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 销售和分销 → 给销售办公室分配销售组"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 销售和分销 → 给销售办公室分配销售组</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t12/01_1_image1124.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t12/01_1_image1124.png" width="386" height="421" alt="将销售组分配给销售办公室" loading="lazy"></a><figcaption><span class="n">画面 12-1</span><span class="cap">将销售组分配给销售办公室</span><span class="src">教材《S4.docx》· SD 任务 12 将销售组分配给销售办公室</span></figcaption></figure>
+<hr class="sep">
+<h2 id="grpC">C. 装运与后勤执行</h2>
+<p>发货从哪发、装在哪、从哪个库存地点拣货。</p>
+<div class="steph" id="task14"><span class="no">任务 14</span><h3>定义起运点</h3><span class="fb">后台（配置）</span></div>
+<p>起运点＝发货的起始地点。教材用 Z999 颐宁装运点，与工厂多对多。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 后勤执行 → 定义、复制、删除、检查起运点"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 后勤执行 → 定义、复制、删除、检查起运点</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">企业结构－定义－后勤执行－定义、复制、删除、检查起运点</li><li class="">Z999 颐宁装运点</li></ol>
+<div class="shot-grid"><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t14/01_1_image1133.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t14/01_1_image1133.png" width="437" height="156" alt="企业结构－定义－后勤执行－定义、复制、删除、检查起运点" loading="lazy"></a><figcaption><span class="n">画面 14-1</span><span class="cap">企业结构－定义－后勤执行－定义、复制、删除、检查起运点</span><span class="src">教材《S4.docx》SD 模块 · image1133.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t14/05_1_image1138.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t14/05_1_image1138.png" width="619" height="539" alt="企业结构－定义－后勤执行－定义、复制、删除、检查起运点" loading="lazy"></a><figcaption><span class="n">画面 14-2</span><span class="cap">企业结构－定义－后勤执行－定义、复制、删除、检查起运点</span><span class="src">教材《S4.docx》SD 模块 · image1138.png</span></figcaption></figure></div>
+<div class="steph" id="task15"><span class="no">任务 15</span><h3>定义装载点</h3><span class="fb">后台（配置）</span></div>
+<p>装载点＝装货的具体位置，挂在起运点上。</p>
+<div class="pathline" data-copy="企业结构 → 定义 → 后勤执行 → 维护装载点"><b>教材菜单 / IMG 路径</b>企业结构 → 定义 → 后勤执行 → 维护装载点</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：起运点之下可以再细分装载点，来指明确定的装载地点，如一个卡车起运点中可能按仓库的大门分成三个装载点等等。本步骤我们将定义装载点。发货单中可以注明装载点。单装载点是 SD 中可选的组织结构。没有装载点的定义. SD 也能使用。
+企业结构－定义－后勤执行－维护装载点</li><li class="">输入工作范围</li><li class="">点击新条目，输入新的装载点</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t15/01_1_image1139.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t15/01_1_image1139.png" width="656" height="337" alt="解释：起运点之下可以再细分装载点，来指明确定的装载地点，如一个卡车起运点中可能按仓库的大门分成三个装载点等等。本步骤我们将定义装载点。发货单中可以注明装载点。单装载点是 SD …" loading="lazy"></a><figcaption><span class="n">画面 15-1</span><span class="cap">解释：起运点之下可以再细分装载点，来指明确定的装载地点，如一个卡车起运点中可能按仓库的大门分成三个装载点等等。本步骤我们将定义装载点。发货单中可以注明装载点。单装载点是 SD …</span><span class="src">教材《S4.docx》SD 模块 · image1141.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t15/03_1_image1145.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t15/03_1_image1145.png" width="461" height="249" alt="点击新条目，输入新的装载点" loading="lazy"></a><figcaption><span class="n">画面 15-2</span><span class="cap">点击新条目，输入新的装载点</span><span class="src">教材《S4.docx》SD 模块 · image1145.png</span></figcaption></figure></div>
+<div class="steph" id="task16"><span class="no">任务 16</span><h3>将起运点分配给工厂</h3><span class="fb">后台（配置）</span></div>
+<p>把起运点分配给工厂（一个工厂可以有公路、水路等几个起运点）。</p>
+<div class="pathline" data-copy="企业结构 → 分配 → 后勤执行 → 给工厂分配起运点"><b>教材菜单 / IMG 路径</b>企业结构 → 分配 → 后勤执行 → 给工厂分配起运点</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：一个工厂可以有几个起运点，如公路、水路等。一个起运点也可以是几个工厂公用的，所以两者是多对多的关系。</li><li class="">点击分配</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t16/01_1_image1146.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t16/01_1_image1146.png" width="685" height="413" alt="解释：一个工厂可以有几个起运点，如公路、水路等。一个起运点也可以是几个工厂公用的，所以两者是多对多的关系。" loading="lazy"></a><figcaption><span class="n">画面 16-1</span><span class="cap">解释：一个工厂可以有几个起运点，如公路、水路等。一个起运点也可以是几个工厂公用的，所以两者是多对多的关系。</span><span class="src">教材《S4.docx》SD 模块 · image1146.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t16/04_1_image1149.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t16/04_1_image1149.png" width="375" height="141" alt="解释：一个工厂可以有几个起运点，如公路、水路等。一个起运点也可以是几个工厂公用的，所以两者是多对多的关系。" loading="lazy"></a><figcaption><span class="n">画面 16-2</span><span class="cap">解释：一个工厂可以有几个起运点，如公路、水路等。一个起运点也可以是几个工厂公用的，所以两者是多对多的关系。</span><span class="src">教材《S4.docx》SD 模块 · image1149.png</span></figcaption></figure></div>
+<div class="steph" id="task17"><span class="no">任务 17</span><h3>定义运送条件</h3><span class="fb">后台（配置）</span></div>
+<p>运送条件（Shippping Conditions）：与物料/工厂一起决定起运点。</p>
+<div class="pathline" data-copy="后勤执行 → 装运 → 基本发运功能 → 装运点和收货点确认 → 定义运送条件"><b>教材菜单 / IMG 路径</b>后勤执行 → 装运 → 基本发运功能 → 装运点和收货点确认 → 定义运送条件</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤执行－装运－基本发运功能－装运点和收货点确认－定义运送条件</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t17/01_1_image1150.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t17/01_1_image1150.png" width="706" height="407" alt="后勤执行－装运－基本发运功能－装运点和收货点确认－定义运送条件" loading="lazy"></a><figcaption><span class="n">画面 17-1</span><span class="cap">后勤执行－装运－基本发运功能－装运点和收货点确认－定义运送条件</span><span class="src">教材《S4.docx》SD 模块 · image1150.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t17/02_1_image1151.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t17/02_1_image1151.png" width="261" height="233" alt="后勤执行－装运－基本发运功能－装运点和收货点确认－定义运送条件" loading="lazy"></a><figcaption><span class="n">画面 17-2</span><span class="cap">后勤执行－装运－基本发运功能－装运点和收货点确认－定义运送条件</span><span class="src">教材《S4.docx》SD 模块 · image1151.png</span></figcaption></figure></div>
+<div class="steph" id="task18"><span class="no">任务 18</span><h3>定义装载组</h3><span class="fb">后台（配置）</span></div>
+<p>装载组：与物料主数据一起决定装载点。</p>
+<div class="pathline" data-copy="后勤执行 → 装运 → 基本发运功能 → 装运点和收货点确认 → 定义装载组"><b>教材菜单 / IMG 路径</b>后勤执行 → 装运 → 基本发运功能 → 装运点和收货点确认 → 定义装载组</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤执行－装运－基本发运功能－装运点和收货点确认－定义装载组</li><li class="">Z999 叉车-颐宁</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t18/01_1_image1153.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t18/01_1_image1153.png" width="696" height="349" alt="后勤执行－装运－基本发运功能－装运点和收货点确认－定义装载组" loading="lazy"></a><figcaption><span class="n">画面 18-1</span><span class="cap">后勤执行－装运－基本发运功能－装运点和收货点确认－定义装载组</span><span class="src">教材《S4.docx》SD 模块 · image1153.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t18/03_1_image1155.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t18/03_1_image1155.png" width="284" height="143" alt="Z999 叉车-颐宁" loading="lazy"></a><figcaption><span class="n">画面 18-2</span><span class="cap">Z999 叉车-颐宁</span><span class="src">教材《S4.docx》SD 模块 · image1155.png</span></figcaption></figure></div>
+<div class="steph" id="task19"><span class="no">任务 19</span><h3>分配起运点</h3><span class="fb">后台（配置）</span></div>
+<p>按运送地点分配（起运点的进一步细化）。</p>
+<div class="pathline" data-copy="后勤执行 → 装运 → 装运点和收货点确认 → 分配运送地点"><b>教材菜单 / IMG 路径</b>后勤执行 → 装运 → 装运点和收货点确认 → 分配运送地点</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">点击新条目
+99 Z999 P999 Z999</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t19/01_1_image1156.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t19/01_1_image1156.png" width="627" height="342" alt="点击新条目
+99 Z999 P999 Z999" loading="lazy"></a><figcaption><span class="n">画面 19-1</span><span class="cap">点击新条目
+99 Z999 P999 Z999</span><span class="src">教材《S4.docx》SD 模块 · image1156.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t19/03_1_image1158.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t19/03_1_image1158.png" width="637" height="186" alt="点击新条目
+99 Z999 P999 Z999" loading="lazy"></a><figcaption><span class="n">画面 19-2</span><span class="cap">点击新条目
+99 Z999 P999 Z999</span><span class="src">教材《S4.docx》SD 模块 · image1158.png</span></figcaption></figure></div>
+<div class="steph" id="task20"><span class="no">任务 20</span><h3>分配拣配库存地点</h3><span class="fb">后台（配置）</span></div>
+<p>拣配库存地点：由起运点 + 工厂（+ 存储条件）决定从哪个库存地点拣货。</p>
+<div class="pathline" data-copy="后勤执行 → 装运 → 拣配 → 确定拣配地点 → 分配拣配地点"><b>教材菜单 / IMG 路径</b>后勤执行 → 装运 → 拣配 → 确定拣配地点 → 分配拣配地点</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在处理销售订单的过程中，SAP 系统除了可以自动建立起运点之外，还可以自动建立货物从哪个库存地点拣配。本配置可以根据起运点、工厂和存储条件（物料主数据的一个 参数）确定销售地点拣配的库存地点。本文中我们只需要选用起运点和工厂两个条件。</li><li class="is-note">解释：前三个灰色字段是起决定作用的起运点、工厂和存储条件。</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t20/01_1_image1159.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t20/01_1_image1159.png" width="305" height="529" alt="解释：在处理销售订单的过程中，SAP 系统除了可以自动建立起运点之外，还可以自动建立货物从哪个库存地点拣配。本配置可以根据起运点、工厂和存储条件（物料主数据的一个 参数）确定销…" loading="lazy"></a><figcaption><span class="n">画面 20-1</span><span class="cap">解释：在处理销售订单的过程中，SAP 系统除了可以自动建立起运点之外，还可以自动建立货物从哪个库存地点拣配。本配置可以根据起运点、工厂和存储条件（物料主数据的一个 参数）确定销…</span><span class="src">教材《S4.docx》SD 模块 · image1159.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t20/03_1_image1161.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t20/03_1_image1161.png" width="311" height="150" alt="解释：前三个灰色字段是起决定作用的起运点、工厂和存储条件。" loading="lazy"></a><figcaption><span class="n">画面 20-2</span><span class="cap">解释：前三个灰色字段是起决定作用的起运点、工厂和存储条件。</span><span class="src">教材《S4.docx》SD 模块 · image1161.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpD">D. 客户主数据与账户组</h2>
+<p>客户账户组的屏幕格式：决定客户主数据销售视图长什么样。</p>
+<div class="steph" id="task21"><span class="no">任务 21</span><h3>维护客户账户组的销售数据</h3><span class="fb">后台（配置）</span></div>
+<p>客户账户组的屏幕格式：决定客户主数据销售视图里哪些字段必填/可选/隐藏。</p>
+<div class="pathline" data-copy="财务会计(新) → 应收账款和应付账款 → 客户账户 → 主数据 → 创建客户主记录准备 → 定义带有屏幕格式的账户组（客户）"><b>教材菜单 / IMG 路径</b>财务会计(新) → 应收账款和应付账款 → 客户账户 → 主数据 → 创建客户主记录准备 → 定义带有屏幕格式的账户组（客户）</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在本步骤中，我们将根据不停的客户账户组维护客户销售视图中哪些参数是必须输入的，哪些是不能输入的，哪些是可选输入的。
+财务会计(新)－应收账款和应付账款－客户账户－主数据－创建客户主记录准备－定义带有屏幕格式的账户组（客户）</li><li class="">我们已经创建了两个客户账户组，在这里我们需要修改这两个客户账户组。双击 K001</li><li class="">返回，点击“发货”</li><li class="">返回点击“计费”</li><li class="">进入“销售数据”双击“销售”
+设置如下</li><li class="">返回，双击“计费”</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t21/01_1_image1162.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t21/01_1_image1162.png" width="413" height="721" alt="解释：在本步骤中，我们将根据不停的客户账户组维护客户销售视图中哪些参数是必须输入的，哪些是不能输入的，哪些是可选输入的。
+财务会计(新)－应收账款和应付账款－客户账户－主数据－…" loading="lazy"></a><figcaption><span class="n">画面 21-1</span><span class="cap">解释：在本步骤中，我们将根据不停的客户账户组维护客户销售视图中哪些参数是必须输入的，哪些是不能输入的，哪些是可选输入的。
+财务会计(新)－应收账款和应付账款－客户账户－主数据－…</span><span class="src">教材《S4.docx》SD 模块 · image1162.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t21/10_1_image1177.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t21/10_1_image1177.png" width="593" height="466" alt="返回，双击“计费”" loading="lazy"></a><figcaption><span class="n">画面 21-2</span><span class="cap">返回，双击“计费”</span><span class="src">教材《S4.docx》SD 模块 · image1177.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpE">E. 定价与税</h2>
+<p>条件技术（定价过程、过程确定）与税收确定规则。</p>
+<div class="steph" id="task22"><span class="no">任务 22</span><h3>定义定价过程</h3><span class="fb">后台（配置）</span><span class="tc">RVAA01</span></div>
+<p>定价过程（教材用 RVAA01 标准）：步骤 = 条件类型 + 计算类型 + 账码。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">销售和分销－基本功能－定价－定价控制－定义并分配定价过程</li><li class="">弹出</li><li class="">选中过程“RVAA01 ”，点击左侧的“控制数据”</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t22/01_1_image1178.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t22/01_1_image1178.png" width="324" height="487" alt="销售和分销－基本功能－定价－定价控制－定义并分配定价过程" loading="lazy"></a><figcaption><span class="n">画面 22-1</span><span class="cap">销售和分销－基本功能－定价－定价控制－定义并分配定价过程</span><span class="src">教材《S4.docx》SD 模块 · image1178.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t22/04_1_image1181.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t22/04_1_image1181.png" width="988" height="617" alt="选中过程“RVAA01 ”，点击左侧的“控制数据”" loading="lazy"></a><figcaption><span class="n">画面 22-2</span><span class="cap">选中过程“RVAA01 ”，点击左侧的“控制数据”</span><span class="src">教材《S4.docx》SD 模块 · image1181.png</span></figcaption></figure></div>
+<div class="steph" id="task23"><span class="no">任务 23</span><h3>定义客户和单据定价过程</h3><span class="fb">后台（配置）</span></div>
+<p>客户定价过程与单据定价过程：定价过程确定的两个键。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">销售和分销－基本功能－定价－定价控制－定义并分配定价过程</li><li class="is-note">解释：颐宁公司采用统一的定价过程，所以我们只需要使用系统标准的客户定价过程就可以了。这个客户定价过程参数我们将在定义客户主数据时 6.36 维护订货方主数据的销售视 图中分配。
+返回</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t23/01_1_image1182.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t23/01_1_image1182.png" width="350" height="488" alt="销售和分销－基本功能－定价－定价控制－定义并分配定价过程" loading="lazy"></a><figcaption><span class="n">画面 23-1</span><span class="cap">销售和分销－基本功能－定价－定价控制－定义并分配定价过程</span><span class="src">教材《S4.docx》SD 模块 · image1182.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t23/03_1_image1184.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t23/03_1_image1184.png" width="623" height="196" alt="解释：颐宁公司采用统一的定价过程，所以我们只需要使用系统标准的客户定价过程就可以了。这个客户定价过程参数我们将在定义客户主数据时 6.36 维护订货方主数据的销售视 图中分配。…" loading="lazy"></a><figcaption><span class="n">画面 23-2</span><span class="cap">解释：颐宁公司采用统一的定价过程，所以我们只需要使用系统标准的客户定价过程就可以了。这个客户定价过程参数我们将在定义客户主数据时 6.36 维护订货方主数据的销售视 图中分配。…</span><span class="src">教材《S4.docx》SD 模块 · image1184.png</span></figcaption></figure></div>
+<div class="steph" id="task24"><span class="no">任务 24</span><h3>定义定价过程确定</h3><span class="fb">后台（配置）</span></div>
+<p>定价过程确定：销售范围 + 客户定价过程 + 单据定价过程 → 用哪套过程。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">销售和分销－基本功能－定价－定价控制－定义并分配定价过程</li><li class="">我们来定义颐宁公司新的定价确认点击新条目</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t24/01_1_image1185.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t24/01_1_image1185.png" width="329" height="277" alt="销售和分销－基本功能－定价－定价控制－定义并分配定价过程" loading="lazy"></a><figcaption><span class="n">画面 24-1</span><span class="cap">销售和分销－基本功能－定价－定价控制－定义并分配定价过程</span><span class="src">教材《S4.docx》SD 模块 · image1185.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t24/04_1_image1188.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t24/04_1_image1188.png" width="621" height="206" alt="我们来定义颐宁公司新的定价确认点击新条目" loading="lazy"></a><figcaption><span class="n">画面 24-2</span><span class="cap">我们来定义颐宁公司新的定价确认点击新条目</span><span class="src">教材《S4.docx》SD 模块 · image1188.png</span></figcaption></figure></div>
+<div class="steph" id="task25"><span class="no">任务 25</span><h3>激活销售单据的物料清单和排斥</h3><span class="fb">后台（配置）</span></div>
+<p>物料清单与排斥（Listing / Exclusion）：限制哪些物料能在哪些客户/渠道卖。</p>
+<div class="pathline" data-copy="后勤执行 → 装运 → 基本发运功能 → 列表/排斥"><b>教材菜单 / IMG 路径</b>后勤执行 → 装运 → 基本发运功能 → 列表/排斥</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤执行－装运－基本发运功能－列表/排斥</li><li class="">双击“根据销售单据类型激活清单/排斥”</li><li class="is-note">解释：SAP 使用和销售定价类似的技术（称之为条件技术）来定义“清单”和“排斥”。根据屏幕的 7 个步骤，用户可以定义灵活的“ 清单” 和“ 排斥” 规则。在本部分我们采用 A00001清单过程和 B00001 排斥过程，都是简单地按客户来决定哪些物料是可以销售（“ 清单”），哪些物料是不可以销售（“ 排斥”）
+QT 和 OR 是本次要用的，我们将预定义的“清单”和“排斥”分配给他们。</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t25/01_1_image1189.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t25/01_1_image1189.png" width="313" height="451" alt="后勤执行－装运－基本发运功能－列表/排斥" loading="lazy"></a><figcaption><span class="n">画面 25-1</span><span class="cap">后勤执行－装运－基本发运功能－列表/排斥</span><span class="src">教材《S4.docx》SD 模块 · image1189.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t25/04_1_image1193.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t25/04_1_image1193.png" width="676" height="285" alt="后勤执行－装运－基本发运功能－列表/排斥" loading="lazy"></a><figcaption><span class="n">画面 25-2</span><span class="cap">后勤执行－装运－基本发运功能－列表/排斥</span><span class="src">教材《S4.docx》SD 模块 · image1193.png</span></figcaption></figure></div>
+<div class="steph" id="task26"><span class="no">任务 26</span><h3>维护销售单据的物料确定</h3><span class="fb">后台（配置）</span></div>
+<p>物料确定（Material Determination）：用替代物料顶替（如客户指定品牌货号）。</p>
+<div class="pathline" data-copy="后勤执行 → 装运 → 基本发运功能 → 物料确定 → 分配过程到销售凭证类型"><b>教材菜单 / IMG 路径</b>后勤执行 → 装运 → 基本发运功能 → 物料确定 → 分配过程到销售凭证类型</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在有些情况下，销售订单需要输入的商品代码不是本公司标准的物料主数据代码，比如需要输入客户的物料代码，或者需要输入国际物品编码（IAN）等。在 SAP 里不需要将这些特殊的代码维护成物料主数据，而只需要维护一个 “ 物料确定” 的规则，让系统将这些特殊代码自动替换成物料主数据。“ 物料确定”规则是由销售单据的类型决定。
+后勤执行－装运－基本发运功能－物料确定－分配过程到销售凭证类型</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t26/01_1_image1194.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t26/01_1_image1194.png" width="375" height="541" alt="解释：在有些情况下，销售订单需要输入的商品代码不是本公司标准的物料主数据代码，比如需要输入客户的物料代码，或者需要输入国际物品编码（IAN）等。在 SAP 里不需要将这些特殊的…" loading="lazy"></a><figcaption><span class="n">画面 26-1</span><span class="cap">解释：在有些情况下，销售订单需要输入的商品代码不是本公司标准的物料主数据代码，比如需要输入客户的物料代码，或者需要输入国际物品编码（IAN）等。在 SAP 里不需要将这些特殊的…</span><span class="src">教材《S4.docx》SD 模块 · image1194.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t26/03_1_image1196.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t26/03_1_image1196.png" width="505" height="277" alt="解释：在有些情况下，销售订单需要输入的商品代码不是本公司标准的物料主数据代码，比如需要输入客户的物料代码，或者需要输入国际物品编码（IAN）等。在 SAP 里不需要将这些特殊的…" loading="lazy"></a><figcaption><span class="n">画面 26-2</span><span class="cap">解释：在有些情况下，销售订单需要输入的商品代码不是本公司标准的物料主数据代码，比如需要输入客户的物料代码，或者需要输入国际物品编码（IAN）等。在 SAP 里不需要将这些特殊的…</span><span class="src">教材《S4.docx》SD 模块 · image1196.png</span></figcaption></figure></div>
+<div class="steph" id="task27"><span class="no">任务 27</span><h3>定义税收确定规则</h3><span class="fb">后台（配置）</span></div>
+<p>税收确定规则：决定税码怎么定。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 税收 → 定义税收确定规则"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 税收 → 定义税收确定规则</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t27/01_1_image1198.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t27/01_1_image1198.png" width="351" height="343" alt="定义税收确定规则" loading="lazy"></a><figcaption><span class="n">画面 27-1</span><span class="cap">定义税收确定规则</span><span class="src">教材《S4.docx》· SD 任务 27 定义税收确定规则</span></figcaption></figure>
+<div class="steph" id="task28"><span class="no">任务 28</span><h3>定义客户税分类和物料税分类</h3><span class="fb">后台（配置）</span></div>
+<p>客户税分类 + 物料税分类 → 决定税码（销项税算多少）。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 税收 → 定义主记录数据相关性"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 税收 → 定义主记录数据相关性</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在销售订单定价的过程中，销项税（条件类型 MWST）的具体税率是由客户和物料两个因素决定的。客户是通过客户主数据中的 “ 税分类” 参数决定的，而物料是通过物料主数据中的“税分类”参数决定的。</li><li class="">点击“客户”税款</li><li class="">税分类会维护在客户主数据中，在销售订单的处理过程会根据客户和物料中的税分类决定适用税率</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t28/01_1_image1200.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t28/01_1_image1200.png" width="344" height="367" alt="解释：在销售订单定价的过程中，销项税（条件类型 MWST）的具体税率是由客户和物料两个因素决定的。客户是通过客户主数据中的 “ 税分类” 参数决定的，而物料是通过物料主数据中的…" loading="lazy"></a><figcaption><span class="n">画面 28-1</span><span class="cap">解释：在销售订单定价的过程中，销项税（条件类型 MWST）的具体税率是由客户和物料两个因素决定的。客户是通过客户主数据中的 “ 税分类” 参数决定的，而物料是通过物料主数据中的…</span><span class="src">教材《S4.docx》SD 模块 · image1202.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t28/04_1_image1206.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t28/04_1_image1206.png" width="502" height="538" alt="税分类会维护在客户主数据中，在销售订单的处理过程会根据客户和物料中的税分类决定适用税率" loading="lazy"></a><figcaption><span class="n">画面 28-2</span><span class="cap">税分类会维护在客户主数据中，在销售订单的处理过程会根据客户和物料中的税分类决定适用税率</span><span class="src">教材《S4.docx》SD 模块 · image1206.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpF">F. 账户确定与更新组</h2>
+<p>收入科目怎么定（账户确定）；分析报表的数据怎么进（更新组）。</p>
+<div class="steph" id="task29"><span class="no">任务 29</span><h3>定义物料账户分配组</h3><span class="fb">后台（配置）</span></div>
+<p>物料账户分配组：教材用 M1 自制产品 / M2 贸易商品，直接决定收入科目。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定 → 检查科目分配的相关主数据"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定 → 检查科目分配的相关主数据</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在销售订单开票时，系统会自动生成发票的会计凭证，其中销售收入科目在系统中可以由物料、客户等因素决定。颐宁公司对于销售收入科目只需要按物料分成 “ 自制产品” 和 “贸易商品” 两个科目。物料对销售收入科目的决定作用是通过物料主数据中的 “ 账户分配组”实现的。
+销售和分销－基本功能－科目分配/成本－收入账户确定－检查科目分配的相关主数据</li><li class="">双击物料：账户分配组</li><li class="">M1 自制产品-颐宁
+返回，双击“客户：科目分配组”</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t29/01_1_image1207.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t29/01_1_image1207.png" width="396" height="607" alt="解释：在销售订单开票时，系统会自动生成发票的会计凭证，其中销售收入科目在系统中可以由物料、客户等因素决定。颐宁公司对于销售收入科目只需要按物料分成 “ 自制产品” 和 “贸易商…" loading="lazy"></a><figcaption><span class="n">画面 29-1</span><span class="cap">解释：在销售订单开票时，系统会自动生成发票的会计凭证，其中销售收入科目在系统中可以由物料、客户等因素决定。颐宁公司对于销售收入科目只需要按物料分成 “ 自制产品” 和 “贸易商…</span><span class="src">教材《S4.docx》SD 模块 · image1207.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t29/05_1_image1211.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t29/05_1_image1211.png" width="348" height="197" alt="M1 自制产品-颐宁
+返回，双击“客户：科目分配组”" loading="lazy"></a><figcaption><span class="n">画面 29-2</span><span class="cap">M1 自制产品-颐宁
+返回，双击“客户：科目分配组”</span><span class="src">教材《S4.docx》SD 模块 · image1211.png</span></figcaption></figure></div>
+<div class="steph" id="task30"><span class="no">任务 30</span><h3>维护销售收入的总帐科目</h3><span class="fb">后台（配置）</span></div>
+<p>把收入科目分配到账户确定（账码 + 账户分配组 → 科目）。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定 → 分配总帐科目"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定 → 分配总帐科目</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">销售和分销－基本功能－科目分配/成本－收入账户确定－分配总帐科目</li><li class="">销售收入科目可能收到各种因素的影响，但颐宁公司的是由物料决定的。双击“表格 3 物料组/账户关键字”</li><li class="">新建</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t30/01_1_image1212.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t30/01_1_image1212.png" width="342" height="362" alt="销售和分销－基本功能－科目分配/成本－收入账户确定－分配总帐科目" loading="lazy"></a><figcaption><span class="n">画面 30-1</span><span class="cap">销售和分销－基本功能－科目分配/成本－收入账户确定－分配总帐科目</span><span class="src">教材《S4.docx》SD 模块 · image1212.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t30/03_1_image1215.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t30/03_1_image1215.png" width="492" height="231" alt="新建" loading="lazy"></a><figcaption><span class="n">画面 30-2</span><span class="cap">新建</span><span class="src">教材《S4.docx》SD 模块 · image1215.png</span></figcaption></figure></div>
+<div class="steph" id="task31"><span class="no">任务 31</span><h3>在销售单据抬头等级分配更新组</h3><span class="fb">后台（配置）</span></div>
+<p>抬头级更新组：哪些抬头数据进入后勤信息系统（分析报表的前提）。</p>
+<div class="pathline" data-copy="后勤常规 → 后勤信息系统 → 后勤数据仓库 → 更新 → 更新控制 → 设置：销售和分销 → 更新组 → 在抬头等级分配更新组"><b>教材菜单 / IMG 路径</b>后勤常规 → 后勤信息系统 → 后勤数据仓库 → 更新 → 更新控制 → 设置：销售和分销 → 更新组 → 在抬头等级分配更新组</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在抬头等级分配更新组</li><li class="is-note">解释：SAP 后勤系统包含了很多分析工具和分析报表，对于销售和分销我们需要在本步骤和下一个步骤中激活业务数据对后勤信息系统的信息更新，这样这些报表才会包含数据。本步骤是销售单据抬头的更新规则，是由销售范围、客户和销售单据类型来决定的。
+解释：上图是所有已经激活更新后勤信息系统的销售凭证抬头的清单点击新建</li><li class="">设置其他抬头等级分配更新组。</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t31/01_1_image1216.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t31/01_1_image1216.png" width="331" height="825" alt="后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在抬头等级分配更新组" loading="lazy"></a><figcaption><span class="n">画面 31-1</span><span class="cap">后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在抬头等级分配更新组</span><span class="src">教材《S4.docx》SD 模块 · image1216.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t31/07_1_image1224.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t31/07_1_image1224.png" width="494" height="229" alt="后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在抬头等级分配更新组" loading="lazy"></a><figcaption><span class="n">画面 31-2</span><span class="cap">后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在抬头等级分配更新组</span><span class="src">教材《S4.docx》SD 模块 · image1224.png</span></figcaption></figure></div>
+<div class="steph" id="task32"><span class="no">任务 32</span><h3>在销售单据项目等级分配更新组</h3><span class="fb">后台（配置）</span></div>
+<p>项目级更新组：项目级数据（物料、数量、金额）是否更新。</p>
+<div class="pathline" data-copy="后勤常规 → 后勤信息系统 → 后勤数据仓库 → 更新 → 更新控制 → 设置：销售和分销 → 更新组 → 在项目等级分配更新组"><b>教材菜单 / IMG 路径</b>后勤常规 → 后勤信息系统 → 后勤数据仓库 → 更新 → 更新控制 → 设置：销售和分销 → 更新组 → 在项目等级分配更新组</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在项目等级分配更新组</li><li class="is-note">解释：SAP 后勤信息系统包含很多分析工具和分析报表。对于 SD，我们需要在本步骤和上步骤激活业务数据对后勤信息系统的信息更新，这些报表才会包含数据。本步骤是销售单据项目级别的更新规则，是由销售范围、客户、物料销售单据类型、行项目类别决定的。
+解释：列表中是已经激活更新后勤信息系统的销售凭证行项目级别的清单，点击新条目</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t32/01_1_image1228.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t32/01_1_image1228.png" width="408" height="676" alt="后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在项目等级分配更新组" loading="lazy"></a><figcaption><span class="n">画面 32-1</span><span class="cap">后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在项目等级分配更新组</span><span class="src">教材《S4.docx》SD 模块 · image1230.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t32/04_1_image1239.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t32/04_1_image1239.png" width="657" height="284" alt="后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在项目等级分配更新组" loading="lazy"></a><figcaption><span class="n">画面 32-2</span><span class="cap">后勤常规－后勤信息系统－后勤数据仓库－更新－更新控制－设置：销售和分销－更新组－在项目等级分配更新组</span><span class="src">教材《S4.docx》SD 模块 · image1239.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpG">G. 合作伙伴确定</h2>
+<p>四个伙伴角色从哪来。</p>
+<div class="steph" id="task33"><span class="no">任务 33</span><h3>设置合作伙伴确定</h3><span class="fb">后台（配置）</span></div>
+<p>合作伙伴确定：一张单据里的四个角色从哪来（客户主数据带出）。</p>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 合作伙伴确定 → 设置合作伙伴确定"><b>教材菜单 / IMG 路径</b>销售和分销 → 基本功能 → 合作伙伴确定 → 设置合作伙伴确定</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">销售和分销－基本功能－合作伙伴确定－设置合作伙伴确定</li><li class="is-note">解释：系统中合作伙伴的确定受很多因素影响，也非常灵活，本次我们只增加客户主数据的相关配置，其他的使用系统预定义的内容。</li><li class="is-note">双击“设置客户主数据的合作伙伴确认”
+解释：和客户主数据相关的配置也有很多，我们基本采用预定义的内容，只是维护颐宁公司新建的客户账户组的功能分配，即各客户账户组可以扮演什么合作伙伴功能角色。</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t33/01_1_image1241.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t33/01_1_image1241.png" width="291" height="638" alt="销售和分销－基本功能－合作伙伴确定－设置合作伙伴确定" loading="lazy"></a><figcaption><span class="n">画面 33-1</span><span class="cap">销售和分销－基本功能－合作伙伴确定－设置合作伙伴确定</span><span class="src">教材《S4.docx》SD 模块 · image1241.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t33/04_1_image1245.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t33/04_1_image1245.png" width="678" height="280" alt="销售和分销－基本功能－合作伙伴确定－设置合作伙伴确定" loading="lazy"></a><figcaption><span class="n">画面 33-2</span><span class="cap">销售和分销－基本功能－合作伙伴确定－设置合作伙伴确定</span><span class="src">教材《S4.docx》SD 模块 · image1245.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpH">H. 主数据维护（前台）</h2>
+<p>物料销售视图、条件记录、客户与送达方的主数据。</p>
+<div class="steph" id="task34"><span class="no">任务 34</span><h3>维护物料主数据的销售视图</h3><span class="fb">前台</span><span class="tc">MM01</span></div>
+<p>物料主数据销售视图：能不能卖、项目类别组、税分类、账户分配组、装运条件。</p>
+<div class="pathline" data-copy="后勤 → 物料管理 → 物料主记录 → 物料 → 创建（一般） → MM01 立即"><b>教材菜单 / IMG 路径</b>后勤 → 物料管理 → 物料主记录 → 物料 → 创建（一般） → MM01 立即</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：颐宁公司的产成品“铸钢泵 170－23”和贸易商品“高速增压涡轮泵”会对外销售，在使用这两个物料时需要维护这两种物料主数据的销售视图
+后勤－物料管理－物料主记录－物料－创建（一般）－MM01 立即</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t34/01_1_image1246.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t34/01_1_image1246.png" width="252" height="428" alt="解释：颐宁公司的产成品“铸钢泵 170－23”和贸易商品“高速增压涡轮泵”会对外销售，在使用这两个物料时需要维护这两种物料主数据的销售视图
+后勤－物料管理－物料主记录－物料－创…" loading="lazy"></a><figcaption><span class="n">画面 34-1</span><span class="cap">解释：颐宁公司的产成品“铸钢泵 170－23”和贸易商品“高速增压涡轮泵”会对外销售，在使用这两个物料时需要维护这两种物料主数据的销售视图
+后勤－物料管理－物料主记录－物料－创…</span><span class="src">教材《S4.docx》SD 模块 · image1246.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t34/03_1_image1254.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t34/03_1_image1254.png" width="633" height="591" alt="解释：颐宁公司的产成品“铸钢泵 170－23”和贸易商品“高速增压涡轮泵”会对外销售，在使用这两个物料时需要维护这两种物料主数据的销售视图
+后勤－物料管理－物料主记录－物料－创…" loading="lazy"></a><figcaption><span class="n">画面 34-2</span><span class="cap">解释：颐宁公司的产成品“铸钢泵 170－23”和贸易商品“高速增压涡轮泵”会对外销售，在使用这两个物料时需要维护这两种物料主数据的销售视图
+后勤－物料管理－物料主记录－物料－创…</span><span class="src">教材《S4.docx》SD 模块 · image1254.png</span></figcaption></figure></div>
+<div class="steph" id="task35"><span class="no">任务 35</span><h3>维护物料的销售价格</h3><span class="fb">前台</span><span class="tc">VK11</span></div>
+<p>VK11 维护销售价格（条件类型 PR00）：价格真正的落点。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：在前面，我们定义了销售价格的计算过程。在本步骤中，我们将实际维护价格表，为颐宁公司的“铸钢泵 170－230”和“高速增压涡轮泵”维护销售价格。SAP 是按照定价过程中的条件类型来维护的，本步骤维护的是条件类型 PR00 物料价格
+后勤－销售和分销－主数据－条件－按条件类型选择－VK11－创建</li><li class="">PR00 代表销售价格</li><li class="">如果有层级报价，双击物料进入层级定价</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t35/01_1_image1256.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t35/01_1_image1256.png" width="313" height="379" alt="解释：在前面，我们定义了销售价格的计算过程。在本步骤中，我们将实际维护价格表，为颐宁公司的“铸钢泵 170－230”和“高速增压涡轮泵”维护销售价格。SAP 是按照定价过程中的…" loading="lazy"></a><figcaption><span class="n">画面 35-1</span><span class="cap">解释：在前面，我们定义了销售价格的计算过程。在本步骤中，我们将实际维护价格表，为颐宁公司的“铸钢泵 170－230”和“高速增压涡轮泵”维护销售价格。SAP 是按照定价过程中的…</span><span class="src">教材《S4.docx》SD 模块 · image1256.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t35/04_1_image1260.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t35/04_1_image1260.png" width="624" height="403" alt="如果有层级报价，双击物料进入层级定价" loading="lazy"></a><figcaption><span class="n">画面 35-2</span><span class="cap">如果有层级报价，双击物料进入层级定价</span><span class="src">教材《S4.docx》SD 模块 · image1260.png</span></figcaption></figure></div>
+<div class="steph" id="task36"><span class="no">任务 36</span><h3>维护销项税税率</h3><span class="fb">前台</span><span class="tc">VK11</span></div>
+<p>VK11 维护销项税税率（条件类型 MWST）。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：销项税也是在销售订单定价过程中计算的，条件类型 MWST。着也是作为一种价格维护，所不同的是通过税码来间接得到税率的。</li></ol>
+<div class="shot-grid"><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t36/01_1_image1261.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t36/01_1_image1261.png" width="294" height="141" alt="解释：销项税也是在销售订单定价过程中计算的，条件类型 MWST。着也是作为一种价格维护，所不同的是通过税码来间接得到税率的。" loading="lazy"></a><figcaption><span class="n">画面 36-1</span><span class="cap">解释：销项税也是在销售订单定价过程中计算的，条件类型 MWST。着也是作为一种价格维护，所不同的是通过税码来间接得到税率的。</span><span class="src">教材《S4.docx》SD 模块 · image1261.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t36/03_1_image1264.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t36/03_1_image1264.png" width="781" height="556" alt="解释：销项税也是在销售订单定价过程中计算的，条件类型 MWST。着也是作为一种价格维护，所不同的是通过税码来间接得到税率的。" loading="lazy"></a><figcaption><span class="n">画面 36-2</span><span class="cap">解释：销项税也是在销售订单定价过程中计算的，条件类型 MWST。着也是作为一种价格维护，所不同的是通过税码来间接得到税率的。</span><span class="src">教材《S4.docx》SD 模块 · image1264.png</span></figcaption></figure></div>
+<div class="steph" id="task37"><span class="no">任务 37</span><h3>维护订货方主数据的销售视图</h3><span class="fb">前台</span><span class="tc">VD01</span></div>
+<p>客户主数据销售视图（VD01）：销售范围、客户定价过程、运送条件、税分类。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 业务伙伴 → 客户 → 创建 → VD01"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 主数据 → 业务伙伴 → 客户 → 创建 → VD01</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：K001 订货方－颐宁账户组下的客户只创建了财务数据，没有建立销售视图前台
+后勤－销售和分销－主数据－业务伙伴－客户－创建－VD01</li><li class="">账户分配组，01 为国内收入。客户的账户分配组也可以影响自动确定销售收入的总帐科目，但是我们在6.29 维护销售收入的总帐科目中只维护了颐宁公司根据物料确定销售收入科
+目，所以客户主数据中这个参数不起作用</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t37/01_1_image1265.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t37/01_1_image1265.png" width="522" height="572" alt="解释：K001 订货方－颐宁账户组下的客户只创建了财务数据，没有建立销售视图前台
+后勤－销售和分销－主数据－业务伙伴－客户－创建－VD01" loading="lazy"></a><figcaption><span class="n">画面 37-1</span><span class="cap">解释：K001 订货方－颐宁账户组下的客户只创建了财务数据，没有建立销售视图前台
+后勤－销售和分销－主数据－业务伙伴－客户－创建－VD01</span><span class="src">教材《S4.docx》SD 模块 · image1265.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t37/07_1_image1273.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t37/07_1_image1273.png" width="522" height="572" alt="解释：K001 订货方－颐宁账户组下的客户只创建了财务数据，没有建立销售视图前台
+后勤－销售和分销－主数据－业务伙伴－客户－创建－VD01" loading="lazy"></a><figcaption><span class="n">画面 37-2</span><span class="cap">解释：K001 订货方－颐宁账户组下的客户只创建了财务数据，没有建立销售视图前台
+后勤－销售和分销－主数据－业务伙伴－客户－创建－VD01</span><span class="src">教材《S4.docx》SD 模块 · image1275.png</span></figcaption></figure></div>
+<div class="steph" id="task38"><span class="no">任务 38</span><h3>维护收货方的销售视图</h3><span class="fb">前台</span><span class="tc">VD01</span></div>
+<p>收货方（送达方）客户的销售视图：交货送到哪里。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 创建 VD01"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 创建 VD01</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤－销售和分销－主数据－业务合作伙伴－客户－创建 VD01</li><li class="">远东造船三厂只是远东造船厂的销售订单的送达方，所以销售页面没什么要维护的。点击发送，进入</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t38/01_1_image1278.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t38/01_1_image1278.png" width="522" height="572" alt="后勤－销售和分销－主数据－业务合作伙伴－客户－创建 VD01" loading="lazy"></a><figcaption><span class="n">画面 38-1</span><span class="cap">后勤－销售和分销－主数据－业务合作伙伴－客户－创建 VD01</span><span class="src">教材《S4.docx》SD 模块 · image1280.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t38/03_1_image1283.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t38/03_1_image1283.png" width="661" height="514" alt="后勤－销售和分销－主数据－业务合作伙伴－客户－创建 VD01" loading="lazy"></a><figcaption><span class="n">画面 38-2</span><span class="cap">后勤－销售和分销－主数据－业务合作伙伴－客户－创建 VD01</span><span class="src">教材《S4.docx》SD 模块 · image1283.png</span></figcaption></figure></div>
+<div class="steph" id="task39"><span class="no">任务 39</span><h3>将收货方分配给订货方</h3><span class="fb">前台</span><span class="tc">VD02</span></div>
+<p>把收货方分配给订货方（VD02 → 伙伴功能）：一个订货方可以有多个送达方。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 更改 → VD02"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 更改 → VD02</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：颐宁公司的客户远东造船厂的销售订单，收货方还有可能是它的分公司远东造船厂第三分公司。要处理这样的关系，我们在远东造船厂的客户主数据中必须将第三分公司作为“ 送达方”维护
+后勤－销售和分销－主数据－业务合作伙伴－客户－更改－VD02</li><li class="">点击销售区域数据</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t39/01_1_image1284.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t39/01_1_image1284.png" width="345" height="379" alt="解释：颐宁公司的客户远东造船厂的销售订单，收货方还有可能是它的分公司远东造船厂第三分公司。要处理这样的关系，我们在远东造船厂的客户主数据中必须将第三分公司作为“ 送达方”维护
+…" loading="lazy"></a><figcaption><span class="n">画面 39-1</span><span class="cap">解释：颐宁公司的客户远东造船厂的销售订单，收货方还有可能是它的分公司远东造船厂第三分公司。要处理这样的关系，我们在远东造船厂的客户主数据中必须将第三分公司作为“ 送达方”维护
+…</span><span class="src">教材《S4.docx》SD 模块 · image1284.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t39/04_1_image1287.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t39/04_1_image1287.png" width="698" height="439" alt="解释：颐宁公司的客户远东造船厂的销售订单，收货方还有可能是它的分公司远东造船厂第三分公司。要处理这样的关系，我们在远东造船厂的客户主数据中必须将第三分公司作为“ 送达方”维护
+…" loading="lazy"></a><figcaption><span class="n">画面 39-2</span><span class="cap">解释：颐宁公司的客户远东造船厂的销售订单，收货方还有可能是它的分公司远东造船厂第三分公司。要处理这样的关系，我们在远东造船厂的客户主数据中必须将第三分公司作为“ 送达方”维护
+…</span><span class="src">教材《S4.docx》SD 模块 · image1287.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="grpI">I. 销售流程（前台）</h2>
+<p>报价 → 订单 → 交货 → 发票 → 下达 → 单据流。</p>
+<div class="steph" id="task40"><span class="no">任务 40</span><h3>创建报价</h3><span class="fb">前台</span><span class="tc">VA21</span></div>
+<p>报价 VA21：给客户正式价格，可含有效期。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售 → 报价 → VA21-创建"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 销售 → 报价 → VA21-创建</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="is-note">解释：远东造船厂有一个销售意向，要求颐宁销售组织提供 30 件铸钢泵 170-230，我们在本步骤来报价
+后勤－销售和分销－销售－报价－VA21-创建</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t40/01_1_image1288.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t40/01_1_image1288.png" width="664" height="309" alt="解释：远东造船厂有一个销售意向，要求颐宁销售组织提供 30 件铸钢泵 170-230，我们在本步骤来报价
+后勤－销售和分销－销售－报价－VA21-创建" loading="lazy"></a><figcaption><span class="n">画面 40-1</span><span class="cap">解释：远东造船厂有一个销售意向，要求颐宁销售组织提供 30 件铸钢泵 170-230，我们在本步骤来报价
+后勤－销售和分销－销售－报价－VA21-创建</span><span class="src">教材《S4.docx》SD 模块 · image1288.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t40/02_1_image1289.jpeg" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t40/02_1_image1289.jpeg" width="1213" height="484" alt="解释：远东造船厂有一个销售意向，要求颐宁销售组织提供 30 件铸钢泵 170-230，我们在本步骤来报价
+后勤－销售和分销－销售－报价－VA21-创建" loading="lazy"></a><figcaption><span class="n">画面 40-2</span><span class="cap">解释：远东造船厂有一个销售意向，要求颐宁销售组织提供 30 件铸钢泵 170-230，我们在本步骤来报价
+后勤－销售和分销－销售－报价－VA21-创建</span><span class="src">教材《S4.docx》SD 模块 · image1289.jpeg</span></figcaption></figure></div>
+<div class="steph" id="task41"><span class="no">任务 41</span><h3>创建销售订单</h3><span class="fb">前台</span></div>
+<p>销售订单：参照报价创建（后继功能 → V-01 订单），定价与可用性检查。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售 → 报价 → 后继功能 → V-01-订单"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 销售 → 报价 → 后继功能 → V-01-订单</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤－销售和分销－销售－报价－后继功能－V-01-订单</li><li class="">点击有参照创建</li><li class="">系统显示无可用库存，点击继续（建议通过MB1C 501无订单收货后再做后续的操作）</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t41/01_1_image1297.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/01_1_image1297.png" width="338" height="409" alt="后勤－销售和分销－销售－报价－后继功能－V-01-订单" loading="lazy"></a><figcaption><span class="n">画面 41-1</span><span class="cap">后勤－销售和分销－销售－报价－后继功能－V-01-订单</span><span class="src">教材《S4.docx》SD 模块 · image1297.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t41/05_1_image1302.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/05_1_image1302.png" width="178" height="37" alt="后勤－销售和分销－销售－报价－后继功能－V-01-订单" loading="lazy"></a><figcaption><span class="n">画面 41-2</span><span class="cap">后勤－销售和分销－销售－报价－后继功能－V-01-订单</span><span class="src">教材《S4.docx》SD 模块 · image1302.png</span></figcaption></figure></div>
+<div class="steph" id="task42"><span class="no">任务 42</span><h3>创建外向交货</h3><span class="fb">前台</span><span class="tc">VL01N</span></div>
+<p>外向交货 VL01N：确定起运点、拣配库存地点与交货内容。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 装运和运输 → 外向交货 → 创建 → 单个凭证 → VL01N"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 装运和运输 → 外向交货 → 创建 → 单个凭证 → VL01N</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤－销售和分销－装运和运输－外向交货－创建－单个凭证－VL01N</li><li class="">后勤－销售和分销－装运和运输－外向交货－更改－VL01N-单个凭证</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t42/01_1_image1303.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/01_1_image1303.png" width="362" height="403" alt="后勤－销售和分销－装运和运输－外向交货－创建－单个凭证－VL01N" loading="lazy"></a><figcaption><span class="n">画面 42-1</span><span class="cap">后勤－销售和分销－装运和运输－外向交货－创建－单个凭证－VL01N</span><span class="src">教材《S4.docx》SD 模块 · image1303.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t42/03_1_image1306.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/03_1_image1306.png" width="213" height="28" alt="后勤－销售和分销－装运和运输－外向交货－创建－单个凭证－VL01N" loading="lazy"></a><figcaption><span class="n">画面 42-2</span><span class="cap">后勤－销售和分销－装运和运输－外向交货－创建－单个凭证－VL01N</span><span class="src">教材《S4.docx》SD 模块 · image1306.png</span></figcaption></figure></div>
+<div class="steph" id="task43"><span class="no">任务 43</span><h3>创建发票凭证</h3><span class="fb">前台</span><span class="tc">VF01</span></div>
+<p>发票 VF01：参照交货开票，生成发票凭证。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 出具发票 → 出具发票凭证 → VF01-创建"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 出具发票 → 出具发票凭证 → VF01-创建</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">后勤－销售和分销－出具发票－出具发票凭证－VF01-创建</li><li class="">点击保存</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t43/01_1_image1307.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t43/01_1_image1307.png" width="636" height="603" alt="后勤－销售和分销－出具发票－出具发票凭证－VF01-创建" loading="lazy"></a><figcaption><span class="n">画面 43-1</span><span class="cap">后勤－销售和分销－出具发票－出具发票凭证－VF01-创建</span><span class="src">教材《S4.docx》SD 模块 · image1307.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t43/03_1_image1309.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t43/03_1_image1309.png" width="188" height="33" alt="点击保存" loading="lazy"></a><figcaption><span class="n">画面 43-2</span><span class="cap">点击保存</span><span class="src">教材《S4.docx》SD 模块 · image1309.png</span></figcaption></figure></div>
+<div class="steph" id="task44"><span class="no">任务 44</span><h3>下达发票</h3><span class="fb">前台</span><span class="tc">VF02</span></div>
+<p>下达发票 VF02：过账到财务会计，生成会计凭证。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 出具发票 → 出具发票凭证 → VF02-修改"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 出具发票 → 出具发票凭证 → VF02-修改</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">将上步的销售发票凭证过账到财务会计前台
+后勤－销售和分销－出具发票－出具发票凭证－VF02-修改</li><li class="">按小旗子，屏幕下方会提示凭证已经传送到记账，点击会计</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t44/01_1_image1310.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/01_1_image1310.png" width="643" height="376" alt="将上步的销售发票凭证过账到财务会计前台
+后勤－销售和分销－出具发票－出具发票凭证－VF02-修改" loading="lazy"></a><figcaption><span class="n">画面 44-1</span><span class="cap">将上步的销售发票凭证过账到财务会计前台
+后勤－销售和分销－出具发票－出具发票凭证－VF02-修改</span><span class="src">教材《S4.docx》SD 模块 · image1310.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t44/03_1_image1312.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/03_1_image1312.png" width="375" height="356" alt="将上步的销售发票凭证过账到财务会计前台
+后勤－销售和分销－出具发票－出具发票凭证－VF02-修改" loading="lazy"></a><figcaption><span class="n">画面 44-2</span><span class="cap">将上步的销售发票凭证过账到财务会计前台
+后勤－销售和分销－出具发票－出具发票凭证－VF02-修改</span><span class="src">教材《S4.docx》SD 模块 · image1312.png</span></figcaption></figure></div>
+<div class="steph" id="task45"><span class="no">任务 45</span><h3>点击原始凭证</h3><span class="fb">前台</span></div>
+<p>点「原始凭证」：验证单据流（发票 → 交货 → 订单）。</p>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t45/01_1_image1313.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t45/01_1_image1313.png" width="968" height="226" alt="点击原始凭证" loading="lazy"></a><figcaption><span class="n">画面 45-1</span><span class="cap">点击原始凭证</span><span class="src">教材《S4.docx》· SD 任务 45 点击原始凭证</span></figcaption></figure>
+<hr class="sep">
+<h2 id="grpJ">J. 分析与报表</h2>
+<p>订单清单、销售分析、总帐报表与教材踩坑集。</p>
+<div class="steph" id="task46"><span class="no">任务 46</span><h3>显示销售订单明细清单</h3><span class="fb">前台</span><span class="tc">VA05</span></div>
+<p>VA05 销售订单明细清单：日常跟进订单的入口。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售 → 信息系统 → 订单 → VA05-销售订单清单"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 销售 → 信息系统 → 订单 → VA05-销售订单清单</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t46/01_1_image1314.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t46/01_1_image1314.png" width="638" height="400" alt="显示销售订单明细清单" loading="lazy"></a><figcaption><span class="n">画面 46-1</span><span class="cap">显示销售订单明细清单</span><span class="src">教材《S4.docx》· SD 任务 46 显示销售订单明细清单</span></figcaption></figure>
+<div class="steph" id="task47"><span class="no">任务 47</span><h3>销售分析</h3><span class="fb">前台</span><span class="tc">MCTA</span></div>
+<p>MCTA 销售分析：标准分析报表（需先激活更新组并维护统计组）。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售信息系统 → 标准分析 → MCTA-客户"><b>教材菜单 / IMG 路径</b>后勤 → 销售和分销 → 销售信息系统 → 标准分析 → MCTA-客户</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">本步骤需在 30 和 31 中事先激活，并在客户和物料主数据中维护统计组，这些标准分析才会有数据</li><li class="">点击转换细分</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t47/01_1_image1316.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t47/01_1_image1316.png" width="825" height="409" alt="本步骤需在 30 和 31 中事先激活，并在客户和物料主数据中维护统计组，这些标准分析才会有数据" loading="lazy"></a><figcaption><span class="n">画面 47-1</span><span class="cap">本步骤需在 30 和 31 中事先激活，并在客户和物料主数据中维护统计组，这些标准分析才会有数据</span><span class="src">教材《S4.docx》SD 模块 · image1316.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t47/03_1_image1319.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t47/03_1_image1319.png" width="642" height="196" alt="本步骤需在 30 和 31 中事先激活，并在客户和物料主数据中维护统计组，这些标准分析才会有数据" loading="lazy"></a><figcaption><span class="n">画面 47-2</span><span class="cap">本步骤需在 30 和 31 中事先激活，并在客户和物料主数据中维护统计组，这些标准分析才会有数据</span><span class="src">教材《S4.docx》SD 模块 · image1319.png</span></figcaption></figure></div>
+<div class="steph" id="task48"><span class="no">任务 48</span><h3>运行资产负债表</h3><span class="fb">后台（配置）</span><span class="tc">FS00</span><span class="tc">MIRO</span><span class="tc">CK11N</span><span class="tc">CK24</span><span class="tc">VL01N</span><span class="tc">OBYC</span></div>
+<p>总帐报表（资产负债表等）与教材踩坑集：期末验证收入与税，含大量环境问题的解法。</p>
+<div class="pathline" data-copy="会计 → 财务会计 → 总分类帐 → 信息系统 → 总帐报表 → 资产负债表/损益表/现金流 → 一般的"><b>教材菜单 / IMG 路径</b>会计 → 财务会计 → 总分类帐 → 信息系统 → 总帐报表 → 资产负债表/损益表/现金流 → 一般的</div>
+<p class="opcap"><span class="lead">手顺要点</span>（教材原文的逐步说明）</p>
+<ol class="oplist" start="1"><li class="">会计－财务会计－总分类帐－信息系统－总帐报表－资产负债表/损益表/现金流－一般的</li><li class="">路径：SPRO -> 财务会计（新）-> 财务会计全局设置（新）-> 销售/购置税 -> 基本设置 -> 向计算程序分配国家</li><li class="">作业类型无法设置，也可以通过该办法解决</li><li class="">客户化错误：非当前业务交易组</li><li class="">其二RK811XUP（对所有的集团）目前用 RK811UPD 代替前者</li><li class="">是CLIENT COPY 不完整造成的，
+请运行se38一下，执行两个程序中的一个：其一RK811XST(仅在当前的集团），</li><li class="">“+”代表只允许销项税。 “*”代表允许所有的税类型。
+然后就能正常入发票付款了。注意，退出MIRO 重新进入！</li><li class="">通过CK11N要，按照如下方式维护价格，即可。</li><li class="">退出CK11N，然后重新执行CK24</li><li class="">MB1C 501 录入期初库存，可以解决无法创建VL01N外向交货单的问题</li></ol>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t48/01_1_image1320.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/01_1_image1320.png" width="600" height="537" alt="会计－财务会计－总分类帐－信息系统－总帐报表－资产负债表/损益表/现金流－一般的" loading="lazy"></a><figcaption><span class="n">画面 48-1</span><span class="cap">会计－财务会计－总分类帐－信息系统－总帐报表－资产负债表/损益表/现金流－一般的</span><span class="src">教材《S4.docx》SD 模块 · image1320.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t48/25_1_image1384.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/25_1_image1384.png" width="423" height="340" alt="会计－财务会计－总分类帐－信息系统－总帐报表－资产负债表/损益表/现金流－一般的" loading="lazy"></a><figcaption><span class="n">画面 48-2</span><span class="cap">会计－财务会计－总分类帐－信息系统－总帐报表－资产负债表/损益表/现金流－一般的</span><span class="src">教材《S4.docx》SD 模块 · image1384.png</span></figcaption></figure></div>
+<hr class="sep">
+<h2 id="why">K. 配置顺序为什么是这个顺序</h2>
+<ol class="steps"><li><b>组织结构</b>（A~C）：数据和单据都要填组织键，组织不存在，后面什么都建不了。</li><li><b>客户账户组与定价</b>（D~F）：主数据的屏幕格式、价格怎么算、记到哪个科目，都属于「规则」。</li><li><b>合作伙伴确定</b>（G）：单据上的角色从哪里来。</li><li><b>主数据</b>（H）：规则定好后再建客户与物料，因为主数据要填的就是这些规则字段。</li><li><b>单据流程</b>（I）：配置和主数据都就绪，订单才能一路跑到发票。</li><li><b>分析</b>（J）：最后打开统计更新，让报表有数据。</li></ol>
+<div class="note tip"><span class="t">实训环境的现实</span>真实项目里这些配置里可能已有一部分是标准值（可直接用），不需要全部自建。课程建议：<b>先把 A~C 与 E 走一遍</b>（组织、装运、定价），其余理解即可，遇到再查这一页。</div>
+<h2 id="check">L. 自检清单</h2>
+<div class="box ok"><b class="t">配置做完后，用这五条验收</b><ol><li>客户主数据：能在至少一个销售范围建出销售视图（VD01/XD01）。</li><li>物料主数据：能建出销售视图，并看到项目类别组、税分类、账户分配组有值。</li><li>条件记录：<code>VK13</code> 能查到该销售范围 + 物料的 PR00 价格。</li><li>订单：<code>VA01</code> 建单后价格自动带出、确认交货日期有值。</li><li>全链：订单 → <code>VL01N</code> 交货 → 发货过账 → <code>VF01</code> 开票 → <code>VF02</code> 下达，并在 <code>VF03</code> 里能看到会计凭证。</li></ol></div>
+<ol class="steps"><li>回 <a href="practice.html"><b>实训任务</b></a> 按 5 个任务实操。</li><li>查不到字段含义时看 <a href="glossary.html"><b>术语表</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

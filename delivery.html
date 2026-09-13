@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交货与发货过账 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a class="active" href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <a href="flow.html">流程</a> / <span>交货与发货</span></p>
+<h1>流程 ② 外向交货与发货过账（局部详解）</h1>
+<p class="kicker">VL01N 创建 · 起运点 · 拣配 · VL02N 发货过账（601）· 库存与会计</p>
+<div class="toc"><a href="#what">1. 交货解决什么</a><a href="#create">2. 创建交货</a><a href="#pick">3. 拣配</a><a href="#pgi">4. 发货过账</a><a href="#effect">5. 库存与会计的影响</a><a href="#shots">6. 真实画面</a><a href="#check">7. 排错与自检</a></div>
+<h2 id="what">1. 交货解决什么</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>问题</th><th>交货怎么回答</th></tr></thead><tbody><tr><td>发什么、发多少</td><td>行项目与数量（可少于订单数量＝部分交货）</td></tr><tr><td>从哪发</td><td>起运点（由工厂 + 运送条件决定）+ 拣配库存地点</td></tr><tr><td>什么时候发</td><td>交货日期 / 计划交货日期</td></tr><tr><td>仓库要做什么</td><td>拣配（Picking）：实际取货并确认数量</td></tr><tr><td>什么时候算真正出库</td><td><b>发货过账（PGI）</b>：移动类型 601，产生物料凭证</td></tr></tbody></table></div>
+<div class="note info"><span class="t">一句话记住顺序</span><b>交货只是「计划发货」，发货过账才是「真的发货」。</b>在库存和财务上，交货单创建时什么都没变；点下发货过账，库存才减少、成本才发生。</div>
+<h2 id="create">2. 创建交货（VL01N）</h2>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 装运和运输 → 外向交货 → 创建 → 单个凭证 → VL01N"><b>教材菜单路径（创建外向交货）</b>后勤 → 销售和分销 → 装运和运输 → 外向交货 → 创建 → 单个凭证 → VL01N</div>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>输入</th><th>说明</th></tr></thead><tbody><tr><td>装运点 Shipping Point</td><td>从工厂与运送条件推出来；教材场景是 <code>Z999</code> 颐宁装运点</td></tr><tr><td>选择日期 / 交货日期</td><td>决定哪些订单行可以被选中交货（教材场景 <code>2021.04.15</code>）</td></tr><tr><td>销售订单号</td><td>输入要交货的订单；系统列出可交货的行</td></tr></tbody></table></div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t42/01_1_image1303.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/01_1_image1303.png" width="362" height="403" alt="VL01N 创建外向交货：输入装运点、交货日期与销售订单号" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">VL01N 创建外向交货：输入装运点、交货日期与销售订单号</span><span class="src">教材《S4.docx》· SD 任务 42 创建外向交货</span></figcaption></figure>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t42/01_2_image1304.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/01_2_image1304.png" width="449" height="395" alt="交货单抬头（含起运点、收货方、交货日期）与项目" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">交货单抬头（含起运点、收货方、交货日期）与项目</span><span class="src">教材《S4.docx》SD 模块 · image1304.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t42/02_1_image1305.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/02_1_image1305.png" width="1151" height="426" alt="更改交货（VL02N）：拣配、发货过账都在这里做" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">更改交货（VL02N）：拣配、发货过账都在这里做</span><span class="src">教材《S4.docx》SD 模块 · image1305.png</span></figcaption></figure></div>
+<h4>交货画面逐字段读法（教材环境的实测画面）</h4>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>字段 / 按钮</th><th>教材场景值</th><th>读法</th></tr></thead><tbody><tr><td>外向交货号</td><td><code>80000000</code></td><td>系统按编号范围生成</td></tr><tr><td>凭证日期</td><td><code>2021.04.15</code></td><td>单据日期（与交货日期不是一回事）</td></tr><tr><td>送达方</td><td><code>10000000</code> 远东造船厂 / 枫桥路 / 116088 辽宁，大连</td><td>来自客户主数据的送达方地址</td></tr><tr><td>项目 / 物料 / 工厂 / 库位</td><td>项目 <code>10</code>、<code>F999-100</code>、工厂 <code>P999</code>、库位 <code>003</code></td><td>库位由后台「分配拣配地点」决定（Z999 + P999 → 003）</td></tr><tr><td>交货数量 / 拣配数量</td><td><code>120 PC</code> / <code>120 PC</code></td><td>拣配页签里回填实际拣到的数量</td></tr><tr><td>拣配状态</td><td><code>A 尚未拣配</code></td><td>拣配完成后会变为「完全拣配」</td></tr><tr><td>按钮「过账发货」</td><td>—</td><td><b>发货过账（PGI）</b>就是在这里点；点了才真正出库</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">课堂上让学员念出来的三句话</span>① 交货号 <code>80000000</code>、② 拣配状态 <code>A</code>（还没拣）、③ 库位 <code>003</code>。然后问：「现在库存减了吗？」——没有，要点「过账发货」。</div>
+<h2 id="pick">3. 拣配（Picking）</h2>
+<p>拣配＝仓库按交货单去取货，并把实际取到的数量回填（拣配数量）。这一步可以由仓库人员用<code>VL02N</code> 做，也可以用拣配清单/移动设备。拣配后交货单的「拣配状态」更新。</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>拣配相关字段</th><th>含义</th></tr></thead><tbody><tr><td>拣配数量 Picked Quantity</td><td>实际取了多少（可以与交货数量不同）</td></tr><tr><td>库存地点 Storage Location</td><td>从哪个库存地点取（由后台「分配拣配地点」确定）</td></tr><tr><td>批次 / 序列号</td><td>如果物料是批次管理或序列号管理，拣配时要指定</td></tr><tr><td>拣配状态</td><td>未拣配 / 部分拣配 / 完全拣配</td></tr></tbody></table></div>
+<h2 id="pgi">4. 发货过账（Post Goods Issue, PGI）</h2>
+<div class="box ok"><b class="t">这一步是整个流程的分水岭</b><p>点下「发货过账」后：</p><ol><li>系统按<b>移动类型 601</b> 生成物料凭证；</li><li>库存数量与金额同时减少（出库）；</li><li>交货单的<b>发货状态</b>变为「已完成」；</li><li>此时这张交货才「可开票」——发票要等这一步。</li></ol><p>撤销要用 <code>VL09</code>（取消发货过账），不能删单据了事。</p></div>
+<h2 id="effect">5. 对库存与会计的影响（对照着理解）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>影响对象</th><th>创建交货时</th><th>发货过账后</th><th>查看工具</th></tr></thead><tbody><tr><td>库存数量</td><td>不变</td><td>减少（移动类型 601 出库）</td><td><code>MMBE</code> / <code>MB52</code> / <code>MB51</code></td></tr><tr><td>物料凭证</td><td>无</td><td>生成一张物料凭证</td><td><code>MB03</code>（用凭证号）/ <code>MB51</code></td></tr><tr><td>交货状态</td><td>未发货</td><td>发货状态：已完成</td><td><code>VL03N</code></td></tr><tr><td>会计影响</td><td>无</td><td>成本出库（CO 侧销货成本相关）</td><td>物料凭证的会计凭证视图 / CO 报表</td></tr><tr><td>发票</td><td>不可开票</td><td>可开票（进入 VF01 的可开票清单）</td><td><code>VF01</code> / <code>VF04</code></td></tr></tbody></table></div>
+<div class="note tip"><span class="t">现场必背</span>「库存什么时候减？」= 发货过账（601）。「什么时候能做发票？」= 发货过账之后。「发货过账错了怎么办？」= <code>VL09</code> 取消（并按顺序处理后续单据）。</div>
+<h2 id="shots">6. 真实画面汇总</h2>
+<div class="shot-grid"><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t42/03_1_image1306.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/03_1_image1306.png" width="213" height="28" alt="交货创建完成后系统给出的提示信息" loading="lazy"></a><figcaption><span class="n">画面 4</span><span class="cap">交货创建完成后系统给出的提示信息</span><span class="src">教材《S4.docx》SD 模块 · image1306.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t48/25_2_image1385.jpeg" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/25_2_image1385.jpeg" width="867" height="633" alt="MB1C 501 期初库存（无库存时的对策）" loading="lazy"></a><figcaption><span class="n">画面 5</span><span class="cap">MB1C 501 期初库存（无库存时的对策）</span><span class="src">教材《S4.docx》SD 模块 · image1385.jpeg</span></figcaption></figure></div>
+<div class="note warn"><span class="t">本轮实训可能遇到的坑</span>教材任务 48 记录了几个真实错误，本站在 <a href="analysis.html">分析页</a> 第 4 节汇总：「非当前业务交易组」「作业类型无法设置」「CLIENT COPY 不完整」等——这些都是 <b>环境/配置没配全</b>导致的，不是操作错。遇到时先看报错里的 T-code 与消息号。</div>
+<h2 id="check">7. 排错与自检</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>现象</th><th>可能原因</th><th>怎么查</th></tr></thead><tbody><tr><td><code>VL01N</code> 输入订单号后没有可交货的行</td><td>订单行不允许交货 / 已完全交货 / 已拒绝 / 日期范围不对</td><td>订单行状态页签；<code>VL01N</code> 的不完整日志；订单类型的交货相关设置</td></tr><tr><td>提示没有库存</td><td>库存不足或库存被其它单据占用</td><td><code>MMBE</code> / <code>MD04</code> / <code>CO09</code>；对策：入库（501/101）</td></tr><tr><td>找不到装运点</td><td>工厂没分配起运点，或运送条件/装载组不匹配</td><td>后台「给工厂分配起运点」；客户与物料主数据里的运送条件/装载组</td></tr><tr><td>发货过账后库存没变</td><td>看错了库存类型/批次，或过账失败</td><td><code>MB51</code> 查该物料当天凭证；<code>VL03N</code> 看发货状态</td></tr></tbody></table></div>
+<div class="box ok"><b class="t">自检问题</b><ol><li>创建交货和发货过账，哪个会生成物料凭证？移动类型是多少？</li><li>部分交货时，订单的「交货状态」显示什么？后续还能再交吗？</li><li>发货过账后发现发错货，按什么顺序处理？</li></ol></div>
+<ol class="steps"><li>下一页：<a href="billing.html"><b>开票</b></a> —— 收钱的部分。</li><li>实训任务：<a href="practice.html">任务 3 交货与发货过账</a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

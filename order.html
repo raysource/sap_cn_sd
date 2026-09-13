@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>销售订单处理 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a class="active" href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <a href="flow.html">流程</a> / <span>销售订单</span></p>
+<h1>流程 ① 销售订单处理（局部详解）</h1>
+<p class="kicker">询价 VA11 · 报价 VA21 · 订单 VA01 · 参照创建 · 可用性检查 · 状态</p>
+<div class="toc"><a href="#pos">1. 三个前置单据的位置</a><a href="#quot">2. 报价：先给客户一个价</a><a href="#order">3. 订单：参照报价创建</a><a href="#fields">4. 订单画面逐字段读法</a><a href="#stock">5. 库存不足怎么办</a><a href="#after">6. 保存后看什么</a><a href="#check">7. 练习与自检</a></div>
+<h2 id="pos">1. 三个前置单据的位置</h2>
+<p>销售订单不一定要从询价/报价来，但「参照创建」是标准做法：数据不用重输，且能追到源头。</p>
+<figure class="dia"><a class="zoom" href="assets/diagrams/doc-flow.svg"><img src="assets/diagrams/doc-flow.svg" alt="单据流结构图" loading="lazy"></a><figcaption><span class="n">流程图</span><span class="cap">询价 → 报价 → 销售订单 → 交货 → 发票，每张都参照上一张创建</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>单据</th><th>T-code</th><th>什么时候用</th><th>教材场景</th></tr></thead><tbody><tr><td>询价 <code>VA11</code></td><td>IN</td><td>客户只是问问，还不确定买</td><td>教材未逐步演示，本站按标准流程补说明</td></tr><tr><td>报价 <code>VA21</code></td><td>QT</td><td>正式给价，可含有效期</td><td>教材任务 40：给远东造船厂报 30 件铸钢泵 170-230 的价</td></tr><tr><td>销售订单 <code>VA01</code></td><td>OR</td><td>客户确认下单</td><td>教材任务 41：以报价为蓝本创建正式销售订单</td></tr></tbody></table></div>
+<div class="note ref"><span class="t">关于「参照」的三种入口</span><ol><li>在报价里点「后续功能 → V-01 订单」（教材用的就是这条）；</li><li><code>VA01</code> 输入订单类型后，在「参照」区域输入报价号回车；</li><li>从列表（<code>VA25</code> 报价清单）里选中后创建后继单据。</li></ol></div>
+<h2 id="quot">2. 报价：先给客户一个价</h2>
+<p>教材任务 40「创建报价」的场景：远东造船厂想买 <b>30 件铸钢泵 170-230</b>，销售组织先报价。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售 → 报价 → VA21-创建"><b>教材菜单路径（创建报价）</b>后勤 → 销售和分销 → 销售 → 报价 → VA21-创建</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t40/01_1_image1288.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t40/01_1_image1288.png" width="664" height="309" alt="VA21 创建报价：报价单类型 QT，组织数据为销售组织 C999 颐宁销售 / 渠道 Z1 直销 / 产品组 Z1 铸钢泵" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">VA21 创建报价：报价单类型 QT，组织数据为销售组织 C999 颐宁销售 / 渠道 Z1 直销 / 产品组 Z1 铸钢泵</span><span class="src">教材《S4.docx》· SD 任务 40 创建报价</span></figcaption></figure>
+<div class="shot-grid"><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t40/02_2_image1290.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t40/02_2_image1290.png" width="154" height="15" alt="输入物料与数量（报价项目行）" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">输入物料与数量（报价项目行）</span><span class="src">教材《S4.docx》SD 模块 · image1290.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t40/03_1_image1291.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t40/03_1_image1291.png" width="882" height="439" alt="系统带出价格（来自条件记录）与项目信息" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">系统带出价格（来自条件记录）与项目信息</span><span class="src">教材《S4.docx》SD 模块 · image1293.png</span></figcaption></figure></div>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>报价画面的关键字段（教材环境实测值）</th><th>内容</th></tr></thead><tbody><tr><td>报价单类型</td><td><code>QT</code>（Quotation）</td></tr><tr><td>组织数据</td><td>C999 颐宁销售 / Z1 直销 / Z1 铸钢泵 —— 销售范围决定用哪套定价过程与条件记录</td></tr><tr><td>物料与数量</td><td>F999-100 铸钢泵 170-230</td></tr><tr><td>价格</td><td>由条件记录 PR00 带出（8,000.00 RMB／PC），不是手输的</td></tr></tbody></table></div>
+<h2 id="order">3. 订单：参照报价创建</h2>
+<p>客户确认后，从报价走到订单。教材的路径是「<b>后勤 → 销售和分销 → 销售 → 报价 → 后继功能 → V-01-订单</b>」，然后在画面上点「<b>有参照创建</b>」。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 销售 → 报价 → 后继功能 → V-01-订单"><b>教材菜单路径（创建销售订单）</b>后勤 → 销售和分销 → 销售 → 报价 → 后继功能 → V-01-订单</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t41/01_1_image1297.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/01_1_image1297.png" width="338" height="409" alt="参照报价创建销售订单（后继功能 → V-01 订单）" loading="lazy"></a><figcaption><span class="n">画面 4</span><span class="cap">参照报价创建销售订单（后继功能 → V-01 订单）</span><span class="src">教材《S4.docx》· SD 任务 41 创建销售订单</span></figcaption></figure>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t41/02_1_image1299.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/02_1_image1299.png" width="550" height="599" alt="点击「有参照创建」——把报价的数据带进订单" loading="lazy"></a><figcaption><span class="n">画面 5</span><span class="cap">点击「有参照创建」——把报价的数据带进订单</span><span class="src">教材《S4.docx》SD 模块 · image1299.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t41/03_1_image1300.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/03_1_image1300.png" width="651" height="390" alt="订单画面：抬头（订单类型 OR、售达方、销售范围）+ 项目行（物料、数量、交货日期）" loading="lazy"></a><figcaption><span class="n">画面 6</span><span class="cap">订单画面：抬头（订单类型 OR、售达方、销售范围）+ 项目行（物料、数量、交货日期）</span><span class="src">教材《S4.docx》SD 模块 · image1300.png</span></figcaption></figure></div>
+<div class="note tip"><span class="t">参照创建带过来什么</span>客户、物料、数量、价格条件、条款等都会带过来，你可以修改。带过来之后再改客户，系统会提示重新执行定价（教材里出现过 <b>Information: New pricing carried out</b>）——因为价格依赖客户（条件记录的键里有客户）。</div>
+<h2 id="fields">4. 订单画面逐字段读法（抬头 → 项目 → 状态 → 条件）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>区域</th><th>字段</th><th>含义 / 来源</th></tr></thead><tbody><tr><td>抬头</td><td>订单类型</td><td>决定这张订单怎么走（教材用 <code>OR</code> 标准订单）</td></tr><tr><td>抬头</td><td>销售范围（销售组织 / 分销渠道 / 产品组）</td><td>从客户主数据带出；决定定价过程与条件记录范围</td></tr><tr><td>抬头</td><td>售达方 / 送达方 / 收票方 / 付款方</td><td>四个伙伴角色；送达方决定货送哪</td></tr><tr><td>抬头</td><td>客户参考 / 采购订单号</td><td>客户的 PO 号，用于对账（现场最常被要求填）</td></tr><tr><td>抬头</td><td>订单日期 / 要求交货日期</td><td>业务的期望日期（不等于系统确认的日期）</td></tr><tr><td>项目</td><td>物料 + 数量 + 销售单位</td><td>项目类别由「订单类型 + 物料（项目类别组）」确定</td></tr><tr><td>项目</td><td>工厂</td><td>决定从哪个工厂发货（物料主数据 + 装运条件推出）</td></tr><tr><td>项目</td><td>交货日期 / 确认数量</td><td>可用性检查（ATP）的结果——<b>业务真正该看的日期</b></td></tr><tr><td>项目</td><td>条件（价格）</td><td>定价过程的逐行结果：单价、折扣、税、小计（净价值）</td></tr><tr><td>状态</td><td>整体状态 / 交货状态 / 开票状态</td><td>判断这单走到哪一步</td></tr></tbody></table></div>
+<div class="note info"><span class="t">先看哪个字段？</span>现场处理问题时的顺序：<b>状态 → 交货日期/确认数量 → 条件（价格）→ 项目类别</b>。价格有问题才去看条件页签；交期有问题去看确认页签。</div>
+<h2 id="stock">5. 库存不足怎么办（教材里的真实提示）</h2>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t41/04_1_image1301.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/04_1_image1301.png" width="1147" height="619" alt="教材任务 41 第 4 步：系统显示无可用库存 → 点「继续」，并建议用 MB1C 501 无订单收货补期初库存" loading="lazy"></a><figcaption><span class="n">画面 7</span><span class="cap">教材任务 41 第 4 步：系统显示无可用库存 → 点「继续」，并建议用 MB1C 501 无订单收货补期初库存</span><span class="src">教材《S4.docx》· SD 任务 41 创建销售订单</span></figcaption></figure>
+<div class="box warn"><b class="t">这里有两个知识点</b><ol><li><b>可用性检查（ATP）不阻止保存</b>：默认只是给出确认日期；是否阻止保存取决于配置（很多公司会设成「交货时才严格检查」或者对关键客户加块）。</li><li><b>补库存要用对移动类型</b>：教材用 <code>MB1C</code> + 移动类型 <b>501</b>（无采购订单收货）录入期初库存；生产入库一般是 101，采购收货也是 101（对采购订单）。</li></ol><p>移动类型决定「这笔库存变动算什么业务」，用错会影响成本与报表。</p></div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t48/25_1_image1384.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/25_1_image1384.png" width="423" height="340" alt="教材任务 48 第 23 步：MB1C 501 录入期初库存——教学环境里解决「无法创建 VL01N 外向交货单」的办法" loading="lazy"></a><figcaption><span class="n">画面 8</span><span class="cap">教材任务 48 第 23 步：MB1C 501 录入期初库存——教学环境里解决「无法创建 VL01N 外向交货单」的办法</span><span class="src">教材《S4.docx》· SD 任务 48 运行资产负债表</span></figcaption></figure>
+<h2 id="after">6. 保存之后看什么</h2>
+<ol class="steps"><li>拿到订单号（这是后续所有环节的入口）。</li><li>回到订单抬头：整体状态、项目状态（交货状态/开票状态）。</li><li>「环境 → 显示单据流」：确认订单已进入单据流（后续会产生交货与发票）。</li><li><code>VA05</code> 订单清单：确认它出现在你的清单里（教材任务 46）。</li><li>如果是 MTO 场景：<code>MD04</code> 看需求已经生成（本站 <a href="flow.html">流程页</a> 集成点）。</li></ol>
+<h2 id="check">7. 练习与自检</h2>
+<div class="box ok"><b class="t">自检问题</b><ol><li>为什么订单能自动带出价格和客户地址？（提示：主数据 + 配置）</li><li>「要求交货日期」和「确认交货日期」哪个是系统算出来的？</li><li>订单保存时提示无可用库存，业务该怎么做？技术上的对策是什么？</li><li>订单里改了客户，为什么要重新定价？</li></ol></div>
+<ol class="steps"><li>下一页：<a href="delivery.html"><b>交货</b></a> —— 真正把货发出去。</li><li>实训任务：<a href="practice.html">任务 2 报价 → 订单</a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

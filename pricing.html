@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定价与条件技术 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a class="active" href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>定价与条件技术</span></p>
+<h1>定价：条件技术的四层结构</h1>
+<p class="kicker">条件表 · 存取顺序 · 条件类型 · 定价过程 · 定价过程确定 · 账户确定</p>
+<div class="toc"><a href="#oneline">1. 一句话</a><a href="#map">2. 定价的四层结构</a><a href="#four">3. 四个概念</a><a href="#det">4. 定价过程确定</a><a href="#tax">5. 税与账户确定</a><a href="#shots">6. 真实画面与算价过程</a><a href="#trouble">7. 排错清单</a><a href="#check">8. 自检</a></div>
+<h2 id="oneline">1. 一句话</h2>
+<div class="box ok"><b class="t">价格是「查」出来的，不是「输」进去的</b><p>录单时你没有输价格，但订单里有价格——系统按配置好的顺序去<b>条件记录</b>里查。搞清「谁去查、按什么顺序查、查到的是哪一行」，定价问题就都能定位。</p></div>
+<h2 id="map">2. 定价的四层结构（结构图）</h2>
+<figure class="dia"><a class="zoom" href="assets/diagrams/pricing-chain.svg"><img src="assets/diagrams/pricing-chain.svg" alt="条件技术与定价过程确定结构图" loading="lazy"></a><figcaption><span class="n">结构图</span><span class="cap">条件表 → 存取顺序 → 条件类型 → 定价过程（左），定价过程确定与账户确定（右），算价示例（底）</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<h2 id="four">2. 四个概念，一张图看懂</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>层</th><th>是什么</th><th>教材里对应的东西</th><th>打个比方</th></tr></thead><tbody><tr><td>条件表 Condition Table</td><td>一张存放价格的表，字段是「查价用的键」</td><td>PR00 的存取顺序里包含「具有审批状态的物料」等步骤</td><td>Excel 的价格表（客户 + 物料 → 价格）</td></tr><tr><td>存取顺序 Access Sequence</td><td>按优先级排好的若干条件表</td><td>PR00 的存取顺序：先找谁的价，找不到再找谁的</td><td>查资料的顺序：先查专用台账，没有再查总表</td></tr><tr><td>条件类型 Condition Type</td><td>一类价格/折扣/税，带计算规则与账码</td><td><code>PR00</code> 销售价格 / <code>MWST</code> 销项税</td><td>价格的「类别」：单价、折扣、运费、税</td></tr><tr><td>定价过程 Pricing Procedure</td><td>把条件类型按步骤排成一张表，含计算类型与小计</td><td>教材用系统预配置的 <code>RVAA01</code>「标准」</td><td>算价单：第 10 步单价、20 步折扣、30 步税…</td></tr></tbody></table></div>
+<div class="note info"><span class="t">关键细节：定价过程里的「账码」</span>定价过程的每一步除了条件类型，还有一个<b>账码（Account Key）</b>，比如 <code>ERL</code> 表示收入。发票过账时，系统就是靠「账码 + 物料账户分配组 + 客户账户分配组」去查收入科目的。所以定价过程不只管算价，还管记账。</div>
+<div class="pathline" data-copy="销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程"><b>IMG 路径（定义并分配定价过程 / 客户与单据定价过程）</b>销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t22/02_1_image1179.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t22/02_1_image1179.png" width="630" height="378" alt="选择定价过程 RVAA01（标准），点左侧「控制数据」维护步骤" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">选择定价过程 RVAA01（标准），点左侧「控制数据」维护步骤</span><span class="src">教材《S4.docx》SD 模块 · image1179.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t22/04_1_image1181.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t22/04_1_image1181.png" width="988" height="617" alt="定价过程明细：Ctyp（条件类型）/ 账码 / 计算类型 逐行排列" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">定价过程明细：Ctyp（条件类型）/ 账码 / 计算类型 逐行排列</span><span class="src">教材《S4.docx》SD 模块 · image1181.png</span></figcaption></figure></div>
+<h2 id="det">3. 定价过程确定：决定「用哪套过程」</h2>
+<p>系统不会凭感觉挑过程，它用<b>三个键</b>查一张表（IMG：定义并分配定价过程 → 定价过程确定）：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>决定键</th><th>来自哪里</th><th>教材场景</th></tr></thead><tbody><tr><td>销售范围</td><td>销售组织 + 分销渠道 + 产品组</td><td>共 4 个销售范围，可分别指定</td></tr><tr><td>客户定价过程 Customer Pricing Procedure</td><td>客户主数据 → 销售视图 → 定价</td><td>教材使用标准值</td></tr><tr><td>单据定价过程 Document Pricing Procedure</td><td>销售凭证类型的定价字段</td><td>订单类型 OR 对应的值</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">排错思路</span>价格不对先看三件事：① 订单抬头/项目的销售范围对不对；② 客户的「客户定价过程」字段有没有值；③ 单据类型的「单据定价过程」有没有值。三者组合查不到过程，价格就会是空的或提示不完整。</div>
+<h2 id="tax">4. 税与账户确定</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>要做的事</th><th>对象的配置</th><th>教材任务</th></tr></thead><tbody><tr><td>定义税收确定规则</td><td>IMG：销售和分销 → 基本功能 → 税收 → 定义税收确定规则</td><td>任务 27</td></tr><tr><td>定义客户税分类与物料税分类</td><td>IMG：销售和分销 → 基本功能 → 税收 → 定义主记录数据相关性</td><td>任务 28</td></tr><tr><td>维护销项税税率</td><td><code>VK11</code> → 条件类型 <code>MWST</code></td><td>任务 36</td></tr><tr><td>定义物料账户分配组</td><td>IMG：销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定 → 检查科目分配的相关主数据（教材示例 M1 自制产品 / M2 贸易商品）</td><td>任务 29</td></tr><tr><td>维护销售收入的总帐科目</td><td>IMG：… → 收入账户确定 → 分配总帐科目</td><td>任务 30</td></tr></tbody></table></div>
+<p>教材里的思路很清晰：<b>只按物料区分收入科目</b>（自制产品 / 贸易商品两类），客户账户分配组虽然也参与确定，但在该场景里不起作用。这是理解「账户确定」的最小例子：先决定「用哪几个键」，再决定「键的取值组合 → 科目」。</p>
+<figure class="shot narrow"><a class="zoom" href="assets/img/sd/t29/02_1_image1208.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t29/02_1_image1208.png" width="568" height="137" alt="任务 29：双击「物料：账户分配组」维护 M1 / M2 两类物料的收入科目归属" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">任务 29：双击「物料：账户分配组」维护 M1 / M2 两类物料的收入科目归属</span><span class="src">教材《S4.docx》· SD 任务 29 定义物料账户分配组</span></figcaption></figure>
+<h2 id="shots">5. 算价过程走一遍（课程场景）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>步骤</th><th>系统做什么</th><th>看哪里</th></tr></thead><tbody><tr><td>① 输入物料 + 数量</td><td>带出销售单位、项目类别、工厂</td><td>订单项目行</td></tr><tr><td>② 确定定价过程</td><td>销售范围 + 客户定价过程 + 单据定价过程 → RVAA01</td><td>IMG 定价过程确定</td></tr><tr><td>③ 逐行取条件</td><td>按定价过程步骤，每个条件类型按存取顺序查条件记录</td><td>项目 → <b>条件</b>页签</td></tr><tr><td>④ 计算净价值</td><td>单价 × 数量 − 折扣 + 附加费 = 净价值</td><td>条件页签的小计行</td></tr><tr><td>⑤ 算税</td><td>客户税分类 + 物料税分类 → 税码 → 销项税</td><td>条件页签 <code>MWST</code> 行</td></tr><tr><td>⑥ 保存后可追踪</td><td>价格写进订单，之后可查、可重定价</td><td><code>VA03</code> / <code>VA05</code></td></tr></tbody></table></div>
+<div class="note ref"><span class="t">课程场景的数值（来自教材画面）</span>教材的报价/订单场景是「30 件铸钢泵 170-230」，后续交货与发票画面显示 120 PC、净价值 <b>960,000.00 RMB</b>、发票 <code>F2</code> 90000000、出具发票日期 2021.04.15、付款方 10000000；VK11 里 PR00 的条件记录是 <b>8,000.00 RMB</b>／PC、有效期 2021.01.01 – 9999.04.14。这些是教材环境的实际数值，<b>不是标准值</b>——你的系统里单价与税率一定不同，重点是理解「数值怎么被算出来」（8,000 × 120 = 960,000）。</div>
+<h2 id="trouble">6. 定价排错清单（按概率排序）</h2>
+<ol class="oplist" start="1"><li class=""><b>没有价格行</b>：条件记录不存在 / 已过期 / 键不匹配（销售范围、客户、物料不一致）。先去 <code>VK13</code> 按条件类型查一下有没有记录。</li><li class=""><b>价格行在，但金额不对</b>：存取顺序里找到了另一条记录（比如客户专用价优先于一般价）。在 <code>VA03</code> 条件页签看该行的「来源」与「条件记录号」。</li><li class=""><b>改了条件记录，老单据没变</b>：单据是快照。要生效需在单据里手动重新定价或新建单据。</li><li class=""><b>税为 0</b>：客户税分类或物料税分类缺失/不匹配，或 <code>MWST</code> 条件记录缺失。</li><li class=""><b>提示定价类型不完整</b>：定价过程缺少某个标记为「必填」的条件类型（如税分类未维护会产生不完整性提示）。</li></ol>
+<h2 id="check">7. 自检</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>要确认的事</th><th>怎么确认</th></tr></thead><tbody><tr><td>这套订单用了哪个定价过程</td><td><code>VA03</code> → 抬头 → 条件/定价 相关字段；或 <code>V/08</code> 看确定表</td></tr><tr><td>某个条件类型的存取顺序</td><td>后台：销售和分销 → 基本功能 → 定价 → 条件类型 → 定义条件类型（双击存取顺序）</td></tr><tr><td>条件记录明细</td><td><code>VK13</code> 输入条件类型与键；表 <code>KONP</code>（条件金额）/ <code>KONH</code>（条件抬头）</td></tr><tr><td>订单里实际用的条件值</td><td><code>VA03</code> → 项目 → 条件页签；表 <code>KONV</code>（单据条件）</td></tr></tbody></table></div>
+<ol class="steps"><li>下一页：<a href="flow.html"><b>流程总览</b></a> —— 把订单、交货、开票串起来。</li><li>先动手：<a href="practice.html"><b>实训任务</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

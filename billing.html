@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开票与财务过账 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a class="active" href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <a href="flow.html">流程</a> / <span>开票与收款</span></p>
+<h1>流程 ③ 开票与过账到财务（局部详解）</h1>
+<p class="kicker">VF01 创建发票 · VF02 过账（下达）· 会计凭证 · 账户确定 · 收款清账</p>
+<div class="toc"><a href="#what">1. 开票解决什么</a><a href="#create">2. 创建发票</a><a href="#post">3. 过账到 FI</a><a href="#fi">4. 会计凭证怎么来的</a><a href="#doc">5. 凭据链与原始凭证</a><a href="#pay">6. 收款与清账</a><a href="#check">7. 真实画面与自检</a></div>
+<h2 id="what">1. 开票解决什么</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>问题</th><th>开票怎么回答</th></tr></thead><tbody><tr><td>开多少金额</td><td>按交货数量 × 条件价格算出净价值，再加销项税</td></tr><tr><td>开给谁</td><td>收票方 / 付款方（伙伴角色）</td></tr><tr><td>什么时候开</td><td>交货完成（发货过账）之后；可用开票日期与发票清单（<code>VF04</code>）批量处理</td></tr><tr><td>财务上怎么记</td><td>过账时生成会计凭证：借 客户应收 / 贷 收入 + 销项税（科目由账户确定推出）</td></tr></tbody></table></div>
+<div class="note info"><span class="t">发票与交货的关系</span>以交货为基础开票（Delivery-related billing）是最常见的方式：发票参照交货创建，<b>发票数量来自交货的已发货数量</b>。也可以基于订单（订单相关开票）或做贷项凭证（退货/冲销）。教材场景是「交货 → 发票 → 下达」的标准链路。</div>
+<h2 id="create">2. 创建发票（VF01）</h2>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 出具发票 → 出具发票凭证 → VF01-创建"><b>教材菜单路径（创建发票凭证）</b>后勤 → 销售和分销 → 出具发票 → 出具发票凭证 → VF01-创建</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t43/01_1_image1307.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t43/01_1_image1307.png" width="636" height="603" alt="开票到期清单：选中要开票的交货单 80000000；右侧「缺失数据」提示还需填开票类型与出具发票日期" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">开票到期清单：选中要开票的交货单 80000000；右侧「缺失数据」提示还需填开票类型与出具发票日期</span><span class="src">教材《S4.docx》· SD 任务 43 创建发票凭证</span></figcaption></figure>
+<figure class="shot narrow"><a class="zoom" href="assets/img/sd/t43/03_1_image1309.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t43/03_1_image1309.png" width="188" height="33" alt="教材任务 43 第 3 步：点击保存——生成发票凭证号" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">教材任务 43 第 3 步：点击保存——生成发票凭证号</span><span class="src">教材《S4.docx》· SD 任务 43 创建发票凭证</span></figcaption></figure>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>发票画面关键字段</th><th>含义</th><th>教材场景值</th></tr></thead><tbody><tr><td>单据类型</td><td>决定发票类别（如 F2 发票、G2 贷项凭证）</td><td><code>F2</code></td></tr><tr><td>发票号</td><td>系统按编号范围生成</td><td>90000000</td></tr><tr><td>付款方</td><td>谁付钱（决定应收对象）</td><td>10000000</td></tr><tr><td>出具发票日期</td><td>记账日期相关的凭证日期</td><td>2021.04.15</td></tr><tr><td>净价值</td><td>条件计算的结果（不含税或含税取决于配置与条件）</td><td>960,000.00 RMB</td></tr><tr><td>项目 / 物料 / 开票数量</td><td>来自交货的已发货数量</td><td>铸钢泵 170-230 / 120 PC / 物料 F999-100</td></tr></tbody></table></div>
+<div class="note info"><span class="t">开票画面上的「缺失数据」提示不是错误</span>教材任务 43 的画面里，右侧「缺失数据」列出开票类型、出具发票日期等还没填的字段——这是系统在<b>提示必填项</b>，填好后保存即可。看到「缺失数据」不要慌，逐项补上。</div>
+<div class="note ref"><span class="t">这些数值是哪来的</span>以上是教材环境发票画面上的实际可见数值（本站核对过画面）。在你的系统里数值必然不同——重点是<b>字段之间的关系</b>：开票数量来自交货，净价值来自条件，付款方来自客户主数据。</div>
+<h2 id="post">3. 过账（下达）到财务会计 VF02</h2>
+<p>保存发票只生成 SD 的发票凭证，<b>还没有记账</b>。要到财务会计，需要「下达」（Release to Accounting），教材里用 <code>VF02</code> 修改，然后按「小旗子」按钮，画面下方会提示 <b>「凭证已经传送到记账」</b>。</p>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t44/01_1_image1310.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/01_1_image1310.png" width="643" height="376" alt="VF02 打开要下达的发票" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">VF02 打开要下达的发票</span><span class="src">教材《S4.docx》SD 模块 · image1310.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t44/02_1_image1311.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/02_1_image1311.png" width="170" height="46" alt="按「小旗子」下达；提示「凭证已经传送到记账」，旁边可点「会计」查看会计凭证" loading="lazy"></a><figcaption><span class="n">画面 4</span><span class="cap">按「小旗子」下达；提示「凭证已经传送到记账」，旁边可点「会计」查看会计凭证</span><span class="src">教材《S4.docx》SD 模块 · image1311.png</span></figcaption></figure></div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t44/03_1_image1312.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/03_1_image1312.png" width="375" height="356" alt="下达后的发票状态与后续操作入口" loading="lazy"></a><figcaption><span class="n">画面 5</span><span class="cap">下达后的发票状态与后续操作入口</span><span class="src">教材《S4.docx》· SD 任务 44 下达发票</span></figcaption></figure>
+<div class="box ok"><b class="t">「下达」这个词要记住</b><p><b>保存 ≠ 记账。</b>发票保存后状态是「未过账/待下达」，只有下达后才：</p><ol><li>生成会计凭证（FI）；</li><li>应收挂到客户头上（可用 FBL5N 看到未清项）；</li><li>开票状态回写到订单与交货。</li></ol><p>批量下达可用 <code>VF04</code>（开票清单）/ <code>VF06</code> 后台作业。</p></div>
+<h2 id="fi">4. 会计凭证怎么来的（账户确定）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>会计凭证行</th><th>借贷</th><th>金额来源</th><th>科目怎么定的</th></tr></thead><tbody><tr><td>客户应收</td><td>借方</td><td>发票总额（含税）</td><td>付款方的对账科目（客户主数据 + 统驭科目配置）</td></tr><tr><td>销售收入</td><td>贷方</td><td>净价值</td><td>账户确定：账码（定价过程的 <code>ERL</code>）+ 物料账户分配组 + 客户账户分配组 → VKOA</td></tr><tr><td>销项税</td><td>贷方</td><td>税额</td><td>税码（由客户税分类 + 物料税分类确定）对应的税科目</td></tr></tbody></table></div>
+<div class="note tip"><span class="t">想让「收入记到别的科目」怎么办</span>三条路：改<b>物料</b>的账户分配组（比如自制产品 vs 贸易商品）、改<b>客户</b>的账户分配组、或改定价过程里的<b>账码</b>。教材场景用了第一条：M1 自制产品 / M2 贸易商品 → 两个收入科目。</div>
+<h2 id="doc">5. 凭据链：点「原始凭证」能一路点回订单</h2>
+<p>教材任务 45「点击原始凭证」就是在验证这条链：发票 → 交货 → 订单。这是 SD 最实用的排查工具——客户问「这张发票对应哪张订单」，点几下就能回答。</p>
+<figure class="dia"><a class="zoom" href="assets/diagrams/doc-flow.svg"><img src="assets/diagrams/doc-flow.svg" alt="单据流结构图" loading="lazy"></a><figcaption><span class="n">流程图</span><span class="cap">参照关系让每张下游单据都能追溯到上游：发票 → 交货 → 订单 → 报价 → 询价</span><span class="src">本站自绘 SVG</span></figcaption></figure>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t45/01_1_image1313.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t45/01_1_image1313.png" width="968" height="226" alt="教材任务 45：从发票点「原始凭证」查看上游单据（发票 F2 90000000 / 净价值 960,000.00）" loading="lazy"></a><figcaption><span class="n">画面 6</span><span class="cap">教材任务 45：从发票点「原始凭证」查看上游单据（发票 F2 90000000 / 净价值 960,000.00）</span><span class="src">教材《S4.docx》· SD 任务 45 点击原始凭证</span></figcaption></figure>
+<h2 id="pay">6. 收款与清账（流程闭环）</h2>
+<p>收款属于 FI 的日常操作，不是 SD 的动作，但业务上必须知道流程在哪里结束：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>动作</th><th>T-code</th><th>说明</th></tr></thead><tbody><tr><td>查客户未清项</td><td><code>FBL5N</code></td><td>看这张发票是否还挂着未清</td></tr><tr><td>收款并清账</td><td><code>F-28</code></td><td>输入客户、金额、银行科目，勾选要清的发票</td></tr><tr><td>自动收款（银行对账单）</td><td><code>FF67</code> 等</td><td>银行流水自动匹配（依配置）</td></tr><tr><td>催款</td><td><code>F150</code></td><td>到期未付自动生成催款函</td></tr></tbody></table></div>
+<div class="note warn"><span class="t">教材范围提示</span>教材的 SD 链路到「发票过账（VF02）→ 点原始凭证」为止，<b>没有演示收款</b>。上面的收款部分是本课程按标准流程补的，标注在这里以免与教材混淆。</div>
+<h2 id="check">7. 真实画面与自检</h2>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t43/02_1_image1308.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t43/02_1_image1308.png" width="937" height="312" alt="发票画面的条件与金额明细" loading="lazy"></a><figcaption><span class="n">画面 7</span><span class="cap">发票画面的条件与金额明细</span><span class="src">教材《S4.docx》SD 模块 · image1308.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t44/02_1_image1311.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/02_1_image1311.png" width="170" height="46" alt="下达发票时的系统提示" loading="lazy"></a><figcaption><span class="n">画面 8</span><span class="cap">下达发票时的系统提示</span><span class="src">教材《S4.docx》SD 模块 · image1311.png</span></figcaption></figure></div>
+<div class="box ok"><b class="t">自检问题</b><ol><li>发票保存后，为什么还要「下达」？不下达会怎样？</li><li>发票的净价值 960,000 是怎么算出来的？从哪几个对象取值？</li><li>想给「贸易商品」和「自制产品」分两个收入科目，改哪里？</li><li>客户说没收到发票，你用什么功能证明系统已经开了？（单据流 + 状态 + 输出确定）</li></ol></div>
+<ol class="steps"><li>下一页：<a href="analysis.html"><b>分析与监控</b></a> —— 用报表和单据流管住整条链。</li><li>实训任务：<a href="practice.html">任务 4 开票与过账</a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# 生成物/临时物（站点本身的内容必须保留：assets/img 的真实截图、assets/diagrams 的自绘图、
+# 16 个 HTML、Excel、tools/ 与 work/ 里的数据）
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

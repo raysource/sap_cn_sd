@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>术语与 T-code 速查 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a class="active" href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>术语表</span></p>
+<h1>术语与 T-code 速查</h1>
+<p class="kicker">中英对照 · 常用 T-code · 单据类型代码 · 查询技巧</p>
+<div class="note tip"><span class="t">怎么查</span>在页面上按 <b>Cmd/Ctrl + F</b> 搜中文或英文都可以。字段含义不确定时，在系统里把光标放到字段上按 <b>F1</b>（字段帮助），按 <b>F4</b> 看取值列表。</div>
+<h2 id="terms">1. 术语中英对照（46 条）</h2>
+<div class="filterbar"><input type="search" id="taskfilter" placeholder="输入关键词过滤，例如：定价 / pricing / VOV4"></div>
+<p class="hitcount" id="hitcount">显示全部 46 条</p>
+<div class="tblwrap"><table class="tbl" id="idxtable"><thead><tr><th>中文</th><th>英文</th><th>代码</th><th>说明</th></tr></thead><tbody><tr data-key="销售与分销 Sales and Distribution (SD) SD SAP 模块，负责销售业务流程"><td>销售与分销</td><td>Sales and Distribution (SD)</td><td><code>SD</code></td><td>SAP 模块，负责销售业务流程</td></tr><tr data-key="销售凭证 Sales Document — SD 自己产生的单据总称（询价/报价/订单/交货/发票）"><td>销售凭证</td><td>Sales Document</td><td>—</td><td>SD 自己产生的单据总称（询价/报价/订单/交货/发票）</td></tr><tr data-key="询价 Inquiry IN 客户询问，不构成约束；VA11"><td>询价</td><td>Inquiry</td><td><code>IN</code></td><td>客户询问，不构成约束；VA11</td></tr><tr data-key="报价 Quotation QT 正式报价，可带有效期；VA21"><td>报价</td><td>Quotation</td><td><code>QT</code></td><td>正式报价，可带有效期；VA21</td></tr><tr data-key="销售订单 Sales Order OR 接单单据；VA01"><td>销售订单</td><td>Sales Order</td><td><code>OR</code></td><td>接单单据；VA01</td></tr><tr data-key="外向交货 Outbound Delivery LF 发货单据；VL01N"><td>外向交货</td><td>Outbound Delivery</td><td><code>LF</code></td><td>发货单据；VL01N</td></tr><tr data-key="发票 / 开票凭证 Billing Document F2 结算单据；VF01"><td>发票 / 开票凭证</td><td>Billing Document</td><td><code>F2</code></td><td>结算单据；VF01</td></tr><tr data-key="销售组织 Sales Organization — 销售数据的最高组织键"><td>销售组织</td><td>Sales Organization</td><td>—</td><td>销售数据的最高组织键</td></tr><tr data-key="分销渠道 Distribution Channel — 产品到达客户的途径：直销/批发/零售"><td>分销渠道</td><td>Distribution Channel</td><td>—</td><td>产品到达客户的途径：直销/批发/零售</td></tr><tr data-key="产品组 Division — 产品按线分组"><td>产品组</td><td>Division</td><td>—</td><td>产品按线分组</td></tr><tr data-key="销售范围 Sales Area — 销售组织 + 分销渠道 + 产品组"><td>销售范围</td><td>Sales Area</td><td>—</td><td>销售组织 + 分销渠道 + 产品组</td></tr><tr data-key="销售办公室 / 销售组 Sales Office / Sales Group — 机构与人员组织，用于统计与权限"><td>销售办公室 / 销售组</td><td>Sales Office / Sales Group</td><td>—</td><td>机构与人员组织，用于统计与权限</td></tr><tr data-key="工厂 Plant — 生产与库存单位，发货从这里发生"><td>工厂</td><td>Plant</td><td>—</td><td>生产与库存单位，发货从这里发生</td></tr><tr data-key="起运点 Shipping Point — 发货的起始地点（与工厂多对多）"><td>起运点</td><td>Shipping Point</td><td>—</td><td>发货的起始地点（与工厂多对多）</td></tr><tr data-key="装载点 / 装载组 Loading Point / Loading Group — 装货位置；装载组与物料一起决定装载点"><td>装载点 / 装载组</td><td>Loading Point / Loading Group</td><td>—</td><td>装货位置；装载组与物料一起决定装载点</td></tr><tr data-key="拣配 Picking — 仓库按交货单取货并确认数量"><td>拣配</td><td>Picking</td><td>—</td><td>仓库按交货单取货并确认数量</td></tr><tr data-key="发货过账 Post Goods Issue (PGI) — 真正出库：移动类型 601，生成物料凭证"><td>发货过账</td><td>Post Goods Issue (PGI)</td><td>—</td><td>真正出库：移动类型 601，生成物料凭证</td></tr><tr data-key="移动类型 Movement Type — 601 发货出库 / 501 无订单收货 / 101 收货"><td>移动类型</td><td>Movement Type</td><td>—</td><td>601 发货出库 / 501 无订单收货 / 101 收货</td></tr><tr data-key="可用性检查 Availability Check (ATP) — 检查库存与在途，给出确认日期"><td>可用性检查</td><td>Availability Check (ATP)</td><td>—</td><td>检查库存与在途，给出确认日期</td></tr><tr data-key="项目类别 Item Category — 决定订单行的行为（定价/交货/开票）；VOV4 决定、VOV7 定义"><td>项目类别</td><td>Item Category</td><td>—</td><td>决定订单行的行为（定价/交货/开票）；VOV4 决定、VOV7 定义</td></tr><tr data-key="计划行类别 Schedule Line Category — 决定需求传递与库存确认方式"><td>计划行类别</td><td>Schedule Line Category</td><td>—</td><td>决定需求传递与库存确认方式</td></tr><tr data-key="条件技术 Condition Technique — 条件表 → 存取顺序 → 条件类型 → 定价过程"><td>条件技术</td><td>Condition Technique</td><td>—</td><td>条件表 → 存取顺序 → 条件类型 → 定价过程</td></tr><tr data-key="条件类型 Condition Type — 价格/折扣/运费/税的一类；PR00 价格、MWST 销项税"><td>条件类型</td><td>Condition Type</td><td>—</td><td>价格/折扣/运费/税的一类；PR00 价格、MWST 销项税</td></tr><tr data-key="条件记录 Condition Record — 条件类型下的具体值（单价、税率）；VK11 维护"><td>条件记录</td><td>Condition Record</td><td>—</td><td>条件类型下的具体值（单价、税率）；VK11 维护</td></tr><tr data-key="定价过程 Pricing Procedure — 把条件类型按步骤排出的算价表；教材用 RVAA01"><td>定价过程</td><td>Pricing Procedure</td><td>—</td><td>把条件类型按步骤排出的算价表；教材用 RVAA01</td></tr><tr data-key="存取顺序 Access Sequence — 查条件记录的优先级顺序"><td>存取顺序</td><td>Access Sequence</td><td>—</td><td>查条件记录的优先级顺序</td></tr><tr data-key="账户确定 Account Determination — 账码 + 物料/客户账户分配组 → 收入等科目（VKOA）"><td>账户确定</td><td>Account Determination</td><td>—</td><td>账码 + 物料/客户账户分配组 → 收入等科目（VKOA）</td></tr><tr data-key="账码 Account Key — 定价过程每步的记账标识，如 ERL 表示收入"><td>账码</td><td>Account Key</td><td>—</td><td>定价过程每步的记账标识，如 ERL 表示收入</td></tr><tr data-key="客户账户分配组 Customer Account Assignment Group — 参与收入科目确定的客户字段"><td>客户账户分配组</td><td>Customer Account Assignment Group</td><td>—</td><td>参与收入科目确定的客户字段</td></tr><tr data-key="物料账户分配组 Material Account Assignment Group — 参与收入科目确定的物料字段（教材 M1/M2）"><td>物料账户分配组</td><td>Material Account Assignment Group</td><td>—</td><td>参与收入科目确定的物料字段（教材 M1/M2）</td></tr><tr data-key="税分类 / 税码 Tax Classification / Tax Code — 客户与物料的税分类组合 → 税码 → 销项税"><td>税分类 / 税码</td><td>Tax Classification / Tax Code</td><td>—</td><td>客户与物料的税分类组合 → 税码 → 销项税</td></tr><tr data-key="伙伴角色 Partner Role — 售达方 AG / 送达方 WE / 收票方 RE / 付款方 RG"><td>伙伴角色</td><td>Partner Role</td><td>—</td><td>售达方 AG / 送达方 WE / 收票方 RE / 付款方 RG</td></tr><tr data-key="售达方 / 送达方 Sold-to Party / Ship-to Party AG / WE 下单方 / 收货方"><td>售达方 / 送达方</td><td>Sold-to Party / Ship-to Party</td><td><code>AG / WE</code></td><td>下单方 / 收货方</td></tr><tr data-key="收票方 / 付款方 Bill-to Party / Payer RE / RG 开票对象 / 付款与应收对象"><td>收票方 / 付款方</td><td>Bill-to Party / Payer</td><td><code>RE / RG</code></td><td>开票对象 / 付款与应收对象</td></tr><tr data-key="客户主数据三层 Customer Master (General / Company Code / Sales Area) — 一般 / 公司代码 / 销售范围 数据"><td>客户主数据三层</td><td>Customer Master (General / Company Code / Sales Area)</td><td>—</td><td>一般 / 公司代码 / 销售范围 数据</td></tr><tr data-key="物料主数据销售视图 Material Master Sales View — 销售组织与分销渠道级数据"><td>物料主数据销售视图</td><td>Material Master Sales View</td><td>—</td><td>销售组织与分销渠道级数据</td></tr><tr data-key="项目类别组 Item Category Group — 物料主数据字段，参与项目类别决定"><td>项目类别组</td><td>Item Category Group</td><td>—</td><td>物料主数据字段，参与项目类别决定</td></tr><tr data-key="单据流 Document Flow — 上下游单据的参照链与状态"><td>单据流</td><td>Document Flow</td><td>—</td><td>上下游单据的参照链与状态</td></tr><tr data-key="参照创建 Create with Reference — 下游单据参照上游单据创建，数据带出、可追溯"><td>参照创建</td><td>Create with Reference</td><td>—</td><td>下游单据参照上游单据创建，数据带出、可追溯</td></tr><tr data-key="不完整性检查 Incompleteness Check — 必填数据缺失时的提示/阻止"><td>不完整性检查</td><td>Incompleteness Check</td><td>—</td><td>必填数据缺失时的提示/阻止</td></tr><tr data-key="信贷管理 Credit Management — 客户信用额度控制（超额可加交货冻结）"><td>信贷管理</td><td>Credit Management</td><td>—</td><td>客户信用额度控制（超额可加交货冻结）</td></tr><tr data-key="输出确定 Output Determination — 单据输出（打印/邮件/EDI）的确定机制"><td>输出确定</td><td>Output Determination</td><td>—</td><td>单据输出（打印/邮件/EDI）的确定机制</td></tr><tr data-key="交货相关开票 Delivery-Related Billing — 发票参照交货创建（最常见方式）"><td>交货相关开票</td><td>Delivery-Related Billing</td><td>—</td><td>发票参照交货创建（最常见方式）</td></tr><tr data-key="下达 Release to Accounting — 把发票过账到财务会计，生成会计凭证"><td>下达</td><td>Release to Accounting</td><td>—</td><td>把发票过账到财务会计，生成会计凭证</td></tr><tr data-key="拣配数量 Picked Quantity — 实际拣货数量，可与交货数量不同"><td>拣配数量</td><td>Picked Quantity</td><td>—</td><td>实际拣货数量，可与交货数量不同</td></tr><tr data-key="销售分析 Sales Information System (SIS) — 基于统计更新的标准分析（MCTA 等）"><td>销售分析</td><td>Sales Information System (SIS)</td><td>—</td><td>基于统计更新的标准分析（MCTA 等）</td></tr></tbody></table></div>
+<h2 id="tcodes">2. 常用 T-code 速查（33 个）</h2>
+<div class="tblwrap"><table class="tbl idx"><thead><tr><th>T-code</th><th>用途</th><th>环节</th><th>教材任务</th></tr></thead><tbody><tr><td><code>VA11</code></td><td>创建询价</td><td>售前</td><td>—</td></tr><tr><td><code>VA21</code></td><td>创建报价</td><td>售前</td><td>任务 40</td></tr><tr><td><code>VA01</code></td><td>创建销售订单</td><td>接单</td><td>任务 41</td></tr><tr><td><code>VA02</code></td><td>更改销售订单</td><td>接单</td><td>—</td></tr><tr><td><code>VA03</code></td><td>显示销售订单（含单据流入口）</td><td>接单</td><td>任务 45</td></tr><tr><td><code>VA05</code></td><td>销售订单清单</td><td>分析</td><td>任务 46</td></tr><tr><td><code>VA25</code></td><td>报价清单</td><td>分析</td><td>—</td></tr><tr><td><code>VL01N</code></td><td>创建单个外向交货</td><td>发货</td><td>任务 42</td></tr><tr><td><code>VL02N</code></td><td>更改交货（拣配 / 发货过账）</td><td>发货</td><td>任务 42</td></tr><tr><td><code>VL03N</code></td><td>显示交货</td><td>发货</td><td>—</td></tr><tr><td><code>VL06O</code></td><td>交货清单（待拣配/待发货）</td><td>发货</td><td>—</td></tr><tr><td><code>VL09</code></td><td>取消发货过账</td><td>发货</td><td>—</td></tr><tr><td><code>VF01</code></td><td>创建开票凭证（发票）</td><td>开票</td><td>任务 43</td></tr><tr><td><code>VF02</code></td><td>更改 / 下达发票（过账到 FI）</td><td>开票</td><td>任务 44</td></tr><tr><td><code>VF03</code></td><td>显示发票（环境 → 会计凭证）</td><td>开票</td><td>任务 45</td></tr><tr><td><code>VF04</code></td><td>开票清单（批量处理）</td><td>开票</td><td>—</td></tr><tr><td><code>VF11</code></td><td>取消开票凭证</td><td>开票</td><td>—</td></tr><tr><td><code>VK11 / VK12 / VK13</code></td><td>创建 / 更改 / 显示条件记录</td><td>主数据</td><td>任务 35、36</td></tr><tr><td><code>MM01 / MM02 / MM03</code></td><td>创建 / 更改 / 显示物料主数据</td><td>主数据</td><td>任务 34</td></tr><tr><td><code>VD01 / VD02 / VD03</code></td><td>创建 / 更改 / 显示客户（销售视图）</td><td>主数据</td><td>任务 37、38、39</td></tr><tr><td><code>XD01 / XD03</code></td><td>客户主数据的另一种入口（跨模块）</td><td>主数据</td><td>—</td></tr><tr><td><code>MB1C</code></td><td>其它收货（用移动类型 501 录入期初库存）</td><td>库存</td><td>任务 48</td></tr><tr><td><code>MIGO</code></td><td>物料凭证（收货/发货）</td><td>库存</td><td>—</td></tr><tr><td><code>MB51 / MB52 / MMBE</code></td><td>物料凭证清单 / 库存清单 / 库存总览</td><td>库存</td><td>—</td></tr><tr><td><code>MD04</code></td><td>库存/需求清单（看销售需求是否传递）</td><td>计划</td><td>—</td></tr><tr><td><code>CO09</code></td><td>可用性总览</td><td>计划</td><td>—</td></tr><tr><td><code>F-28</code></td><td>收款并清账（FI）</td><td>财务</td><td>—</td></tr><tr><td><code>FBL5N</code></td><td>客户未清项（FI）</td><td>财务</td><td>—</td></tr><tr><td><code>FB03</code></td><td>显示会计凭证（FI）</td><td>财务</td><td>—</td></tr><tr><td><code>FS00</code></td><td>总帐科目主数据（FI）</td><td>财务</td><td>任务 48</td></tr><tr><td><code>MIRO</code></td><td>发票校验（MM-FI）</td><td>财务</td><td>任务 48</td></tr><tr><td><code>CK11N / CK24</code></td><td>标准成本估算 / 标记与发布</td><td>成本</td><td>任务 48</td></tr><tr><td><code>MCTA</code></td><td>销售分析（按客户）</td><td>分析</td><td>任务 47</td></tr></tbody></table></div>
+<h2 id="codes">3. 单据类型 / 类别代码</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>代码</th><th>含义</th><th>用在哪</th></tr></thead><tbody><tr><td><code>IN</code></td><td>询价 Inquiry</td><td>VA11</td></tr><tr><td><code>QT</code></td><td>报价 Quotation</td><td>VA21</td></tr><tr><td><code>OR</code></td><td>标准销售订单</td><td>VA01（教材场景）</td></tr><tr><td><code>LF</code></td><td>外向交货</td><td>VL01N</td></tr><tr><td><code>F2</code></td><td>发票（教材场景）</td><td>VF01</td></tr><tr><td><code>G2</code></td><td>贷项凭证（冲销/退货常用）</td><td>VF01</td></tr><tr><td><code>TAN</code></td><td>标准项目类别</td><td>订单行</td></tr><tr><td><code>AG / WE / RE / RG</code></td><td>售达方 / 送达方 / 收票方 / 付款方</td><td>伙伴角色</td></tr><tr><td><code>601</code></td><td>发货出库移动类型</td><td>发货过账</td></tr></tbody></table></div>
+<div class="note warn"><span class="t">代码随系统而异</span>上面的代码是「常见值」，不是唯一值：<b>OR / LF / F2 / TAN 都是可配置的</b>，很多公司会复制出自己的 Z 类型。学习时记住「代码代表什么角色」，用 F4 看自己系统的取值。</div>
+<h2 id="tables">4. 常用表（看数据用）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>表</th><th>内容</th><th>用 SE16N / SE16 查看</th></tr></thead><tbody><tr><td><code>VBAK</code> / <code>VBAP</code></td><td>销售订单抬头 / 项目</td><td>按订单号</td></tr><tr><td><code>VBEP</code></td><td>计划行（需求传递、确认数量）</td><td>按订单号</td></tr><tr><td><code>LIKP</code> / <code>LIPS</code></td><td>交货抬头 / 项目</td><td>按交货号</td></tr><tr><td><code>VBRK</code> / <code>VBRP</code></td><td>发票抬头 / 项目</td><td>按发票号</td></tr><tr><td><code>KONV</code></td><td>单据条件（这张单实际用的价格）</td><td>按单据号</td></tr><tr><td><code>KONH</code> / <code>KONP</code></td><td>条件记录抬头 / 金额</td><td>按条件类型</td></tr><tr><td><code>KNVV</code></td><td>客户销售范围数据</td><td>按客户 + 销售范围</td></tr><tr><td><code>MVKE</code></td><td>物料销售视图（销售组织/渠道级）</td><td>按物料 + 销售组织</td></tr><tr><td><code>TVKO</code> / <code>TVTW</code> / <code>TSPA</code></td><td>销售组织 / 分销渠道 / 产品组</td><td>组织数据</td></tr><tr><td><code>TVAP</code> / <code>TVEP</code></td><td>项目类别 / 计划行类别定义</td><td>凭证控制</td></tr><tr><td><code>VBAK</code> 与 <code>VBFA</code></td><td><code>VBFA</code> = 单据流（上下游关系）</td><td>按单据号查流向</td></tr></tbody></table></div>
+<div class="note ref"><span class="t">关于表名</span>表名属于「技术细节」，业务用户不必背；但顾问做排错时非常有用（比如 <code>VBFA</code> 能直接查单据流、<code>KONV</code> 能查这张单实际用的价格）。访问需要相应权限。</div>
+<ol class="steps"><li>回到 <a href="index.html">首页</a> 看课程地图。</li><li>不确定就问自己：这个问题属于 <a href="concept.html">概念</a>、<a href="org.html">组织</a>、<a href="master.html">主数据</a>、<a href="pricing.html">定价</a>，还是 <a href="flow.html">流程</a>？</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

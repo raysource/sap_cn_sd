@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实训任务 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a class="active" href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>实训任务</span></p>
+<h1>实训：五个动手任务</h1>
+<p class="kicker">任务卡 · 完成基准 · 对应画面 · 常见错误</p>
+<p>五个任务按顺序做，做完就相当于把 O2C 走了一遍。每个任务都给了「完成基准」（能自己验证），以及对应的教材真实画面。填表用 <a href="worksheet.html">学员版记入表</a>。</p>
+<div class="steph" id="t1"><span class="no">任务 1</span><h3>看懂组织结构</h3><span class="fb">组织</span><span class="tc">对应课程页：看懂组织结构</span></div>
+<p class="opcap"><span class="lead">做什么</span></p>
+<ol class="oplist" start="1"><li class="">在系统里找到销售组织、分销渠道、产品组的清单（后台或直接查表）</li><li class="">找到本系统里已经建好的销售范围，记录 2~3 个组合</li><li class="">找到工厂 → 销售组织/分销渠道 的分配，说明「为什么是多个」</li></ol>
+<div class="box ok"><b class="t">完成基准（能自己验证才算做完）</b><ul><li>能画出「销售组织 × 分销渠道 × 产品组 = 销售范围」的图</li><li>能说出本系统的销售范围有哪些</li><li>能解释工厂与销售组织为什么是多对多</li></ul></div>
+<div class="note warn"><span class="t">常见错误 / 卡住时看这里</span>把「销售范围」说成「销售部门」——注意区分销售范围（Sales Area）与销售办公室（Sales Office）。</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t07/02_1_image1106.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t07/02_1_image1106.png" width="775" height="283" alt="设置销售范围的画面（教材任务 07）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">设置销售范围的画面（教材任务 07）</span><span class="src">教材《S4.docx》SD 模块 · image1106.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t13/02_1_image1129.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t13/02_1_image1129.png" width="757" height="199" alt="工厂 → 销售组织/分销渠道（任务 13）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">工厂 → 销售组织/分销渠道（任务 13）</span><span class="src">教材《S4.docx》SD 模块 · image1129.png</span></figcaption></figure></div>
+<p class="meta">相关课程页：<a href="org.html">看懂组织结构</a></p>
+<div class="steph" id="t2"><span class="no">任务 2</span><h3>报价 → 销售订单</h3><span class="fb">流程</span><span class="tc">对应课程页：报价</span></div>
+<p class="opcap"><span class="lead">做什么</span></p>
+<ol class="oplist" start="1"><li class="">用 VA21 建一张报价（客户 + 物料 + 数量 + 有效日期）</li><li class="">检查报价的价格条件：价格来自哪条条件记录</li><li class="">用「后继功能 → V-01 订单」参照报价创建销售订单（订单类型 OR）</li><li class="">在订单里记录：确认交货日期、净价值、项目类别</li></ol>
+<div class="box ok"><b class="t">完成基准（能自己验证才算做完）</b><ul><li>拿到报价号与订单号</li><li>订单抬头能追到报价（环境 → 单据流）</li><li>订单里价格自动带出且与条件记录一致</li><li>确认交货日期有值（说明可用性检查跑过）</li></ul></div>
+<div class="note warn"><span class="t">常见错误 / 卡住时看这里</span>价格为空 → 检查条件记录是否存在/是否过期；确认日期为空 → 检查可用性检查是否被关闭。</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t40/01_1_image1288.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t40/01_1_image1288.png" width="664" height="309" alt="创建报价（任务 40）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">创建报价（任务 40）</span><span class="src">教材《S4.docx》SD 模块 · image1288.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t41/03_1_image1300.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t41/03_1_image1300.png" width="651" height="390" alt="参照报价创建订单（任务 41）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">参照报价创建订单（任务 41）</span><span class="src">教材《S4.docx》SD 模块 · image1300.png</span></figcaption></figure></div>
+<p class="meta">相关课程页：<a href="order.html">报价 → 销售订单</a></p>
+<div class="steph" id="t3"><span class="no">任务 3</span><h3>交货与发货过账</h3><span class="fb">流程</span><span class="tc">对应课程页：交货与发货过账</span></div>
+<p class="opcap"><span class="lead">做什么</span></p>
+<ol class="oplist" start="1"><li class="">用 VL01N 参照订单创建外向交货（注意装运点与交货日期）</li><li class="">在 VL02N 里完成拣配（填写拣配数量）</li><li class="">点「发货过账」（移动类型 601），记录系统提示</li><li class="">用 MMBE 或 MB52 看库存变化；用 VL03N 看交货状态</li></ol>
+<div class="box ok"><b class="t">完成基准（能自己验证才算做完）</b><ul><li>拿到交货号，交货状态＝已完成发货</li><li>库存数量减少（记录前后数量）</li><li>能说明「交货单创建时库存没变，发货过账后才变」</li></ul></div>
+<div class="note warn"><span class="t">常见错误 / 卡住时看这里</span>提示无库存 → 用 MB1C + 移动类型 501 录入期初库存（教材任务 48 的办法）；找不到装运点 → 检查工厂的起运点分配。</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t42/01_1_image1303.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t42/01_1_image1303.png" width="362" height="403" alt="创建外向交货（任务 42）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">创建外向交货（任务 42）</span><span class="src">教材《S4.docx》SD 模块 · image1303.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t48/25_2_image1385.jpeg" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t48/25_2_image1385.jpeg" width="867" height="633" alt="MB1C 501 录入期初库存（任务 48）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">MB1C 501 录入期初库存（任务 48）</span><span class="src">教材《S4.docx》SD 模块 · image1385.jpeg</span></figcaption></figure></div>
+<p class="meta">相关课程页：<a href="delivery.html">交货与发货过账</a></p>
+<div class="steph" id="t4"><span class="no">任务 4</span><h3>开票与过账到财务</h3><span class="fb">流程</span><span class="tc">对应课程页：开票与过账到财务</span></div>
+<p class="opcap"><span class="lead">做什么</span></p>
+<ol class="oplist" start="1"><li class="">用 VF01 参照交货创建发票（单据类型 F2），记录发票号与净价值</li><li class="">用 VF02 下达发票，记录系统提示（「凭证已经传送到记账」）</li><li class="">在发票里点「会计」或 VF03 → 环境，查看生成的会计凭证（借贷科目与金额）</li><li class="">用 FBL5N 查客户的未清项，确认应收已挂上</li></ol>
+<div class="box ok"><b class="t">完成基准（能自己验证才算做完）</b><ul><li>拿到发票号，状态＝已过账（已下达）</li><li>能看到会计凭证：借客户应收 / 贷收入 + 销项税</li><li>能说出收入科目是被哪三个键确定的</li></ul></div>
+<div class="note warn"><span class="t">常见错误 / 卡住时看这里</span>开不了票 → 检查交货是否已发货过账；没有会计凭证 → 检查账户确定/税配置是否有缺口。</div>
+<div class="shot-grid"><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t43/03_1_image1309.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t43/03_1_image1309.png" width="188" height="33" alt="创建发票并保存（任务 43）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">创建发票并保存（任务 43）</span><span class="src">教材《S4.docx》SD 模块 · image1309.png</span></figcaption></figure><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t44/02_1_image1311.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t44/02_1_image1311.png" width="170" height="46" alt="下达发票，提示「凭证已经传送到记账」（任务 44）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">下达发票，提示「凭证已经传送到记账」（任务 44）</span><span class="src">教材《S4.docx》SD 模块 · image1311.png</span></figcaption></figure></div>
+<p class="meta">相关课程页：<a href="billing.html">开票与过账到财务</a></p>
+<div class="steph" id="t5"><span class="no">任务 5</span><h3>追踪与报表</h3><span class="fb">分析</span><span class="tc">对应课程页：追踪与报表</span></div>
+<p class="opcap"><span class="lead">做什么</span></p>
+<ol class="oplist" start="1"><li class="">用 VA03 打开任务 2 的订单 → 环境 → 显示单据流，截下整条链</li><li class="">用 VA05 按客户或物料查订单清单</li><li class="">用 VL06O 查待发货/待过账的交货；用 VF04 查待开票的清单</li><li class="">（可选）在任务 31/32 更新组已激活的前提下，用 MCTA 跑一次销售分析</li></ol>
+<div class="box ok"><b class="t">完成基准（能自己验证才算做完）</b><ul><li>能把「订单 → 交货 → 发票」三个号写在一张纸上</li><li>能解释为什么 MCTA 报表可能没有数据</li><li>能说出 4 个「追问单据」的入口</li></ul></div>
+<div class="note warn"><span class="t">常见错误 / 卡住时看这里</span>报表没数据 → 更新组/统计组没配，或数据是配置之前产生的；单据流为空 → 参照关系断了（可能直接新建的单据）。</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t45/01_1_image1313.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t45/01_1_image1313.png" width="968" height="226" alt="从发票看原始凭证/单据流（任务 45）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">从发票看原始凭证/单据流（任务 45）</span><span class="src">教材《S4.docx》SD 模块 · image1313.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t46/01_1_image1314.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t46/01_1_image1314.png" width="638" height="400" alt="VA05 订单清单（任务 46）" loading="lazy"></a><figcaption><span class="n">画面 画面</span><span class="cap">VA05 订单清单（任务 46）</span><span class="src">教材《S4.docx》SD 模块 · image1314.png</span></figcaption></figure></div>
+<p class="meta">相关课程页：<a href="analysis.html">追踪与报表</a></p>
+<h2 id="env">实训环境准备清单（开课前检查）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>检查项</th><th>怎么查</th><th>达不到时的替代</th></tr></thead><tbody><tr><td>能登录 SAP GUI 并看到中文界面</td><td>登录后打开 <code>VA03</code></td><td>用教材截图讲解，学员只做观察记录</td></tr><tr><td>有可用的销售组织/销售范围</td><td>后台企业结构 或 表 <code>TVKO</code> / <code>TVKOV</code></td><td>用现有销售范围，不要新建</td></tr><tr><td>有客户主数据（销售视图）</td><td><code>VD03</code> / <code>XD03</code></td><td>复制现有客户或建 Z 客户</td></tr><tr><td>有物料（销售视图）+ 条件记录</td><td><code>MM03</code> → 销售组织数据；<code>VK13</code> 查 PR00</td><td>建 Z 物料与 Z 条件记录</td></tr><tr><td>有库存（否则交货走不出去）</td><td><code>MMBE</code></td><td><code>MB1C</code> 501 录入期初库存</td></tr><tr><td>开票与账户确定配置可用</td><td>试开一张发票 <code>VF01</code></td><td>只讲到发票保存，不下达</td></tr></tbody></table></div>
+<ol class="steps"><li>填表：<a href="worksheet.html"><b>学员版记入表</b></a>（可打印）。</li><li>做完自测：<a href="quiz.html"><b>30 题</b></a>（合格 75%）。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

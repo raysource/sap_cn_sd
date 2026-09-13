@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>讲师版 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a class="active" href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>讲师版</span></p>
+<h1>讲师版：上课怎么讲、怎么考</h1>
+<p class="kicker">课时分配 · 板书路线 · 必问问题与答案 · 采分点 · 常见错误</p>
+<div class="note info"><span class="t">使用方式</span>这一页给讲师：建议的课时切分、每节课的板书路线、必问问题（含答案）、评分标准。学员版在 <a href="worksheet.html">学员版</a>，自测在 <a href="quiz.html">自测</a>。</div>
+<h2 id="plan">1. 课时分配建议（3 天 / 18 小时）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>Day</th><th>时段</th><th>内容</th><th>对应页面</th><th>交付物</th></tr></thead><tbody><tr><td>Day 1 上午</td><td>2h</td><td>概念与定位：SD 管什么、集成边界、五大单据、三大概念层</td><td>concept</td><td>能画出单据流链</td></tr><tr><td>Day 1 下午</td><td>3h</td><td>组织结构：企业结构/销售结构/装运结构 + 销售范围（含后台演示）</td><td>org + config A~C</td><td>能画组织图并说明分配关系</td></tr><tr><td>Day 2 上午</td><td>3h</td><td>主数据：客户（四角色）、物料销售视图、条件记录</td><td>master</td><td>建出客户与物料销售视图</td></tr><tr><td>Day 2 下午</td><td>3h</td><td>定价：条件技术四层 + 定价过程确定 + 账户确定（白板推演）</td><td>pricing</td><td>能说出价格从哪来、收入科目怎么定</td></tr><tr><td>Day 3 上午</td><td>4h</td><td>端到端流程实操：订单 → 交货 → 发货过账 → 发票 → 下达（学员动手）</td><td>flow/order/delivery/billing/practice</td><td>五个实训任务完成基准</td></tr><tr><td>Day 3 下午</td><td>3h</td><td>分析、排错与考核：单据流、VA05、MCTA、踩坑集、30 题自测</td><td>analysis/quiz</td><td>自测 ≥75% + 验收清单全过</td></tr></tbody></table></div>
+<h2 id="board">2. 板书路线（按这个顺序写白板）</h2>
+<ol class="steps"><li>先画一个大框「SD」，四周写邻居：FI / MM / PP / CO，各写一句话分工（← 用 <a href="concept.html">集成结构图</a>）。</li><li>在中间画三个矩形：销售组织 / 分销渠道 / 产品组，连线写出「销售范围」（← <a href="org.html">组织结构图</a>）。</li><li>下方画装运：工厂 → 起运点 → 装载点 → 拣配库存地点。</li><li>右侧写「主数据」三块：客户 / 物料 / 条件记录，各标一句「决定什么」。</li><li>中间写定价四层：条件表 → 存取顺序 → 条件类型 → 定价过程，再加一条「定价过程确定三键」。</li><li>最后拉一条横向时间轴：询价 → 报价 → 订单 → 交货 → 发货过账 → 发票 → 下达 → 收款（← <a href="flow.html">端到端流程图</a>）。</li><li>每讲完一块，回到这张白板图指出「现在讲的是哪一部分」。<b>不要一页一页念 PPT。</b></li></ol>
+<h2 id="qa">3. 必问问题与标准答案（采分点）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>#</th><th>问题</th><th>参考答案</th><th>采分点</th></tr></thead><tbody><tr><td>1</td><td>为什么保存销售订单不等于出库？</td><td>订单只是承诺；出库（库存减少）发生在交货的发货过账，移动类型 601，此时才产生物料凭证。</td><td>答出「发货过账 + 601 + 物料凭证」得满分。</td></tr><tr><td>2</td><td>哪一步产生会计凭证？借贷是什么？</td><td>发票下达（VF02）时生成：借 客户应收（含税），贷 销售收入（净价值）+ 销项税。</td><td>借贷方向错一个扣一半。</td></tr><tr><td>3</td><td>价格是怎么进到订单里的？</td><td>定价过程（由销售范围 + 客户定价过程 + 单据定价过程确定，教材用 RVAA01）按步骤列条件类型；每个条件类型按存取顺序去条件记录里查值（如 PR00 单价、MWST 税）。</td><td>必须说出「过程 + 存取顺序 + 条件记录」三层。</td></tr><tr><td>4</td><td>销售收入科目怎么定？</td><td>账码（定价过程中的账码，如 ERL）+ 物料账户分配组 + 客户账户分配组 → 查表得到科目（VKOA/账户确定）。教材里只按物料分为自制产品 M1 与贸易商品 M2 两个科目。</td><td>答出三个键中的任意两个给一半。</td></tr><tr><td>5</td><td>客户主数据为什么有销售范围层？</td><td>同一客户在不同公司代码/销售范围可以有不同销售数据（定价过程、运送条件、税分类、伙伴角色），所以除了全公司共用的一般数据，还要有销售范围级数据。</td><td>提到「不同销售范围可不同」即可。</td></tr><tr><td>6</td><td>四个伙伴角色是什么？</td><td>售达方（下单）、送达方（收货地）、收票方（开票对象）、付款方（付款与应收）。</td><td>四个角色必须全对。</td></tr><tr><td>7</td><td>订单保存时提示库存不足，能不能继续？</td><td>默认可以继续保存（可用性检查不阻止保存，只给确认日期）；后续要发货必须补库存，教材用 MB1C + 移动类型 501（无订单收货）录入期初库存。</td><td>答出「可以保存」+「501 补库存」。</td></tr><tr><td>8</td><td>为什么开票之前必须有交货？</td><td>交货相关开票以交货的已发货数量与金额为基础；没有交货（或未发货过账）就没有可开票的数据，VF01 的可开票清单为空。</td><td>答出「发票参照交货」。</td></tr><tr><td>9</td><td>销售范围由什么组成？</td><td>销售组织 + 分销渠道 + 产品组；教材场景 1×2×2 = 4 个。</td><td>三个键全对。</td></tr><tr><td>10</td><td>客户说「我的货到哪了」，你查什么？</td><td>单据流（VA03/VL03N 的环境 → 显示单据流）看下游单据；看交货状态（未交货/部分/完全）与发货状态（是否已 PGI）；用 VL06O 看待发货。</td><td>答出单据流或状态字段之一。</td></tr><tr><td>11</td><td>销售分析报表没有数据，先查什么？</td><td>① 抬头/项目更新组是否激活（任务 31/32）；② 客户与物料主数据的统计组是否维护；③ 数据是否在配置之后产生。</td><td>答出前两条给满分。</td></tr><tr><td>12</td><td>改了主数据，为什么老单据没变？</td><td>单据保存时数据是快照；主数据变更只影响新建单据（或需手改单据/重新定价），这保证了历史单据的可追溯性。</td><td>答出「快照」意思即可。</td></tr></tbody></table></div>
+<h2 id="score">4. 评分标准（总分 100）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>项</th><th>分值</th><th>评分方式</th></tr></thead><tbody><tr><td>概念与定位（含 12 个常见误解）</td><td>15</td><td>口头/笔试 5 题，答对一题 3 分</td></tr><tr><td>组织结构与销售范围</td><td>15</td><td>能画出组织图并说明分配关系；指出本系统 4 个销售范围</td></tr><tr><td>主数据（客户/物料/条件记录）</td><td>20</td><td>现场建一条客户销售视图 + 一条 PR00 条件记录并截图</td></tr><tr><td>定价与账户确定</td><td>20</td><td>能推演一张订单的价格来源；说明收入科目由哪三个键确定</td></tr><tr><td>端到端流程实操</td><td>20</td><td>五个实训任务全过（完成基准逐条打勾）</td></tr><tr><td>分析、单据流与排错</td><td>10</td><td>能用单据流回答「货到哪了」；能解释 2 个教材踩坑</td></tr></tbody></table></div>
+<div class="note ok"><span class="t">合格线</span>≥75 分 + 五个实训任务的完成基准全部打勾 = 具备「能独立跑通 SD 主流程 + 能定位常见问题」的能力。低于 75 分建议重做任务 2~4。</div>
+<h2 id="traps">5. 课堂常见提问（现场速答）</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>学员会问</th><th>怎么答</th></tr></thead><tbody><tr><td>「订单类型 OR 能不能改？」</td><td>OR 是标准订单类型；可以复制出 Z 类型再改，不建议直接改标准对象。改的是 IMG 里的销售凭证类型。</td></tr><tr><td>「为什么我的价格是 0？」</td><td>先查条件记录（VK13）里有没有该销售范围 + 物料的 PR00；再查定价过程确定的三键。</td></tr><tr><td>「客户编号为什么有两个？」</td><td>售达方与送达方可以是不同客户编号，通过伙伴角色关联；也可用同一客户的不同编号。</td></tr><tr><td>「一定要建报价吗？」</td><td>不必须：可以直接 VA01 建订单。报价用于有议价过程的场景，好处是可追溯与跟进。</td></tr><tr><td>「能不能跳过交货直接开票？」</td><td>标准流程不行；有订单相关开票等变体，但课程场景是交货相关开票。</td></tr><tr><td>「发货过账错了怎么改？」</td><td>按顺序冲销：发票（VF11）→ 发货过账（VL09）→ 再重做。不要直接删单据。</td></tr></tbody></table></div>
+<ol class="steps"><li>发给学员：<a href="worksheet.html"><b>学员版记入表</b></a> 与 <a href="practice.html">实训任务</a>。</li><li>考核：<a href="quiz.html"><b>30 题自测</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

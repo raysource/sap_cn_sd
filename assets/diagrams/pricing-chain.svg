@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340 900" width="1340" height="900" role="img" aria-label="条件技术与定价过程确定（结构图）" font-family="'PingFang SC','Hiragino Sans GB','Noto Sans CJK SC','Microsoft YaHei',sans-serif">
+<title>条件技术与定价过程确定（结构图）</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0a6ed1"/></marker><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#007272"/></marker><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffffff"/></marker></defs>
+<rect width="1340" height="900" fill="#ffffff"/>
+<text x="40.0" y="48.0" font-size="20" fill="#1d2d3e" text-anchor="start" font-weight="700">定价的四层结构：条件表 → 存取顺序 → 条件类型 → 定价过程</text>
+<text x="40.0" y="70.0" font-size="13" fill="#6b7a8d" text-anchor="start" font-weight="400">「价格从哪来」是 SD 里问得最多的问题；这四层回答它，第五步决定「用哪套过程」（本站自绘）</text>
+<rect x="60.0" y="108.0" width="560.0" height="118.0" rx="10" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.4"/>
+<rect x="60.0" y="108.0" width="4.5" height="118.0" rx="2" fill="#0a6ed1" stroke="#0a6ed1" stroke-width="1.4"/>
+<circle cx="84.0" cy="132.0" r="12" fill="#0a6ed1"/><text x="84.0" y="136.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">1</text>
+<text x="106.0" y="137.0" font-size="16" fill="#0a6ed1" text-anchor="start" font-weight="700">条件表 Condition Table</text>
+<text x="78.0" y="160.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">存「具体价格」。行 = 键组合（客户 / 物料 / 销售组织…），值 = 金额或百分比。</text>
+<text x="78.0" y="214.0" font-size="11" fill="#6b7a8d" text-anchor="start" font-weight="400">教材场景：PR00 的存取顺序里包含「具有审批状态的物料」等步骤</text>
+<rect x="60.0" y="242.0" width="560.0" height="118.0" rx="10" fill="#ffffff" stroke="#007272" stroke-width="1.4"/>
+<rect x="60.0" y="242.0" width="4.5" height="118.0" rx="2" fill="#007272" stroke="#007272" stroke-width="1.4"/>
+<circle cx="84.0" cy="266.0" r="12" fill="#007272"/><text x="84.0" y="270.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">2</text>
+<text x="106.0" y="271.0" font-size="16" fill="#007272" text-anchor="start" font-weight="700">存取顺序 Access Sequence</text>
+<text x="78.0" y="294.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">按优先级排列若干条件表。系统从第一步开始找，找到就停（找不到才继续）。</text>
+<text x="78.0" y="348.0" font-size="11" fill="#6b7a8d" text-anchor="start" font-weight="400">含义：先找该客户的专用价 → 再找该物料的一般价 → …</text>
+<rect x="60.0" y="376.0" width="560.0" height="118.0" rx="10" fill="#ffffff" stroke="#8d6e00" stroke-width="1.4"/>
+<rect x="60.0" y="376.0" width="4.5" height="118.0" rx="2" fill="#8d6e00" stroke="#8d6e00" stroke-width="1.4"/>
+<circle cx="84.0" cy="400.0" r="12" fill="#8d6e00"/><text x="84.0" y="404.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">3</text>
+<text x="106.0" y="405.0" font-size="16" fill="#8d6e00" text-anchor="start" font-weight="700">条件类型 Condition Type</text>
+<text x="78.0" y="428.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">价格、折扣、运费、税…都是条件类型。它带出存取顺序、计算规则与账码。</text>
+<text x="78.0" y="482.0" font-size="11" fill="#6b7a8d" text-anchor="start" font-weight="400">PR00 = 销售价格 / MWST = 销项税 / K004 类的折扣与附加费</text>
+<rect x="60.0" y="510.0" width="560.0" height="118.0" rx="10" fill="#ffffff" stroke="#5b3fa8" stroke-width="1.4"/>
+<rect x="60.0" y="510.0" width="4.5" height="118.0" rx="2" fill="#5b3fa8" stroke="#5b3fa8" stroke-width="1.4"/>
+<circle cx="84.0" cy="534.0" r="12" fill="#5b3fa8"/><text x="84.0" y="538.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">4</text>
+<text x="106.0" y="539.0" font-size="16" fill="#5b3fa8" text-anchor="start" font-weight="700">定价过程 Pricing Procedure</text>
+<text x="78.0" y="562.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">把条件类型按步骤排成一张表：步骤 → 条件类型 → 计算类型 → 账码 → 小计。</text>
+<text x="78.0" y="616.0" font-size="11" fill="#6b7a8d" text-anchor="start" font-weight="400">教材场景：RVAA01「标准」是系统预配置、课程使用的定价过程</text>
+<line x1="620.0" y1="167.0" x2="660.0" y2="167.0" stroke="#6b7a8d" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="620.0" y1="301.0" x2="660.0" y2="301.0" stroke="#6b7a8d" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="620.0" y1="435.0" x2="660.0" y2="435.0" stroke="#6b7a8d" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="668.0" y="140.0" font-size="12" fill="#6b7a8d" text-anchor="start" font-weight="400">逐层引用：条件类型引用存取顺序，</text>
+<text x="668.0" y="158.0" font-size="12" fill="#6b7a8d" text-anchor="start" font-weight="400">定价过程引用条件类型</text>
+<text x="668.0" y="274.0" font-size="12" fill="#6b7a8d" text-anchor="start" font-weight="400">存取顺序引用条件表</text>
+<text x="668.0" y="408.0" font-size="12" fill="#6b7a8d" text-anchor="start" font-weight="400">过程里有账码 → 决定记账科目</text>
+<rect x="660.0" y="108.0" width="620.0" height="250.0" rx="11" fill="#e3f0fa" stroke="#0a6ed1" stroke-width="1.4"/>
+<text x="680.0" y="136.0" font-size="15" fill="#0854a0" text-anchor="start" font-weight="700">第 5 层：定价过程确定（决定「用哪一套过程」）</text>
+<rect x="680.0" y="164.0" width="200.0" height="34.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="692.0" y="186.0" font-size="12.5" fill="#0854a0" text-anchor="start" font-weight="700">销售范围</text>
+<text x="896.0" y="179.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">销售组织 + 分销渠道 + 产品组</text>
+<rect x="680.0" y="210.0" width="200.0" height="34.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="692.0" y="232.0" font-size="12.5" fill="#0854a0" text-anchor="start" font-weight="700">客户定价过程</text>
+<text x="896.0" y="225.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">客户主数据「销售视图 → 定价」里的字段（如 1 标准）</text>
+<rect x="680.0" y="256.0" width="200.0" height="34.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="692.0" y="278.0" font-size="12.5" fill="#0854a0" text-anchor="start" font-weight="700">单据定价过程</text>
+<text x="896.0" y="271.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">销售凭证类型的定价字段（如 A 标准订单）</text>
+<text x="680.0" y="310.0" font-size="11.5" fill="#0854a0" text-anchor="start" font-weight="400">三个键 → 定出唯一一套定价过程（RVAA01）→ 系统据此逐行算价并记账</text>
+<text x="680.0" y="332.0" font-size="11" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">IMG：销售和分销 → 基本功能 → 定价 → 定价控制 → 定义并分配定价过程</text>
+<rect x="660.0" y="376.0" width="620.0" height="232.0" rx="11" fill="#e6f2ec" stroke="#177245" stroke-width="1.4"/>
+<text x="680.0" y="404.0" font-size="15" fill="#177245" text-anchor="start" font-weight="700">配套：账户确定（收入记到哪个科目）</text>
+<text x="680.0" y="428.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">发票过账时要生成会计凭证。销售收入科目不是写死的，由三个键查表（VKOA）推出：</text>
+<rect x="680.0" y="470.0" width="190.0" height="36.0" rx="8" fill="#ffffff" stroke="#177245" stroke-width="1.2"/>
+<text x="690.0" y="493.0" font-size="12" fill="#177245" text-anchor="start" font-weight="700">账码 Account Key</text>
+<text x="886.0" y="486.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">定价过程里每一步的账码，如 ERL = 收入</text>
+<rect x="680.0" y="514.0" width="190.0" height="36.0" rx="8" fill="#ffffff" stroke="#177245" stroke-width="1.2"/>
+<text x="690.0" y="537.0" font-size="12" fill="#177245" text-anchor="start" font-weight="700">物料账户分配组</text>
+<text x="886.0" y="530.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">物料主数据销售视图里的字段（教材举例：M1 自制产品 / M2 贸易商品）</text>
+<rect x="680.0" y="558.0" width="190.0" height="36.0" rx="8" fill="#ffffff" stroke="#177245" stroke-width="1.2"/>
+<text x="690.0" y="581.0" font-size="12" fill="#177245" text-anchor="start" font-weight="700">客户账户分配组</text>
+<text x="886.0" y="574.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">客户主数据里的字段（教材举例：01 国内收入）</text>
+<text x="680.0" y="616.0" font-size="11" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">IMG：销售和分销 → 基本功能 → 科目分配/成本 → 收入账户确定</text>
+<rect x="60.0" y="640.0" width="1220.0" height="140.0" rx="10" fill="#f7fafc" stroke="#d9e1e8" stroke-width="1.4"/>
+<text x="78.0" y="668.0" font-size="14" fill="#1d2d3e" text-anchor="start" font-weight="700">课程场景的算价例子（教材：30~120 件铸钢泵 170-230）</text>
+<rect x="78.0" y="686.0" width="223.2" height="44.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="91.0" y="706.0" font-size="12" fill="#1d2d3e" text-anchor="start" font-weight="400">物料 F999-100（铸钢泵 170-230）</text>
+<text x="91.0" y="722.0" font-size="10.5" fill="#6b7a8d" text-anchor="start" font-weight="400"></text>
+<line x1="303.2" y1="708.0" x2="307.2" y2="708.0" stroke="#6b7a8d" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="313.2" y="686.0" width="94.2" height="44.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="326.2" y="706.0" font-size="12" fill="#1d2d3e" text-anchor="start" font-weight="400">数量 120 PC</text>
+<text x="326.2" y="722.0" font-size="10.5" fill="#6b7a8d" text-anchor="start" font-weight="400"></text>
+<line x1="409.4" y1="708.0" x2="413.4" y2="708.0" stroke="#6b7a8d" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="419.4" y="686.0" width="136.4" height="44.0" rx="8" fill="#ffffff" stroke="#8d6e00" stroke-width="1.2"/>
+<text x="432.4" y="706.0" font-size="12" fill="#1d2d3e" text-anchor="start" font-weight="400">PR00 单价 8,000.00</text>
+<text x="432.4" y="722.0" font-size="10.5" fill="#6b7a8d" text-anchor="start" font-weight="400">条件类型：价格</text>
+<line x1="557.7" y1="708.0" x2="561.7" y2="708.0" stroke="#6b7a8d" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="567.7" y="686.0" width="159.2" height="44.0" rx="8" fill="#ffffff" stroke="#8d6e00" stroke-width="1.2"/>
+<text x="580.7" y="706.0" font-size="12" fill="#1d2d3e" text-anchor="start" font-weight="400">净价值 960,000.00 RMB</text>
+<text x="580.7" y="722.0" font-size="10.5" fill="#6b7a8d" text-anchor="start" font-weight="400">条件类型：小计</text>
+<line x1="728.9" y1="708.0" x2="732.9" y2="708.0" stroke="#6b7a8d" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="738.9" y="686.0" width="124.8" height="44.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="751.9" y="706.0" font-size="12" fill="#1d2d3e" text-anchor="start" font-weight="400">MWST 销项税</text>
+<text x="751.9" y="722.0" font-size="10.5" fill="#6b7a8d" text-anchor="start" font-weight="400">按税分类 + 税码计算</text>
+<line x1="865.6" y1="708.0" x2="869.6" y2="708.0" stroke="#6b7a8d" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="875.6" y="686.0" width="128.7" height="44.0" rx="8" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.2"/>
+<text x="888.6" y="706.0" font-size="12" fill="#1d2d3e" text-anchor="start" font-weight="400">发票 F2 90000000</text>
+<text x="888.6" y="722.0" font-size="10.5" fill="#6b7a8d" text-anchor="start" font-weight="400">过账后生成会计凭证</text>
+<text x="78.0" y="760.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400">注：单价与税率为课程场景示意；实际金额由「条件记录 + 定价过程 + 税码」在各自系统里算出，请在自系统用 VA03 → 项目 → 条件 页签核对。</text>
+</svg>

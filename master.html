@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主数据 · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a class="active" href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>主数据</span></p>
+<h1>主数据：客户、物料、价格</h1>
+<p class="kicker">客户主数据三层 · 四个伙伴角色 · 物料销售视图 · 条件记录 · 真实画面</p>
+<div class="toc"><a href="#three">1. 三类主数据的分工</a><a href="#cust">2. 客户主数据</a><a href="#partner">3. 四个伙伴角色</a><a href="#mat">4. 物料主数据（销售视图）</a><a href="#cond">5. 条件记录：价格放在哪</a><a href="#shots">6. 真实画面</a><a href="#check">7. 自检</a></div>
+<h2 id="three">1. 三类主数据的分工</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>主数据</th><th>回答</th><th>层次</th><th>建它的 T-code</th></tr></thead><tbody><tr><td>客户主数据</td><td>卖给谁：谁下单、货送哪、票开给谁、谁付钱。还带出销售范围、付款条件、税分类等</td><td>一般数据 / 公司代码数据 / 销售范围数据（三层）</td><td><code>VD01</code>（创建，销售视图）、<code>VD02</code>（更改）、<code>XD01</code>/<code>BP</code>（S/4HANA 客户主数据）</td></tr><tr><td>物料主数据</td><td>卖什么：能不能卖、按什么单位卖、税率分类、账户分配组、装运条件</td><td>一般 / 工厂 / 采购 / 销售（销售范围级）等视图</td><td><code>MM01</code>（创建）、<code>MM02</code>（更改）、<code>MM03</code>（显示）</td></tr><tr><td>条件记录</td><td>多少钱：单价、折扣、运费、销项税</td><td>按销售范围 / 客户 / 物料等键组合</td><td><code>VK11</code>（创建）、<code>VK12</code>（更改）、<code>VK13</code>（显示）</td></tr></tbody></table></div>
+<div class="note info"><span class="t">为什么客户主数据有「三层」</span>因为一家公司可能同时服务于多个公司代码和多个销售范围：客户的一般信息（名称、地址、税号）全公司共用；公司代码层放付款条件、对账科目等财务信息；<b>销售范围层</b>放销售相关的数据（销售范围、客户定价过程、运送条件、伙伴角色等）。所以「同一个客户」在不同销售范围里可以有不同设置。</div>
+<h2 id="cust">2. 客户主数据</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>层 / 页签</th><th>放什么</th><th>影响什么</th></tr></thead><tbody><tr><td>一般数据（General）</td><td>名称、地址、税号、联系人、通讯方式</td><td>全公司共用；地址也是开票/交货的默认送达信息</td></tr><tr><td>公司代码数据（Company Code）</td><td>对账科目、付款条件、催款、利息</td><td>发票过账时贷方应收科目、账期</td></tr><tr><td>销售范围数据（Sales Area）</td><td>销售范围、客户定价过程、运送条件、客户组、税分类、账户分配组、伙伴角色</td><td>定价格、定税、定发货方式、定收入科目</td></tr></tbody></table></div>
+<div class="pathline" data-copy="财务会计(新) → 应收账款和应付账款 → 客户账户 → 主数据 → 创建客户主记录准备 → 定义带有屏幕格式的账户组（客户）"><b>IMG 路径（维护客户账户组的销售数据 / 屏幕格式）</b>财务会计(新) → 应收账款和应付账款 → 客户账户 → 主数据 → 创建客户主记录准备 → 定义带有屏幕格式的账户组（客户）</div>
+<p>教材第一步先配「客户账户组」：它决定销售视图里<b>哪些字段必填、哪些可见、哪些可选</b>。这是「客户主数据屏幕长什么样」的开关。课程场景里用的是账户组 <b><code>K001</code>「订货方-颐宁」</b>。</p>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t21/03_1_image1167.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t21/03_1_image1167.png" width="357" height="371" alt="客户账户组的屏幕格式维护：逐个页签决定字段是必输、可选还是隐藏（画面里可见账户组 K001「订货方-颐宁」）" loading="lazy"></a><figcaption><span class="n">画面 1</span><span class="cap">客户账户组的屏幕格式维护：逐个页签决定字段是必输、可选还是隐藏（画面里可见账户组 K001「订货方-颐宁」）</span><span class="src">教材《S4.docx》· SD 任务 21 维护客户账户组的销售数据</span></figcaption></figure>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 业务伙伴 → 客户 → 创建 → VD01"><b>IMG 路径（创建客户销售视图）</b>后勤 → 销售和分销 → 主数据 → 业务伙伴 → 客户 → 创建 → VD01</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t37/03_1_image1268.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t37/03_1_image1268.png" width="621" height="704" alt="VD01 创建客户：输入客户号、账户组、公司代码后进入销售视图" loading="lazy"></a><figcaption><span class="n">画面 2</span><span class="cap">VD01 创建客户：输入客户号、账户组、公司代码后进入销售视图</span><span class="src">教材《S4.docx》SD 模块 · image1268.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t37/06_1_image1272.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t37/06_1_image1272.png" width="522" height="572" alt="销售视图关键字段：销售范围、客户定价过程、运送条件、税分类" loading="lazy"></a><figcaption><span class="n">画面 3</span><span class="cap">销售视图关键字段：销售范围、客户定价过程、运送条件、税分类</span><span class="src">教材《S4.docx》SD 模块 · image1272.png</span></figcaption></figure></div>
+<h4>课程场景（教材环境）的真实值</h4>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>对象</th><th>值</th><th>出处（画面）</th></tr></thead><tbody><tr><td>客户（售达方）</td><td><code>10000000</code> 远东造船厂 / 大连</td><td>VD01 画面（画面 3）</td></tr><tr><td>送达方</td><td><code>10000000</code> 远东造船厂第三分公司</td><td>VD02 初始屏幕</td></tr><tr><td>客户账户组</td><td><code>K001</code> 订货方-颐宁</td><td>账户组维护画面（画面 1）</td></tr><tr><td>客户销售视图（装运）</td><td>装运条件 <code>99</code>、交货工厂 <code>P999</code>、交货优先级 <code>02</code>、勾选「订单组合」</td><td>VD01 销售视图（画面 3）</td></tr><tr><td>物料</td><td><code>F999-100</code> 铸钢泵 170-230（物料类型 <code>FERT</code> 成品、行业领域 <code>M</code> 机械工程）</td><td>MM01 画面（画面 6）</td></tr><tr><td>销售价格（PR00）</td><td><code>8,000.00 RMB</code>／PC，有效期 2021.01.01 – 9999.04.14</td><td>VK11 画面（画面 8）</td></tr></tbody></table></div>
+<div class="note ref"><span class="t">这些值的用法</span>上课时让学员在自己系统里查「同一类数据长什么样」，而不是记住 <code>C999</code> / <code>F999-100</code>这些练习编码。截图里的数值是<b>教材环境的实际值</b>，用于对照字段位置与相互关系。</div>
+<h2 id="partner">3. 四个伙伴角色（Partner Roles）</h2>
+<p>一张订单里有四种「角色」，可能是同一个客户，也可能是不同公司：</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>角色</th><th>代码</th><th>含义</th><th>教材场景</th></tr></thead><tbody><tr><td>售达方 Sold-to Party</td><td><code>AG</code></td><td>下单的人（订单里的「客户」字段）</td><td>远东造船厂</td></tr><tr><td>送达方 Ship-to Party</td><td><code>WE</code></td><td>收货的人/地方（交货送到这里）</td><td>远东造船厂第三分公司</td></tr><tr><td>收票方 Bill-to Party</td><td><code>RE</code></td><td>发票开给谁</td><td>通常同售达方</td></tr><tr><td>付款方 Payer</td><td><code>RG</code></td><td>谁付钱（决定应收）</td><td>教材发票画面里的付款方 <code>10000000</code></td></tr></tbody></table></div>
+<div class="note tip"><span class="t">角色代码怎么看</span>不同系统的伙伴角色代码可能不同（教材用 SH 表示送货方/送达方，标准配置里常见 WE / SH 混用，取决于是「装运」还是「交货」视图）。以自己系统 F4 的取值表为准。</div>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 更改 → VD02"><b>IMG 路径（把收货方分配给订货方）</b>后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 更改 → VD02</div>
+<div class="shot-grid"><figure class="shot"><a class="zoom" href="assets/img/sd/t39/02_1_image1285.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t39/02_1_image1285.png" width="515" height="383" alt="VD02 更改客户：进入销售范围数据" loading="lazy"></a><figcaption><span class="n">画面 4</span><span class="cap">VD02 更改客户：进入销售范围数据</span><span class="src">教材《S4.docx》SD 模块 · image1285.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t39/04_1_image1287.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t39/04_1_image1287.png" width="698" height="439" alt="在「合作伙伴功能」里把送达方（第三分公司）加到订货方上" loading="lazy"></a><figcaption><span class="n">画面 5</span><span class="cap">在「合作伙伴功能」里把送达方（第三分公司）加到订货方上</span><span class="src">教材《S4.docx》SD 模块 · image1287.png</span></figcaption></figure></div>
+<h2 id="mat">4. 物料主数据（销售视图）</h2>
+<p>物料主数据里与 SD 相关的字段主要在<b>销售视图</b>（销售组织 / 分销渠道级）和<b>工厂级</b>。课程场景里对外销售两个物料：产成品「铸钢泵 170-230」和贸易商品「高速增压涡轮泵」。</p>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>字段</th><th>作用</th><th>影响到</th></tr></thead><tbody><tr><td>销售单位 / 基本单位</td><td>卖给客户的计量单位</td><td>订单数量与价格单位</td></tr><tr><td>物料组 / 产品层次</td><td>统计与分类</td><td>报表分析</td></tr><tr><td>项目类别组 Item Category Group</td><td>决定订单行的<b>项目类别</b>（是否定价、是否交货、是否开票）</td><td>订单行的行为</td></tr><tr><td>税分类 Tax Classification</td><td>与客户税分类组合 → 决定<b>税码</b>（销项税）</td><td>税额</td></tr><tr><td>账户分配组 Account Assignment Group</td><td>与客户账户分配组 + 账码一起决定<b>收入科目</b></td><td>会计凭证</td></tr><tr><td>装运条件 / 装载组</td><td>与客户运送条件、工厂一起决定<b>起运点</b>与装载点</td><td>发货从哪发</td></tr><tr><td>销售状态 / 物料统计组</td><td>能不能卖；进不进销售分析</td><td>VA01 能否带出该物料；MCTA 有没有数据</td></tr></tbody></table></div>
+<div class="pathline" data-copy="后勤 → 物料管理 → 物料主记录 → 物料 → 创建（一般） → MM01 立即"><b>IMG 路径（维护物料主数据的销售视图）</b>后勤 → 物料管理 → 物料主记录 → 物料 → 创建（一般） → MM01 立即</div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t34/02_1_image1247.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t34/02_1_image1247.png" width="471" height="330" alt="MM01 创建物料：选择视图（销售视图要指定销售组织与分销渠道）" loading="lazy"></a><figcaption><span class="n">画面 6</span><span class="cap">MM01 创建物料：选择视图（销售视图要指定销售组织与分销渠道）</span><span class="src">教材《S4.docx》· SD 任务 34 维护物料主数据的销售视图</span></figcaption></figure>
+<h2 id="cond">5. 条件记录：价格到底放在哪</h2>
+<p>价格不在物料主数据里，而在<b>条件记录</b>里：按条件类型（如 <code>PR00</code> 销售价格、<code>MWST</code> 销项税）维护，键组合通常是「销售组织 + 分销渠道 + 物料」。<code>PR00</code> 的存取顺序决定「先找谁的价」。</p>
+<div class="pathline" data-copy="后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建"><b>IMG 路径（维护物料的销售价格）</b>后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建</div>
+<div class="shot-grid"><figure class="shot narrow"><a class="zoom" href="assets/img/sd/t35/02_1_image1257.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t35/02_1_image1257.png" width="468" height="143" alt="VK11 创建条件记录：选条件类型 PR00（销售价格）" loading="lazy"></a><figcaption><span class="n">画面 7</span><span class="cap">VK11 创建条件记录：选条件类型 PR00（销售价格）</span><span class="src">教材《S4.docx》SD 模块 · image1257.png</span></figcaption></figure><figure class="shot"><a class="zoom" href="assets/img/sd/t35/04_1_image1260.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t35/04_1_image1260.png" width="624" height="403" alt="输入键组合与金额（可用 F4 选择物料）——这里才是「单价」的落点" loading="lazy"></a><figcaption><span class="n">画面 8</span><span class="cap">输入键组合与金额（可用 F4 选择物料）——这里才是「单价」的落点</span><span class="src">教材《S4.docx》SD 模块 · image1260.png</span></figcaption></figure></div>
+<figure class="shot"><a class="zoom" href="assets/img/sd/t36/02_1_image1263.png" title="点击放大（1×~4×，ESC 关闭）"><img src="assets/img/sd/t36/02_1_image1263.png" width="1149" height="367" alt="销项税 MWST 也用 VK11 维护税率；它会按客户税分类 + 物料税分类被自动确定" loading="lazy"></a><figcaption><span class="n">画面 9</span><span class="cap">销项税 MWST 也用 VK11 维护税率；它会按客户税分类 + 物料税分类被自动确定</span><span class="src">教材《S4.docx》· SD 任务 36 维护销项税税率</span></figcaption></figure>
+<div class="note warn"><span class="t">三个高频问题</span><ul><li><b>订单里价格是空的/为 0</b>：条件记录没建，或条件记录的键与订单的销售范围/客户不匹配，或条件记录已过期。</li><li><b>改了价格，老订单没变</b>：单据存的是当时的价格快照；需要手动重新定价。</li><li><b>想给某客户专用价</b>：用含客户的条件表维护客户专用条件记录，并把它的存取顺序放在一般价之前。</li></ul></div>
+<h2 id="shots">6. 主数据相关任务索引（教材）</h2>
+<div class="tblwrap"><table class="tbl idx"><thead><tr><th>任务</th><th>标题</th><th>教材 IMG / 菜单路径</th><th>T-code</th><th>画面数</th></tr></thead><tbody><tr><td><a href="config.html#task21">任务 21</a></td><td>维护客户账户组的销售数据</td><td><code>财务会计(新) → 应收账款和应付账款 → 客户账户 → 主数据 → 创建客户主记录准备 → 定义带有屏幕格式的账户组（客户）</code></td><td>—</td><td>16</td></tr><tr><td><a href="config.html#task34">任务 34</a></td><td>维护物料主数据的销售视图</td><td><code>后勤 → 物料管理 → 物料主记录 → 物料 → 创建（一般） → MM01 立即</code></td><td><code>MM01</code></td><td>10</td></tr><tr><td><a href="config.html#task35">任务 35</a></td><td>维护物料的销售价格</td><td><code>后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建</code></td><td><code>VK11</code></td><td>5</td></tr><tr><td><a href="config.html#task36">任务 36</a></td><td>维护销项税税率</td><td><code>后勤 → 销售和分销 → 主数据 → 条件 → 按条件类型选择 → VK11 → 创建</code></td><td><code>VK11</code></td><td>4</td></tr><tr><td><a href="config.html#task37">任务 37</a></td><td>维护订货方主数据的销售视图</td><td><code>后勤 → 销售和分销 → 主数据 → 业务伙伴 → 客户 → 创建 → VD01</code></td><td><code>VD01</code></td><td>13</td></tr><tr><td><a href="config.html#task38">任务 38</a></td><td>维护收货方的销售视图</td><td><code>后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 创建 VD01</code></td><td><code>VD01</code></td><td>6</td></tr><tr><td><a href="config.html#task39">任务 39</a></td><td>将收货方分配给订货方</td><td><code>后勤 → 销售和分销 → 主数据 → 业务合作伙伴 → 客户 → 更改 → VD02</code></td><td><code>VD02</code></td><td>4</td></tr></tbody></table></div>
+<h2 id="check">7. 自检</h2>
+<div class="tblwrap"><table class="tbl"><thead><tr><th>要确认的事</th><th>怎么确认</th></tr></thead><tbody><tr><td>客户在某个销售范围有没有销售视图</td><td><code>VD03</code> / <code>XD03</code> 输入客户与销售范围；表 <code>KNVV</code></td></tr><tr><td>物料有没有销售视图</td><td><code>MM03</code> → 附加 → 销售组织数据；表 <code>MVKE</code></td></tr><tr><td>价格从哪里来</td><td><code>VA03</code> → 项目 → <b>条件</b>页签，看每行的条件类型、来源（存取顺序第几步找到的）</td></tr><tr><td>税额为什么是这个数</td><td><code>VA03</code> 项目条件里看 <code>MWST</code> 行，再对照客户/物料税分类（后台）</td></tr></tbody></table></div>
+<ol class="steps"><li>下一页：<a href="pricing.html"><b>定价</b></a> —— 把上面的条件技术讲透。</li><li>想动手：<a href="practice.html"><b>实训任务</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>

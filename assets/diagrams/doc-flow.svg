@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340 620" width="1340" height="620" role="img" aria-label="单据流与参照关系（结构图）" font-family="'PingFang SC','Hiragino Sans GB','Noto Sans CJK SC','Microsoft YaHei',sans-serif">
+<title>单据流与参照关系（结构图）</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0a6ed1"/></marker><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#007272"/></marker><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffffff"/></marker></defs>
+<rect width="1340" height="620" fill="#ffffff"/>
+<text x="40.0" y="48.0" font-size="20" fill="#1d2d3e" text-anchor="start" font-weight="700">单据流结构图：谁参照谁、各单据带什么状态</text>
+<text x="40.0" y="70.0" font-size="13" fill="#6b7a8d" text-anchor="start" font-weight="400">「参照创建」保证了数据一致：数量、价格、客户从上游带下来（本站自绘）</text>
+<rect x="60.0" y="140.0" width="222.0" height="190.0" rx="12" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.4"/>
+<rect x="60.0" y="140.0" width="222.0" height="40.0" rx="12" fill="#0a6ed1" stroke="#0a6ed1" stroke-width="1.4"/>
+<text x="76.0" y="167.0" font-size="16" fill="#ffffff" text-anchor="start" font-weight="700">询价单</text>
+<text x="266.0" y="167.0" font-size="12.5" fill="#eaf4ff" text-anchor="end" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">VA11</text>
+<text x="76.0" y="206.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">单据类型 / 类别：IN</text>
+<text x="76.0" y="230.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 客户意向</text>
+<text x="76.0" y="247.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 不带价格约束</text>
+<rect x="76.0" y="288.0" width="190.0" height="28.0" rx="7" fill="#f7fafc" stroke="#d9e1e8" stroke-width="1"/>
+<text x="86.0" y="307.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">整体状态</text>
+<line x1="286.0" y1="235.0" x2="314.0" y2="235.0" stroke="#0a6ed1" stroke-width="2.2" marker-end="url(#ar)"/>
+<text x="278.0" y="222.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400">参照</text>
+<rect x="318.0" y="140.0" width="222.0" height="190.0" rx="12" fill="#ffffff" stroke="#0a6ed1" stroke-width="1.4"/>
+<rect x="318.0" y="140.0" width="222.0" height="40.0" rx="12" fill="#0a6ed1" stroke="#0a6ed1" stroke-width="1.4"/>
+<text x="334.0" y="167.0" font-size="16" fill="#ffffff" text-anchor="start" font-weight="700">报价单</text>
+<text x="524.0" y="167.0" font-size="12.5" fill="#eaf4ff" text-anchor="end" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">VA21</text>
+<text x="334.0" y="206.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">单据类型 / 类别：QT</text>
+<text x="334.0" y="230.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 有效期</text>
+<text x="334.0" y="247.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 参照询价创建</text>
+<rect x="334.0" y="288.0" width="190.0" height="28.0" rx="7" fill="#f7fafc" stroke="#d9e1e8" stroke-width="1"/>
+<text x="344.0" y="307.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">整体状态</text>
+<line x1="544.0" y1="235.0" x2="572.0" y2="235.0" stroke="#0a6ed1" stroke-width="2.2" marker-end="url(#ar)"/>
+<text x="536.0" y="222.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400">参照</text>
+<rect x="576.0" y="140.0" width="222.0" height="190.0" rx="12" fill="#ffffff" stroke="#0854a0" stroke-width="1.4"/>
+<rect x="576.0" y="140.0" width="222.0" height="40.0" rx="12" fill="#0854a0" stroke="#0854a0" stroke-width="1.4"/>
+<text x="592.0" y="167.0" font-size="16" fill="#ffffff" text-anchor="start" font-weight="700">销售订单</text>
+<text x="782.0" y="167.0" font-size="12.5" fill="#eaf4ff" text-anchor="end" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">VA01</text>
+<text x="592.0" y="206.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">单据类型 / 类别：OR</text>
+<text x="592.0" y="230.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 定价确定</text>
+<text x="592.0" y="247.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 可用性检查</text>
+<text x="592.0" y="264.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 交货日期</text>
+<text x="592.0" y="281.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 不完整性检查</text>
+<rect x="592.0" y="288.0" width="190.0" height="28.0" rx="7" fill="#f7fafc" stroke="#d9e1e8" stroke-width="1"/>
+<text x="602.0" y="307.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">整体状态 / 拒绝原因</text>
+<line x1="802.0" y1="235.0" x2="830.0" y2="235.0" stroke="#0854a0" stroke-width="2.2" marker-end="url(#ar)"/>
+<text x="794.0" y="222.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400">参照</text>
+<rect x="834.0" y="140.0" width="222.0" height="190.0" rx="12" fill="#ffffff" stroke="#007272" stroke-width="1.4"/>
+<rect x="834.0" y="140.0" width="222.0" height="40.0" rx="12" fill="#007272" stroke="#007272" stroke-width="1.4"/>
+<text x="850.0" y="167.0" font-size="16" fill="#ffffff" text-anchor="start" font-weight="700">交货单</text>
+<text x="1040.0" y="167.0" font-size="12.5" fill="#eaf4ff" text-anchor="end" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">VL01N</text>
+<text x="850.0" y="206.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">单据类型 / 类别：LF</text>
+<text x="850.0" y="230.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 拣配</text>
+<text x="850.0" y="247.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 发货过账 601</text>
+<text x="850.0" y="264.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 交货状态</text>
+<rect x="850.0" y="288.0" width="190.0" height="28.0" rx="7" fill="#f7fafc" stroke="#d9e1e8" stroke-width="1"/>
+<text x="860.0" y="307.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">发货状态</text>
+<line x1="1060.0" y1="235.0" x2="1088.0" y2="235.0" stroke="#007272" stroke-width="2.2" marker-end="url(#ar)"/>
+<text x="1052.0" y="222.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400">参照</text>
+<rect x="1092.0" y="140.0" width="222.0" height="190.0" rx="12" fill="#ffffff" stroke="#5b3fa8" stroke-width="1.4"/>
+<rect x="1092.0" y="140.0" width="222.0" height="40.0" rx="12" fill="#5b3fa8" stroke="#5b3fa8" stroke-width="1.4"/>
+<text x="1108.0" y="167.0" font-size="16" fill="#ffffff" text-anchor="start" font-weight="700">发票</text>
+<text x="1298.0" y="167.0" font-size="12.5" fill="#eaf4ff" text-anchor="end" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">VF01</text>
+<text x="1108.0" y="206.0" font-size="11.5" fill="#6b7a8d" text-anchor="start" font-weight="400" font-family="'SF Mono',Menlo,Consolas,monospace">单据类型 / 类别：F2</text>
+<text x="1108.0" y="230.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 开票</text>
+<text x="1108.0" y="247.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">· 过账生成 FI 凭证</text>
+<rect x="1108.0" y="288.0" width="190.0" height="28.0" rx="7" fill="#f7fafc" stroke="#d9e1e8" stroke-width="1"/>
+<text x="1118.0" y="307.0" font-size="11.5" fill="#354a5f" text-anchor="start" font-weight="400">开票状态</text>
+<rect x="60.0" y="366.0" width="1220.0" height="96.0" rx="10" fill="#e6f2f2" stroke="#007272" stroke-width="1.4"/>
+<text x="78.0" y="394.0" font-size="14" fill="#007272" text-anchor="start" font-weight="700">为什么要「参照」而不是重新录一张单？</text>
+<text x="78.0" y="414.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">① 数据一致：数量、单价、条款从上游带入，避免重复录入出错；② 可追溯：任何一张发票都能点回它的交货单与销售订单（原始凭证按钮）；③</text>
+<text x="78.0" y="431.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">状态联动：交货完成后订单行的交货状态更新，发票过账后开票状态更新——状态就是「这单走到哪一步」的答案。</text>
+<rect x="60.0" y="478.0" width="600.0" height="108.0" rx="10" fill="#ffffff" stroke="#8d6e00" stroke-width="1.4"/>
+<text x="78.0" y="506.0" font-size="14" fill="#8d6e00" text-anchor="start" font-weight="700">修改与重新确定（再次理解一下）</text>
+<text x="78.0" y="528.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">改了客户或物料后，系统会重新确定：物料确定、定价、税、可用性。</text>
+<text x="78.0" y="545.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">教材里改客户后会提示 Information: New pricing carried out（重新执行定价）。</text>
+<rect x="680.0" y="478.0" width="600.0" height="108.0" rx="10" fill="#ffffff" stroke="#b3261e" stroke-width="1.4"/>
+<text x="698.0" y="506.0" font-size="14" fill="#b3261e" text-anchor="start" font-weight="700">不能跳步（最常见的错误）</text>
+<text x="698.0" y="528.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">没有交货（或没做发货过账）就开不了票；没有库存就建不了交货（教材给的对策：MB1C 501</text>
+<text x="698.0" y="545.0" font-size="12" fill="#354a5f" text-anchor="start" font-weight="400">录入期初库存）。顺序错了不是 Bug，是业务流程的顺序要求。</text>
+</svg>

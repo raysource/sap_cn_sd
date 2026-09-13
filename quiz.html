@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自测（30 题） · SAP SD 培训课程</title>
+<meta name="description" content="SAP SD（销售与分销）培训课程：概念 → 组织结构 → 主数据 → 定价 → 端到端流程（询价·报价·订单·交货·发货·开票·收款）→ 配置 → 分析。每个环节配真实的 SAP GUI 系统截图（中文界面）与自绘的流程图、结构图、思维导图。">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sd.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="logo">SD</span><span class="txt">培训课程</span></a>
+    <nav class="main">
+      <a href="index.html" title="课程地图与学习路线">首页</a>
+      <a href="concept.html" title="SD 是什么、三大概念层、五大单据">概念</a>
+      <a href="org.html" title="企业结构 / 销售结构 / 装运结构">组织</a>
+      <a href="master.html" title="客户主数据 / 物料销售视图 / 条件记录">主数据</a>
+      <a href="pricing.html" title="条件技术四要素与定价过程确定">定价</a>
+      <a href="flow.html" title="端到端 O2C 流程图与单据流">流程</a>
+      <a href="order.html" title="询价 · 报价 · 销售订单（局部详解）">订单</a>
+      <a href="delivery.html" title="外向交货 · 拣配 · 发货过账">交货</a>
+      <a href="billing.html" title="发票 · 过账到 FI · 收款">开票</a>
+      <a href="analysis.html" title="单据流 / 订单清单 / 销售分析">分析</a>
+      <a href="config.html" title="SPRO 配置路线（48 个任务）">配置</a>
+      <a href="practice.html" title="动手任务与完成基准">实训</a>
+      <a href="instructor.html" title="采分点 / 必问 / 答案">讲师</a>
+      <a href="worksheet.html" title="记入表（可打印）">学员</a>
+      <a class="active" href="quiz.html" title="30 题自评（合格 75%）">自测</a>
+      <a href="glossary.html" title="中英对照 / T-code 速查">术语</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="page">
+<article>
+<p class="breadcrumb"><a href="index.html">首页</a> / <span>自测</span></p>
+<h1>自测：30 题</h1>
+<p class="kicker">概念 5 · 组织 4 · 主数据 5 · 定价 6 · 流程 7 · 分析 3</p>
+<p>点击选项即时判分。建议先做一遍不看答案，再看每题下方的解说。<b>合格线：≥75%（23 题以上）</b>，并且 <a href="practice.html">五个实训任务</a>的完成基准全部打勾。</p>
+<div class="quiz-q" data-answer="A">
+<div class="q-meta"><span class="tag gray">概念</span></div>
+<h4>1. SD 模块的核心产出是什么？</h4>
+<div class="opts">
+<div class="opt" data-key="A">销售凭证（询价/报价/订单/交货/发票）</div>
+<div class="opt" data-key="B">物料凭证与库存</div>
+<div class="opt" data-key="C">会计凭证</div>
+<div class="opt" data-key="D">生产订单</div>
+</div>
+<div class="explain"><b>答案 A。</b>SD 负责销售凭证；物料凭证由 MM 在发货过账时产生，会计凭证由 FI 在发票过账时产生。</div>
+</div>
+<div class="quiz-q" data-answer="C">
+<div class="q-meta"><span class="tag gray">概念</span></div>
+<h4>2. 哪一步才真正减少库存？</h4>
+<div class="opts">
+<div class="opt" data-key="A">保存销售订单</div>
+<div class="opt" data-key="B">创建外向交货</div>
+<div class="opt" data-key="C">交货的发货过账（PGI，移动类型 601）</div>
+<div class="opt" data-key="D">发票过账</div>
+</div>
+<div class="explain"><b>答案 C。</b>订单只是承诺；交货只做准备；发货过账（移动类型 601）才生成物料凭证并减少库存。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">概念</span></div>
+<h4>3. 「销售范围」由哪三个键组成？</h4>
+<div class="opts">
+<div class="opt" data-key="A">销售组织 + 公司代码 + 工厂</div>
+<div class="opt" data-key="B">销售组织 + 分销渠道 + 产品组</div>
+<div class="opt" data-key="C">公司代码 + 分销渠道 + 销售办公室</div>
+<div class="opt" data-key="D">销售组织 + 销售办公室 + 销售组</div>
+</div>
+<div class="explain"><b>答案 B。</b>销售范围 Sales Area = 销售组织 + 分销渠道 + 产品组；它是客户/物料销售视图与条件记录的组织键。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">概念</span></div>
+<h4>4. 发票过账（下达）时生成的会计凭证通常是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">借 收入 / 贷 客户应收</div>
+<div class="opt" data-key="B">借 客户应收 / 贷 收入 + 销项税</div>
+<div class="opt" data-key="C">借 库存 / 贷 应付</div>
+<div class="opt" data-key="D">不生成会计凭证</div>
+</div>
+<div class="explain"><b>答案 B。</b>发票下达生成 FI 凭证：借客户应收（含税），贷销售收入（净价值）与销项税。</div>
+</div>
+<div class="quiz-q" data-answer="C">
+<div class="q-meta"><span class="tag gray">概念</span></div>
+<h4>5. 下面哪个说法是错的？</h4>
+<div class="opts">
+<div class="opt" data-key="A">价格维护在条件记录里</div>
+<div class="opt" data-key="B">一个公司代码可以有多个销售组织</div>
+<div class="opt" data-key="C">交货单创建时就减少库存</div>
+<div class="opt" data-key="D">一个客户可以有多个伙伴角色</div>
+</div>
+<div class="explain"><b>答案 C。</b>交货单创建时库存不变；只有发货过账才减少库存。其余说法都正确。</div>
+</div>
+<div class="quiz-q" data-answer="A">
+<div class="q-meta"><span class="tag gray">组织</span></div>
+<h4>6. 把销售组织分配给公司代码，含义是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">决定销售组织属于哪个会计主体</div>
+<div class="opt" data-key="B">决定销售组织下有哪些分销渠道</div>
+<div class="opt" data-key="C">决定发货工厂</div>
+<div class="opt" data-key="D">决定客户编号范围</div>
+</div>
+<div class="explain"><b>答案 A。</b>销售组织与公司代码是多对一：决定这笔销售业务的收入落在哪个公司代码的账上。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">组织</span></div>
+<h4>7. 起运点（Shipping Point）的作用是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">决定价格</div>
+<div class="opt" data-key="B">决定发货的起始地点，与工厂多对多</div>
+<div class="opt" data-key="C">决定收入科目</div>
+<div class="opt" data-key="D">决定开票类型</div>
+</div>
+<div class="explain"><b>答案 B。</b>起运点决定发货地点（教材例：Z999 颐宁装运点），与工厂是多对多关系。</div>
+</div>
+<div class="quiz-q" data-answer="A">
+<div class="q-meta"><span class="tag gray">组织</span></div>
+<h4>8. 拣配库存地点的确定条件，教材里启用了哪几个？</h4>
+<div class="opts">
+<div class="opt" data-key="A">起运点 + 工厂（+ 存储条件）</div>
+<div class="opt" data-key="B">客户 + 物料</div>
+<div class="opt" data-key="C">销售组织 + 产品组</div>
+<div class="opt" data-key="D">公司代码 + 工厂</div>
+</div>
+<div class="explain"><b>答案 A。</b>后台「分配拣配地点」由起运点、工厂和存储条件决定；教材场景只启用前两个。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">组织</span></div>
+<h4>9. 销售办公室（Sales Office）的主要用途是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">计算价格</div>
+<div class="opt" data-key="B">统计与权限等机构/地区维度的管理</div>
+<div class="opt" data-key="C">决定税码</div>
+<div class="opt" data-key="D">决定工厂</div>
+</div>
+<div class="explain"><b>答案 B。</b>销售办公室与销售组是组织机构，用于统计与权限；不参与定价逻辑。</div>
+</div>
+<div class="quiz-q" data-answer="C">
+<div class="q-meta"><span class="tag gray">主数据</span></div>
+<h4>10. 客户主数据分三层，销售范围层放的是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">名称地址等一般信息</div>
+<div class="opt" data-key="B">对账科目与付款条件</div>
+<div class="opt" data-key="C">客户定价过程、运送条件、税分类、伙伴角色等销售数据</div>
+<div class="opt" data-key="D">物料清单</div>
+</div>
+<div class="explain"><b>答案 C。</b>一般数据全公司共用，公司代码层放财务数据，销售范围层放销售相关数据。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">主数据</span></div>
+<h4>11. 四个伙伴角色中，决定「货送到哪里」的是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">售达方</div>
+<div class="opt" data-key="B">送达方（收货方）</div>
+<div class="opt" data-key="C">收票方</div>
+<div class="opt" data-key="D">付款方</div>
+</div>
+<div class="explain"><b>答案 B。</b>送达方（Ship-to）决定交货的收货地与收货人。</div>
+</div>
+<div class="quiz-q" data-answer="C">
+<div class="q-meta"><span class="tag gray">主数据</span></div>
+<h4>12. 销售价格（PR00）维护在？</h4>
+<div class="opts">
+<div class="opt" data-key="A">物料主数据的销售视图</div>
+<div class="opt" data-key="B">客户主数据</div>
+<div class="opt" data-key="C">条件记录（VK11）</div>
+<div class="opt" data-key="D">销售订单里手动输入</div>
+</div>
+<div class="explain"><b>答案 C。</b>价格在条件记录里（条件类型 PR00，VK11 创建）；物料销售视图只决定能不能卖、税分类、账户分配组等。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">主数据</span></div>
+<h4>13. 想让两个物料走两个不同的销售收入科目，教材的做法是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">改定价过程的计算类型</div>
+<div class="opt" data-key="B">给物料设置不同的账户分配组（M1/M2）</div>
+<div class="opt" data-key="C">改客户编号</div>
+<div class="opt" data-key="D">改销售范围</div>
+</div>
+<div class="explain"><b>答案 B。</b>账户确定用「账码 + 物料账户分配组 + 客户账户分配组」；教材通过 M1 自制产品 / M2 贸易商品区分收入科目。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">主数据</span></div>
+<h4>14. 客户账户组的屏幕格式配置决定什么？</h4>
+<div class="opts">
+<div class="opt" data-key="A">客户编号的范围</div>
+<div class="opt" data-key="B">客户主数据里哪些字段必填/可选/隐藏</div>
+<div class="opt" data-key="C">客户的信用额度</div>
+<div class="opt" data-key="D">客户的付款条件</div>
+</div>
+<div class="explain"><b>答案 B。</b>账户组的字段状态决定客户主数据屏幕的显示与必填规则。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">定价</span></div>
+<h4>15. 条件技术从「价格从哪查」到「用哪套过程」，正确的顺序是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">条件类型 → 条件表 → 定价过程 → 存取顺序</div>
+<div class="opt" data-key="B">条件表 → 存取顺序 → 条件类型 → 定价过程 → 定价过程确定</div>
+<div class="opt" data-key="C">定价过程 → 条件表 → 存取顺序 → 条件类型</div>
+<div class="opt" data-key="D">存取顺序 → 定价过程 → 条件表 → 条件类型</div>
+</div>
+<div class="explain"><b>答案 B。</b>条件表存值 → 存取顺序定优先级 → 条件类型分类 → 定价过程排步骤 → 定价过程确定选过程。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">定价</span></div>
+<h4>16. 定价过程确定（决定用哪套定价过程）的三个键是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">销售组织 + 工厂 + 客户</div>
+<div class="opt" data-key="B">销售范围 + 客户定价过程 + 单据定价过程</div>
+<div class="opt" data-key="C">公司代码 + 物料 + 客户</div>
+<div class="opt" data-key="D">分销渠道 + 产品组 + 客户组</div>
+</div>
+<div class="explain"><b>答案 B。</b>IMG「定义并分配定价过程」里用销售范围、客户定价过程、单据定价过程三个键确定。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">定价</span></div>
+<h4>17. 定价过程里的「账码（Account Key）」例如 ERL 的作用是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">决定折扣的百分比</div>
+<div class="opt" data-key="B">决定这条条件金额记到哪个会计科目（配合账户分配组）</div>
+<div class="opt" data-key="C">决定税码</div>
+<div class="opt" data-key="D">决定交货日期</div>
+</div>
+<div class="explain"><b>答案 B。</b>账码参与账户确定：账码 + 物料/客户账户分配组 → 收入等科目。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">定价</span></div>
+<h4>18. 条件类型 PR00 的「存取顺序」的作用是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">决定价格的显示格式</div>
+<div class="opt" data-key="B">决定按什么优先级去找条件记录（先找谁的价）</div>
+<div class="opt" data-key="C">决定货币</div>
+<div class="opt" data-key="D">决定税</div>
+</div>
+<div class="explain"><b>答案 B。</b>存取顺序按优先级列出若干条件表，系统从头找、找到即停。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">定价</span></div>
+<h4>19. 销项税税额由什么决定？</h4>
+<div class="opts">
+<div class="opt" data-key="A">物料主数据的价格</div>
+<div class="opt" data-key="B">客户税分类 + 物料税分类 → 税码，再按税率计算</div>
+<div class="opt" data-key="C">销售组织</div>
+<div class="opt" data-key="D">付款条件</div>
+</div>
+<div class="explain"><b>答案 B。</b>税码由客户税分类与物料税分类（+ 国家相关规则）确定，MWST 条件记录提供税率。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">定价</span></div>
+<h4>20. 改了条件记录，之前保存的订单为什么没变？</h4>
+<div class="opts">
+<div class="opt" data-key="A">系统缓存问题</div>
+<div class="opt" data-key="B">单据是快照，主数据变更只影响新单据（或需手动重新定价）</div>
+<div class="opt" data-key="C">条件记录没保存</div>
+<div class="opt" data-key="D">用户权限问题</div>
+</div>
+<div class="explain"><b>答案 B。</b>单据保存时数据即固化，保证历史单据可追溯；要变更需在单据里重新定价。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>21. 想要给客户正式报价，用什么 T-code？</h4>
+<div class="opts">
+<div class="opt" data-key="A">VA11</div>
+<div class="opt" data-key="B">VA21</div>
+<div class="opt" data-key="C">VA01</div>
+<div class="opt" data-key="D">VF01</div>
+</div>
+<div class="explain"><b>答案 B。</b>VA21 创建报价（QT）；VA11 是询价，VA01 是销售订单，VF01 是发票。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>22. 参照报价创建销售订单，教材用的入口是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">VA01 里手动输入报价号</div>
+<div class="opt" data-key="B">报价的「后继功能 → V-01 订单」</div>
+<div class="opt" data-key="C">VL01N</div>
+<div class="opt" data-key="D">VF01</div>
+</div>
+<div class="explain"><b>答案 B。</b>教材任务 41 从报价的后继功能进入并点「有参照创建」。VA01 手动参照也可以。</div>
+</div>
+<div class="quiz-q" data-answer="A">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>23. 教材里创建外向交货的 T-code 是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">VL01N</div>
+<div class="opt" data-key="B">VL02N</div>
+<div class="opt" data-key="C">VL03N</div>
+<div class="opt" data-key="D">VL06O</div>
+</div>
+<div class="explain"><b>答案 A。</b>VL01N 创建单个交货；VL02N 更改（拣配/发货过账）；VL03N 显示；VL06O 交货清单。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>24. 订单保存时系统提示「无可用库存」，正确理解是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">订单保存失败</div>
+<div class="opt" data-key="B">默认可以继续保存，只是给出确认日期；后续发货前需补库存</div>
+<div class="opt" data-key="C">必须立刻删单</div>
+<div class="opt" data-key="D">系统自动采购</div>
+</div>
+<div class="explain"><b>答案 B。</b>可用性检查默认不阻止保存；教材用 MB1C + 501 录入期初库存解决后续发货问题。</div>
+</div>
+<div class="quiz-q" data-answer="C">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>25. 补期初库存教材用哪个移动类型？</h4>
+<div class="opts">
+<div class="opt" data-key="A">101</div>
+<div class="opt" data-key="B">261</div>
+<div class="opt" data-key="C">501</div>
+<div class="opt" data-key="D">601</div>
+</div>
+<div class="explain"><b>答案 C。</b>501 是「无采购订单收货」，教材用它录入期初库存；101 一般用于对采购订单/生产订单收货，601 是发货出库。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>26. 发票保存后还需要做什么才能到财务会计？</h4>
+<div class="opts">
+<div class="opt" data-key="A">什么都不用做</div>
+<div class="opt" data-key="B">下达（Release to Accounting，VF02）</div>
+<div class="opt" data-key="C">重新保存一次</div>
+<div class="opt" data-key="D">在 FI 手工录凭证</div>
+</div>
+<div class="explain"><b>答案 B。</b>保存只生成 SD 发票凭证；下达后才生成会计凭证，系统提示「凭证已经传送到记账」。</div>
+</div>
+<div class="quiz-q" data-answer="A">
+<div class="q-meta"><span class="tag gray">流程</span></div>
+<h4>27. 要取消一次错误的发货过账，用什么？</h4>
+<div class="opts">
+<div class="opt" data-key="A">VL09</div>
+<div class="opt" data-key="B">VL01N 重建</div>
+<div class="opt" data-key="C">VA02 改订单</div>
+<div class="opt" data-key="D">VF11</div>
+</div>
+<div class="explain"><b>答案 A。</b>VL09 取消发货过账；VF11 是取消发票。顺序上通常先处理下游单据。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">分析</span></div>
+<h4>28. 客户问「我的货走到哪了」，最直接的工具是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">MCTA</div>
+<div class="opt" data-key="B">单据流（VA03/VL03N → 环境 → 显示单据流）</div>
+<div class="opt" data-key="C">FS00</div>
+<div class="opt" data-key="D">MM01</div>
+</div>
+<div class="explain"><b>答案 B。</b>单据流一眼看到上下游单据与状态；也可看交货状态与发货状态字段。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">分析</span></div>
+<h4>29. 销售分析（MCTA）报表没有数据，最可能的原因是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">报表程序坏了</div>
+<div class="opt" data-key="B">更新组未激活或客户/物料统计组未维护</div>
+<div class="opt" data-key="C">没有输入客户</div>
+<div class="opt" data-key="D">系统语言设置</div>
+</div>
+<div class="explain"><b>答案 B。</b>分析报表依赖后勤信息系统的统计更新（任务 31/32）与主数据统计组；且只统计配置之后产生的数据。</div>
+</div>
+<div class="quiz-q" data-answer="B">
+<div class="q-meta"><span class="tag gray">分析</span></div>
+<h4>30. 教材中「无法创建 VL01N 外向交货单」的解决办法是？</h4>
+<div class="opts">
+<div class="opt" data-key="A">改订单类型</div>
+<div class="opt" data-key="B">用 MB1C + 移动类型 501 录入期初库存</div>
+<div class="opt" data-key="C">重开系统</div>
+<div class="opt" data-key="D">删除订单重建</div>
+</div>
+<div class="explain"><b>答案 B。</b>教材任务 48 第 23 步给出的办法：MB1C 501 无订单收货录入期初库存，使交货可行。</div>
+</div>
+<h2 id="pass">合格之后</h2>
+<div class="box ok"><b class="t">能力验证（不只是考试）</b><ul><li>能在自己系统里独立跑通：订单 → 交货 → 发货过账 → 发票 → 下达。</li><li>能用单据流回答「这张发票是哪张订单来的」。</li><li>能解释一张订单的价格来源与收入科目来源。</li><li>遇到「没有库存 / 开不了票 / 价格为空」能说出排查顺序。</li></ul></div>
+<ol class="steps"><li>回去补课：<a href="concept.html">概念</a> / <a href="pricing.html">定价</a> / <a href="flow.html">流程</a>。</li><li>查术语与 T-code：<a href="glossary.html"><b>术语表</b></a>。</li></ol>
+</article>
+</main>
+</div>
+
+<footer class="site">
+  <div class="inner">
+    <div class="cols">
+      <div>
+        <h5>SAP SD 培训课程</h5>
+        <p>销售与分销 · 从概念到流程 · 从总体到局部</p>
+      </div>
+      <div>
+        <h5>课程板块</h5>
+        <p><a href="concept.html">概念</a> · <a href="org.html">组织</a> · <a href="master.html">主数据</a> ·
+        <a href="pricing.html">定价</a> · <a href="flow.html">流程</a> · <a href="config.html">配置</a></p>
+      </div>
+      <div>
+        <h5>课堂配套</h5>
+        <p><a href="practice.html">实训任务</a> · <a href="instructor.html">讲师版</a> ·
+        <a href="worksheet.html">学员版</a> · <a href="quiz.html">自测</a> ·
+        <a href="glossary.html">术语表</a></p>
+      </div>
+      <div>
+        <h5>一句话免责</h5>
+        <p>截图取自教材文档的真实 SAP GUI 画面（中文界面）；图与表为本站自绘。
+        标准值随版本/行业方案而异，页面标注的确认方法请在自己的系统里核对。</p>
+      </div>
+    </div>
+    <p class="copy">© <span data-year>2026</span> SAP SD 培训课程 · 静态站点，可离线使用</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/sd.js"></script>
+</body>
+</html>
