@@ -109,6 +109,28 @@ PASS: 16 pages, nav identical, 1 active each, tags balanced, copy buttons presen
 导航（各页 href 一致 + 恰好 1 个 active）、站内链接与锚点、图片与自绘图存在、图注（画面编号 + 来源）、
 自测 30 题的答案键落在选项里、hub 统计一致、无残留 Markdown/占位符。
 
+## 发布（GitHub）
+
+独立仓库：**https://github.com/raysource/sap_cn_sd**（分支 `main`，**public**）
+首个提交后的最新 HEAD：`f0bcc698fbb97a1e1447c978af3e1ff9bffd9d66`（3 个提交：站点本体 → 发布脚本 → 对账脚本）
+
+```bash
+bash tools/publish_to_github.sh      # init + remote add + commit + push（可重复执行）
+bash tools/verify_publish.sh         # 不看 push 输出：比对 ls-remote / API / 文件数
+bash tools/reconcile_remote.sh       # 逐路径对账（core.quotePath=false，CJK 文件名可比）
+```
+
+实测对账结果：`remote blobs=318  local tracked=318`，「只在远端 / 只在本地」两条均为空；
+`index.html`、`config.html`、`SAPSD_课程大纲_学习WBS.xlsx`、`assets/img/**`、`assets/diagrams/*.svg` 都能从远端读回。
+
+两点注意：
+
+1. **这些截图是教材文档里的画面**，仓库是 public —— 与用户此前已公开的 `raysource/sap-consult`（含同批 `sap_sd_cn/assets/img`）一致。
+   若要改为私有：`gh repo edit raysource/sap_cn_sd --visibility private`。
+2. `sap_cn/` 现在自带 `.git`，成了 `~/Desktop/work/training/`（`sap-consult` 仓库）里的**嵌套仓库**。
+   父仓库用 `git add sap_cn/...` 会**静默无效**，要按已有做法用 `tools/include_nested_repo_files.sh`
+   （hash-object + update-index plumbing，`sap_sd_cn` / `nihong` 就是这么并进去的）。
+
 ## 已知边界（不要当成缺陷）
 
 - **截图是教材原图的小尺寸裁剪**（多数 400–700px 宽，作者在图上画了红框），所以放大到 2× 以上会糊；
